@@ -3,7 +3,13 @@ session_start();
 if(!isset($_SESSION["user"])){
   header("location: ./login.php");
 }
+
 require_once("./connect.php");
+$webpage="";
+if(isset($_GET["webpage"])){
+    $webpage=$_GET["webpage"];
+}
+
 
 ?>
 <html lang="zh-TW">
@@ -39,7 +45,7 @@ require_once("./connect.php");
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">登出</a></li>
+                            <li><a class="dropdown-item" href="./logout.php">登出</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -53,8 +59,9 @@ require_once("./connect.php");
                 <div class="d-grid gap-2 p-3">
                     <button class="btn btn-primary fs-4" type="button" data-bs-target="#menu1" data-bs-toggle="collapse">
                         <i class="fa-solid fa-user fa-sm me-2" style="color: #ffffff;"></i>使用者</button>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center" id="menu1"
-                    href="./list.php">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center
+                    <?= ($webpage == "list.php") ? "active" : "" ?>" id="menu1"
+                    href="?webpage=list.php">
                         <i class="fa-solid fa-user-gear fa-sm me-2" style="color: #ffffff;"></i>使用者管理</a>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center" id="menu1">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
@@ -101,7 +108,13 @@ require_once("./connect.php");
                 </div>
             </div>
         </nav>
-        <main class="container"><?php require_once("./index.php") ?></main>
+        <main class="container">
+            <?php if($webpage == ""){require("./index.php");} ?>
+            <?php if($webpage == "list.php"){require("./list.php");}?>
+    
+    
+    
+        </main>
     </div>
     <script src="./js/bootstrap.bundle.min.js"></script>
 </body>
