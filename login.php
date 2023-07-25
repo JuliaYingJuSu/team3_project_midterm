@@ -16,7 +16,7 @@
 
 <body>
     <div class="block bg-primary-subtle p-3 position-absolute start-0 end-0 m-auto rounded-2 mt-5">
-        <h1>登入</h1>
+        <h2>時時嗑嗑登入系統</h2>
             <form action="./doLogin.php" method="post">
                 <input type="text" name="email" class="form-control mb-1" placeholder="使用者帳號">
                 <input type="password" name="password1" class="form-control mb-1" placeholder="使用者密碼">
