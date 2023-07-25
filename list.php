@@ -21,15 +21,13 @@ if($search==""){
     $searchSQL = "`$searchType` LIKE '%$search%' AND";
 }
 
-
-
 if($cid==0){
     $catSQL="";
 }else{
     $catSQL="`category` = $cid AND";
 }
 
-
+//每頁抓取10筆資料
 if(!isset($_GET["page"])){
     $page = 1;
 }else{
@@ -89,9 +87,9 @@ $sqlAll = "SELECT * FROM `user` WHERE `isValid` = 1";
 </head>
 
 <body>
-    <div class="container">
+    <div class="container mt-5">
         <h1>使用者列表</h1>
-    <?php if($msgnub>0):?>
+        <?php if($msgnub>0):?>
             <div class="d-flex">
                 <div class="my-2 me-auto">
                     目前共<?=$totalAll?> 個使用者
@@ -112,29 +110,12 @@ $sqlAll = "SELECT * FROM `user` WHERE `isValid` = 1";
                     <a href="./add.php" class="btn btn-info btn-sm">新增資料</a>
                 </div>
             </div>
-            <div aria-label="Page navigation example border border-top-0 p-3 mb-5 rounded rounded-top-0">
-                <ul class="pagination justify-content-center">
-                    <?php for($n=1;$n<=$totalPage;$n++):?>
-                    <li class="page-item">
-                        <a 
-                        class="page-link
-                         <?=($page==$n)?"active":""?>"
-                          href="./list.php?
-                          page=<?=$n?>
-                          <?=($cid>0)?"&cid=$cid":""?>
-                          <?=($search=="")?"":"&search=$search&qtype=$searchType"?>
-                          ">
-                          <?=$n?>
-                        </a>
-                    </li>
-                    <?php endfor?>
-                </ul>
-            </div>
         <div class="border p-3 mb-5 rounded">
-                <div class="msg text-bg-dark ps-1">
-                    <div class="id">id</div>
+                <div class="msg text-bg-primary ps-1">
+                    <div class="id">ID</div>
                     <div class="name">Name</div>
-                    <div class="content">content</div>
+                    <div class="name ms-3">暱稱</div>
+                    <div class="content ms-5 text-center">E-mail</div>
                     <div class="time">控制</div>
                 </div>
             
@@ -142,7 +123,8 @@ $sqlAll = "SELECT * FROM `user` WHERE `isValid` = 1";
             <div class="msg ps-1 my-1">
                 <div class="id"><?=($index+1)?></div>
                 <div class="name"><?=$row["user_name"]?></div>
-                <div class="content"><?=$row["user_email"]?></div>
+                <div class="name ms-3"><?=$row["nickname"]?></div>
+                <div class="content ms-5 text-center"><?=$row["user_email"]?></div>
                 <div class="time">
                     <span class="btn btn-danger btn-sm btn-del" idn="<?=$row["user_id"]?>">刪除</span>
                     <a href="./update.php?id=<?=$row["user_id"]?>" class="btn btn-info btn-sm">修改</a>
@@ -155,6 +137,23 @@ $sqlAll = "SELECT * FROM `user` WHERE `isValid` = 1";
                 錯誤:<?=$msgnub?>
         <?php endif; ?>
         </div>
+        <div aria-label="Page navigation example border border-top-0 p-3 rounded rounded-top-0">
+                <ul class="pagination justify-content-center">
+                    <?php for($n=1;$n<=$totalPage;$n++):?>
+                    <li class="page-item">
+                        <a 
+                        class="page-link
+                         <?=($page==$n)?"active":""?>"
+                          href="./navbar.php?webpage=list.php&page=<?=$n?>
+                          <?=($cid>0)?"&cid=$cid":""?>
+                          <?=($search=="")?"":"&search=$search&qtype=$searchType"?>
+                          ">
+                          <?=$n?>
+                        </a>
+                    </li>
+                    <?php endfor?>
+                </ul>
+            </div>
     </div>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script>
