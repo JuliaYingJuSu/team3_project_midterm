@@ -1,9 +1,17 @@
+<?php
+session_start();
+if(!isset($_SESSION["user"])){
+  header("location: ./login.php");
+}
+require_once("./connect.php");
+
+?>
 <html lang="zh-TW">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,	initial-scale=1">
-    <title>NavBar</title>
+    <title>選單</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -19,7 +27,7 @@
                 <ul class="navbar-nav">
                     <span class="text-light d-flex align-items-center fs-5">
                         <i class="fa-solid fa-hands me-2" style="color: #ffffff;"></i>Hi~歡迎回來，
-                        <!-- <?= $_SESSION["user_name"] ?> -->
+                        <?= $_SESSION["user"]["name"] ?>
                     </span>
                     <li class="nav-item dropdown pe-1">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
@@ -45,7 +53,8 @@
                 <div class="d-grid gap-2 p-3">
                     <button class="btn btn-primary fs-4" type="button" data-bs-target="#menu1" data-bs-toggle="collapse">
                         <i class="fa-solid fa-user fa-sm me-2" style="color: #ffffff;"></i>使用者</button>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center" id="menu1">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center" id="menu1"
+                    href="./list.php">
                         <i class="fa-solid fa-user-gear fa-sm me-2" style="color: #ffffff;"></i>使用者管理</a>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center" id="menu1">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
@@ -92,7 +101,7 @@
                 </div>
             </div>
         </nav>
-        <main class="container"><?php require_once("./login.php") ?></main>
+        <main class="container"><?php require_once("./index.php") ?></main>
     </div>
     <script src="./js/bootstrap.bundle.min.js"></script>
 </body>
