@@ -1,14 +1,14 @@
 <?php
 session_start();
 if(!isset($_SESSION["user"])){
-  header("location: ./user/login.php");
+  header("location: ./login.php");
 }
-require_once("../connect.php");
+require_once("./connect.php");
 
 $where1="";
 if(isset($_GET["id"])){
     $id=$_GET["id"];
-    $where1="WHERE `id`=$id AND";
+    $where1="WHERE `user_id`=$id AND";
 }
 
 $cid=(isset($_GET["cid"]))?intval($_GET["cid"]):0;
@@ -44,8 +44,6 @@ $sqlAll = "SELECT * FROM `user` WHERE `isValid` = 1";
     $result=$conn->query($sql);
     $msgnub=$result->num_rows;
     $rows=$result->fetch_all(MYSQLI_ASSOC);
-    
-    
     $resultAll=$conn->query($sqlAll);
     $rowsAll=$resultAll->fetch_all(MYSQLI_ASSOC);
     $totalAll=count($rowsAll);
@@ -55,11 +53,12 @@ $sqlAll = "SELECT * FROM `user` WHERE `isValid` = 1";
     $errorMsg = $exc->getMessage();
     // $msgnub = -1;
   }
+  
   $conn->close();
   
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ZH-TW">
 
 <head>
     <meta charset="UTF-8">
@@ -142,11 +141,11 @@ $sqlAll = "SELECT * FROM `user` WHERE `isValid` = 1";
             <?php foreach($rows as $index => $row):?>
             <div class="msg ps-1 my-1">
                 <div class="id"><?=($index+1)?></div>
-                <div class="name"><?=$row["name"]?></div>
-                <div class="content"><?=$row["email"]?></div>
+                <div class="name"><?=$row["user_name"]?></div>
+                <div class="content"><?=$row["user_email"]?></div>
                 <div class="time">
-                    <span class="btn btn-danger btn-sm btn-del" idn="<?=$row["id"]?>">刪除</span>
-                    <a href="./update.php?id=<?=$row["id"]?>" class="btn btn-info btn-sm">修改</a>
+                    <span class="btn btn-danger btn-sm btn-del" idn="<?=$row["user_id"]?>">刪除</span>
+                    <a href="./update.php?id=<?=$row["user_id"]?>" class="btn btn-info btn-sm">修改</a>
                 </div>
             </div>
             <?php endforeach;?>
