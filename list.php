@@ -21,11 +21,6 @@ if($search==""){
     $searchSQL = "`$searchType` LIKE '%$search%' AND";
 }
 
-if($cid==0){
-    $catSQL="";
-}else{
-    $catSQL="`category` = $cid AND";
-}
 
 //每頁抓取10筆資料
 if(!isset($_GET["page"])){
