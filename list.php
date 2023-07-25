@@ -46,8 +46,13 @@ $sqlAll = "SELECT * FROM `user` WHERE `isValid` = 1";
     $errorMsg = $exc->getMessage();
     // $msgnub = -1;
   }
-  
-  $conn->close();
+
+$webpage="";
+if(isset($_GET["webpage"])){
+    $webpage=$_GET["webpage"];
+}
+
+$conn->close();
   
 ?>
 <!DOCTYPE html>
@@ -56,7 +61,7 @@ $sqlAll = "SELECT * FROM `user` WHERE `isValid` = 1";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
     <style>
         .msg {
             display: flex;
@@ -102,7 +107,8 @@ $sqlAll = "SELECT * FROM `user` WHERE `isValid` = 1";
                     </div>
                 </div>
                 <div>
-                    <a href="./add.php" class="btn btn-info btn-sm">新增資料</a>
+                    <a href="?webpage=add.php" class="btn btn-info btn-sm
+                    <?= ($webpage == "add.php") ? "active" : "" ?>">新增資料</a>
                 </div>
             </div>
         <div class="border p-3 mb-5 rounded">
@@ -150,7 +156,7 @@ $sqlAll = "SELECT * FROM `user` WHERE `isValid` = 1";
                 </ul>
             </div>
     </div>
-    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
     <script>
         const btnDels=document.querySelectorAll(".btn-del");
         [...btnDels].map(function(btnDel, index){
