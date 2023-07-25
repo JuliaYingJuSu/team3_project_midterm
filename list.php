@@ -1,9 +1,9 @@
 <?php
-session_start();
-if(!isset($_SESSION["user"])){
-  header("location: ./login.php");
-}
-require_once("./connect.php");
+// session_start();
+// if(!isset($_SESSION["user"])){
+//   header("location: ./login.php");
+// }
+// require_once("./connect.php");
 
 $where1="";
 if(isset($_GET["id"])){
