@@ -23,7 +23,6 @@
                 <input type="password" name="password2" class="form-control mb-1" placeholder="再輸入一次使用者密碼">
                 <div class="text-end">
                 <button class="btn btn-info btn-send me-1">送出</button>
-                <a class="btn btn-info btn-send">註冊</a>
                 </div>
             </form>
     </div>

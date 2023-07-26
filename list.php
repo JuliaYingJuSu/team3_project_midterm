@@ -112,7 +112,7 @@ $conn->close();
                 </div>
             </div>
         <div class="border p-3 mb-5 rounded">
-                <div class="msg text-bg-primary ps-1 fw-bold">
+                <div class="msg text-bg-primary ps-1 fw-bold rounded">
                     <div class="id">ID</div>
                     <div class="name">Name</div>
                     <div class="name ms-3">暱稱</div>
@@ -122,7 +122,7 @@ $conn->close();
             
             <?php foreach($rows as $index => $row):?>
             <div class="msg ps-1 my-1">
-                <div class="id"><?=($index+1)?></div>
+                <div class="id"><?=$row["user_id"]?></div>
                 <div class="name"><?=$row["user_name"]?></div>
                 <div class="name ms-3"><?=$row["nickname"]?></div>
                 <div class="content ms-5 text-center"><?=$row["user_email"]?></div>
