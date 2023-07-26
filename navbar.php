@@ -37,7 +37,9 @@ if(isset($_GET["webpage"])){
                     </span>
                     <li class="nav-item dropdown pe-1">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                            <img src="./uimg/Imbad_001.jpg" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
+                        <?php if (isset($_SESSION["user"]["img"]) && !empty($_SESSION["user"]["img"])): ?>
+                            <img src="./uimg/<?=$_SESSION["user"]["img"]?>" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
+                            <?php endif; ?>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="#">Action</a></li>
