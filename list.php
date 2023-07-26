@@ -87,7 +87,7 @@ $conn->close();
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="container mt-5 w-100">
         <h1 class="fw-bold">使用者列表</h1>
         <?php if($msgnub>0):?>
             <div class="d-flex">
@@ -96,7 +96,7 @@ $conn->close();
                 </div>
                 <div class="me-1">
                     <div class="input-group input-group-sm">
-                        <div class="input-group-text">
+                        <div class="input-group-text bg-white">
                             <input name="searchType" id="searchType1" type="radio" class="form-check-input" value="name" checked>
                             <label for="searchType1" class="me-2">名字</label>
                             <input name="searchType" id="searchType2" type="radio" class="form-check-input" value="content">
@@ -111,7 +111,7 @@ $conn->close();
                     <?= ($webpage == "add.php") ? "active" : "" ?>">新增資料</a>
                 </div>
             </div>
-        <div class="border p-3 mb-5 rounded">
+        <div class="border p-3 mb-5 rounded bg-white">
                 <div class="msg text-bg-primary ps-1 fw-bold rounded">
                     <div class="id">ID</div>
                     <div class="name">Name</div>

@@ -8,7 +8,7 @@
     <title>新增表單</title>
 </head>
 <body>
-    <div class="border container mt-5 rounded">
+    <div class="border container mt-5 rounded bg-white">
         <form action="./doadd.php" method="post">
             <h2 class="fw-bold my-3">新增使用者</h2>
             <div class="input-group input-group-lg">
@@ -40,6 +40,10 @@
                 <input name="id" type="hidden" value="<?=$id?>">
                 <span class="input-group-text text-light bg-primary fw-bold rounded-start-4">再輸入一次密碼</span>
                 <input name="password2" type="password" class="form-control" placeholder="請輸入">
+            </div>
+            <div class="input-group mt-2 input-group-lg">
+                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4" type="button">上傳照片</span>
+                <input class="form-control" type="file" name="myFile" accept=".png,.jpg,.jpeg">
             </div>
             <div class="mt-3 text-end">
                 <!-- <button class="btn btn-primary me-auto">

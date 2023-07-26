@@ -108,7 +108,7 @@ if(isset($_GET["webpage"])){
                 </div>
             </div>
         </nav>
-        <main class="container">
+        <main class="w-100 bg-body-tertiary">
             <?php if($webpage == ""){require("./index.php");} ?>
             <?php if($webpage == "list.php"){require("./list.php");}?>
             <?php if($webpage == "add.php"){require("./add.php");}?>
