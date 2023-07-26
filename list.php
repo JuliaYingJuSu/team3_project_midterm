@@ -88,7 +88,7 @@ $conn->close();
 
 <body>
     <div class="container mt-5">
-        <h1>使用者列表</h1>
+        <h1 class="fw-bold">使用者列表</h1>
         <?php if($msgnub>0):?>
             <div class="d-flex">
                 <div class="my-2 me-auto">
@@ -112,7 +112,7 @@ $conn->close();
                 </div>
             </div>
         <div class="border p-3 mb-5 rounded">
-                <div class="msg text-bg-primary ps-1">
+                <div class="msg text-bg-primary ps-1 fw-bold">
                     <div class="id">ID</div>
                     <div class="name">Name</div>
                     <div class="name ms-3">暱稱</div>

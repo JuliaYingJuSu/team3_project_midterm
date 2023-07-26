@@ -25,12 +25,12 @@ if(isset($_GET["webpage"])){
 <body>
     <nav class="navbar bg-primary navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand ms-4 text-light" href="#">
+            <a class="navbar-brand ms-4 text-light fw-bold fs-3" href="#">
                 <img src="./img/product5.jpg" alt="Logo" width="60" height="60" class="d-inline-block">
                 食食嗑嗑
             </a>
             <div class="collapse navbar-collapse justify-content-end">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav fw-bold">
                     <span class="text-light d-flex align-items-center fs-5">
                         <i class="fa-solid fa-hands me-2" style="color: #ffffff;"></i>Hi~歡迎回來，
                         <?= $_SESSION["user"]["name"] ?>
@@ -57,53 +57,53 @@ if(isset($_GET["webpage"])){
         <nav class="bg-primary position-relative pt-4" style="width: 15%">
             <div>
                 <div class="d-grid gap-2 p-3">
-                    <button class="btn btn-primary fs-4" type="button" data-bs-target="#menu1" data-bs-toggle="collapse">
+                    <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu1" data-bs-toggle="collapse">
                         <i class="fa-solid fa-user fa-sm me-2" style="color: #ffffff;"></i>使用者</button>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold
                     <?= ($webpage == "list.php") ? "active" : "" ?>" id="menu1"
                     href="?webpage=list.php">
                         <i class="fa-solid fa-user-gear fa-sm me-2" style="color: #ffffff;"></i>使用者管理</a>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center" id="menu1">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu1">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
                 </div>
                 <div class="d-grid gap-2 p-3">
-                    <button class="btn btn-primary fs-4" type="button" data-bs-target="#menu2" data-bs-toggle="collapse">
+                    <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu2" data-bs-toggle="collapse">
                         <i class="fa-solid fa-utensils fa-sm me-2" style="color: #ffffff;"></i>餐廳</button>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center" id="menu2">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu2">
                         <i class="fa-solid fa-folder fa-sm me-2" style="color: #ffffff;"></i>餐廳管理</a>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center" id="menu2">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu2">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
                 </div>
                 <div class="d-grid gap-2 p-3">
-                    <button class="btn btn-primary fs-4" type="button" data-bs-target="#menu3" data-bs-toggle="collapse">
+                    <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu3" data-bs-toggle="collapse">
                         <i class="fa-solid fa-bowl-rice fa-sm me-2" style="color: #ffffff;"></i>訂位</button>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center" id="menu3">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu3">
                         <i class="fa-solid fa-folder fa-sm me-2" style="color: #ffffff;"></i>訂位管理</a>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center" id="menu3">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu3">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
                 </div>
                 <div class="d-grid gap-2 p-3">
-                    <button class="btn btn-primary fs-4" type="button" data-bs-target="#menu4" data-bs-toggle="collapse">
+                    <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu4" data-bs-toggle="collapse">
                         <i class="fa-solid fa-cart-shopping fa-sm me-2" style="color: #ffffff;"></i>購物車</button>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center" id="menu4">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu4">
                         <i class="fa-solid fa-folder fa-sm me-2" style="color: #ffffff;"></i>購物車管理</a>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center" id="menu4">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu4">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
                 </div>
                 <div class="d-grid gap-2 p-3">
-                    <button class="btn btn-primary fs-4" type="button" data-bs-target="#menu5" data-bs-toggle="collapse">
+                    <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu5" data-bs-toggle="collapse">
                         <i class="fa-solid fa-store fa-sm me-2" style="color: #ffffff;"></i>團購</button>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center" id="menu5">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu5">
                         <i class="fa-solid fa-cash-register fa-sm me-2" style="color: #ffffff;"></i>團購管理</a>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center" id="menu5">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu5">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
                 </div>
                 <div class="d-grid gap-2 p-3">
-                    <button class="btn btn-primary fs-4" type="button" data-bs-target="#menu6" data-bs-toggle="collapse">
+                    <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu6" data-bs-toggle="collapse">
                         <i class="fa-solid fa-camera-retro fa-sm me-2" style="color: #ffffff;"></i>食記</button>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center" id="menu6">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu6">
                         <i class="fa-solid fa-pen-to-square me-2" style="color: #ffffff;"></i>食記管理</a>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center" id="menu6">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu6">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
                 </div>
             </div>
