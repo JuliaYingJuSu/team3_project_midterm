@@ -9,7 +9,8 @@
 </head>
 <body>
     <div class="border container mt-5 rounded bg-white">
-        <form action="./doadd.php" method="post">
+        <form action="./doadd.php" method="post" enctype="multipart/form-data">
+        <!-- 沒有設定 enctype 這個屬性只能上傳文字內容，要加 enctype 的設定才會加上處理檔案 -->
             <h2 class="fw-bold my-3">新增使用者</h2>
             <div class="input-group input-group-lg">
                 <input name="id" type="hidden" value="<?=$id?>">
@@ -43,7 +44,7 @@
             </div>
             <div class="input-group mt-2 input-group-lg">
                 <span class="input-group-text text-light bg-primary fw-bold rounded-start-4" type="button">上傳照片</span>
-                <input class="form-control" type="file" name="myFile" accept=".png,.jpg,.jpeg">
+                <input class="form-control" type="file" name="myfile" accept=".png,.jpg,.jpeg">
             </div>
             <div class="mt-3 text-end">
                 <!-- <button class="btn btn-primary me-auto">

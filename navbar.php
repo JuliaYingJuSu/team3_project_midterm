@@ -26,7 +26,7 @@ if(isset($_GET["webpage"])){
     <nav class="navbar bg-primary navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand ms-4 text-light fw-bold fs-3" href="#">
-                <img src="./img/product5.jpg" alt="Logo" width="60" height="60" class="d-inline-block">
+                <img src="./uimg/product5.jpg" alt="Logo" width="60" height="60" class="d-inline-block">
                 食食嗑嗑
             </a>
             <div class="collapse navbar-collapse justify-content-end">
@@ -37,7 +37,7 @@ if(isset($_GET["webpage"])){
                     </span>
                     <li class="nav-item dropdown pe-1">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                            <img src="./img/Imbad_001.jpg" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
+                            <img src="./uimg/Imbad_001.jpg" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="#">Action</a></li>
