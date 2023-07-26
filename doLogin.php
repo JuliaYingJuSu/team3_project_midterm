@@ -43,6 +43,13 @@ if($msg !==""){
 $_SESSION["user"]=[
     "email"=>$row["user_email"],
     "name"=>$row["user_name"],
+    "img"=>$row["user_img"],
+    "nickname"=>$row["nickname"],
+    "phone"=>$row["user_phone"],
+    "selfintr"=>$row["self_intr"],
+    "createdate"=>$row["create_date"],
+    "updatetime"=>$row["updatetime"],
+    "lastlogintime"=>$row["last_login_time"]
 ];
 
 //轉到這一頁
