@@ -9,6 +9,7 @@ if(!isset($_POST["email"])){
 $name = $_POST["name"];
 $nickname = $_POST["nickname"];
 $email = $_POST["email"];
+$phone=$_POST["phone"];
 $password = $_POST["password"];
 $password2 = $_POST["password2"];
 
@@ -33,8 +34,8 @@ if($count>0){
 // $password=password_hash($password,PASSWORD_BCRYPT);
 
 $sql = "INSERT INTO `user` 
-    (`user_id`, `user_name`,`nickname`,`user_email`,`user_password`,`create_date`, `updatetime`, `last_login_time`) VALUES 
-    ('', '$name','$nickname','$email','$password',NOW(),NOW(),NOW());";
+    (`user_id`, `user_name`,`nickname`,`user_email`,`user_password`,`user_phone`,`create_date`, `updatetime`, `last_login_time`) VALUES 
+    ('', '$name','$nickname','$email','$password','$phone',NOW(),NOW(),NOW());";
 
   try {
     $conn->query($sql);
