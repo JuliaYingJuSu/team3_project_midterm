@@ -8,7 +8,7 @@
     <title>新增表單</title>
 </head>
 <body>
-    <div class="container mt-5">
+    <div class="border container mt-5 rounded">
         <form action="./doadd.php" method="post">
             <h2 class="fw-bold my-3">新增使用者</h2>
             <div class="input-group input-group-lg">
@@ -28,6 +28,11 @@
             </div>
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?=$id?>">
+                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4">手機</span>
+                <input name="phone" type="text" class="form-control" placeholder="請輸入">
+            </div>
+            <div class="input-group mt-2 input-group-lg">
+                <input name="id" type="hidden" value="<?=$id?>">
                 <span class="input-group-text text-light bg-primary fw-bold rounded-start-4">密碼</span>
                 <input name="password" type="password" class="form-control" placeholder="請輸入">
             </div>
@@ -40,8 +45,8 @@
                 <!-- <button class="btn btn-primary me-auto">
                     <a href="./navbar.php?webpage=list.php" class="fw-bold text-light text-decoration-none"><-回上一頁</a>
                 </button> -->
-                <button type="reset" class="btn btn-danger fw-bold">清除</button>
-                <button type="submit" class="btn btn-primary btn-send fw-bold">送出</button>
+                <button type="reset" class="btn btn-danger btn-lg fw-bold me-2">清除</button>
+                <button type="submit" class="btn btn-lg btn-primary btn-send fw-bold">送出</button>
             </div>
         </form>
     </div>
