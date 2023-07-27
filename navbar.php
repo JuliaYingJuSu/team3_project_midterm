@@ -43,13 +43,9 @@ if(isset($_GET["webpage"])){
                         <img src="./uimg/noimg.png" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
                         <?php endif; ?>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="./logout.php">登出</a></li>
+                        <ul class="dropdown-menu dropdown-menu-end bg-light">
+                            <li><a class="dropdown-item fw-bold" href="#">Action</a></li>
+                            <li><a class="dropdown-item fw-bold" href="./logout.php">登出</a></li>
                         </ul>
                     </li>
                 </ul>
