@@ -53,7 +53,7 @@ if(isset($_GET["webpage"])){
             </div>
         </div>
     </nav>
-    <div class="containerd-fluid d-flex h-100 h-100">
+    <div class="containerd-fluid d-flex h-100">
         <nav class="bg-primary position-relative pt-4" style="width: 15%">
             <div>
                 <div class="d-grid gap-2 p-3">

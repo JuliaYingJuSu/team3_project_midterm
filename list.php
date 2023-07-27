@@ -56,7 +56,7 @@ $conn->close();
   
 ?>
 <!DOCTYPE html>
-<html lang="ZH-TW">
+<html lang="zh-TW">
 
 <head>
     <meta charset="UTF-8">

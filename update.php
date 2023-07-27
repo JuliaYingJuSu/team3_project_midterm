@@ -21,7 +21,7 @@ $conn->close();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,7 +37,7 @@ $conn->close();
 </head>
 
 <body>
-    <div class="container mt-3">
+    <div class="border container mt-5 rounded bg-white">
         <h2>修改會員資料
             <span class="btn btn-info btn-sm">會員</span>
         </h2>
@@ -73,14 +73,14 @@ $conn->close();
         
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script>
-        const btn_add = document.querySelector(".btn-add");
-        const contentArea = document.querySelector(".contentArea");
-        const template = document.querySelector("#inputs");
-            btn_add.addEventListener("click", function(e) {
-                e.preventDefault();
-                const node = template.content.cloneNode(true);
-                contentArea.append(node);
-        });
+        // const btn_add = document.querySelector(".btn-add");
+        // const contentArea = document.querySelector(".contentArea");
+        // const template = document.querySelector("#inputs");
+        //     btn_add.addEventListener("click", function(e) {
+        //         e.preventDefault();
+        //         const node = template.content.cloneNode(true);
+        //         contentArea.append(node);
+        // });
     </script>
 </body>
 
