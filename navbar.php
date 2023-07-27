@@ -116,6 +116,7 @@ if(isset($_GET["webpage"])){
             <?php if($webpage == ""){require("./index.php");} ?>
             <?php if($webpage == "list.php"){require("./list.php");}?>
             <?php if($webpage == "add.php"){require("./add.php");}?>
+            <?php if($webpage == "update.php"){require("./update.php");}?>
     
     
     
