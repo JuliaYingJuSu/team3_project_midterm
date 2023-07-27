@@ -53,8 +53,8 @@ if(isset($_GET["webpage"])){
             </div>
         </div>
     </nav>
-    <div class="containerd-fluid d-flex h-100">
-        <nav class="bg-primary position-relative pt-4" style="width: 15%">
+    <div class="side-menu d-flex h-100">
+        <nav class="bg-primary position-relative pt-5" style="width: 15%">
             <div>
                 <div class="d-grid gap-2 p-3">
                     <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu1" data-bs-toggle="collapse">
