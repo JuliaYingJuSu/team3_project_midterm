@@ -128,7 +128,7 @@ $conn->close();
                 <div class="content ms-5 text-center"><?=$row["user_email"]?></div>
                 <div class="time">
                     <span class="btn btn-danger btn-sm btn-del" idn="<?=$row["user_id"]?>">刪除</span>
-                    <a href="./update.php?id=<?=$row["user_id"]?>" class="btn btn-info btn-sm">修改</a>
+                    <a href="./update.php?id=<?=$row["user_id"]?>" class="btn btn-info btn-sm ms-1">修改</a>
                 </div>
             </div>
             <?php endforeach;?>
