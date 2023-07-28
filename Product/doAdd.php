@@ -6,13 +6,13 @@ if(!isset($_POST["name"])){
     exit;
 }
 
-
 $nameValues= $_POST["name"];
 $priceValues= $_POST["price"];
 $descValues = $_POST["description"];
 $specValues = $_POST["specification"];
 $typeValues = $_POST["type"];
 $typeListValues = $_POST["typeList"];
+$discountValues = (isset($_POST["discount"]))?$_POST["discount"]:"";
 
 $count = count($nameValues);
 // $count2 = count($categoryValues);
@@ -30,15 +30,16 @@ $count = count($nameValues);
       exit;
   }
 
-  $emptyCheck = false;
-for($i=0;$i<$count;$i++){
-  $price = $priceValues[$i];
-  $name = $nameValues[$i];
-  $desc = $descValues[$i];
-  $spec = $specValues[$i];
-  $type = $typeValues[$i];
-  $typeList = $typeListValues[$i];
-  
+  for($i=0;$i<$count;$i++){
+    $price = $priceValues[$i];
+    $name = $nameValues[$i];
+    $desc = $descValues[$i];
+    $spec = $specValues[$i];
+    $type = $typeValues[$i];
+    $typeList = $typeListValues[$i];
+    $discount = $discountValues[$i];
+    
+    $emptyCheck = false;
   // 數字文字格式檢查也可以都在這一次完成
   if(empty($name)){
     $emptyCheck=true;
@@ -61,7 +62,7 @@ for($i=0;$i<$count;$i++){
 }
 
 if($emptyCheck === true){
-    alertGoBack("請輸入所有欄位");
+    alertGoBack("請確認輸入欄位");
     exit;
 }
   //上傳檔案
@@ -87,10 +88,11 @@ if($emptyCheck === true){
 //       array_push($imgValues, NULL);
 //     }
 // }}   
+if($discount == ""){
 
-$sql="";
-for($i=0;$i<$count;$i++){
-  // 取出寫成資料庫內容時將標籤<>等轉為文字格式
+  $sql="";
+  for($i=0;$i<$count;$i++){
+    // 取出寫成資料庫內容時將標籤<>等轉為文字格式
     $name = htmlspecialchars($nameValues[$i]);
     $desc = htmlspecialchars($descValues[$i]);
     $spec = htmlspecialchars($specValues[$i]);
@@ -98,9 +100,26 @@ for($i=0;$i<$count;$i++){
 
     // $img = $imgValues[$i];
     $sql.=
-    "INSERT INTO `product` (`product_id`, `product_name`, `price`, `product_description`, `specification`, `discount_rate`, `product_type_id`, `product_type_list_id`, `isValid`) VALUES (NULL, '$name', '$price', '$desc', '$spec', '1', '$type', '$typeList', '1');";
-        
+    "INSERT INTO `product` (`product_id`, `product_name`, `price`, `product_description`, `specification`, `product_type_id`, `product_type_list_id`, `isValid`) VALUES (NULL, '$name', '$price', '$desc', '$spec', '$type', '$typeList', '1');";        
+  }
+  
+}else{
+  
+  $sql="";
+  for($i=0;$i<$count;$i++){
+    // 取出寫成資料庫內容時將標籤<>等轉為文字格式
+    $name = htmlspecialchars($nameValues[$i]);
+    $desc = htmlspecialchars($descValues[$i]);
+    $spec = htmlspecialchars($specValues[$i]);
+    //??? $category = intval($categoryValues[$i]);
+    
+    // $img = $imgValues[$i];
+    $sql.=
+    "INSERT INTO `product` (`product_id`, `product_name`, `price`, `product_description`, `specification`, `product_type_id`, `product_type_list_id`, `discount_rate_id`, `isValid`) VALUES (NULL, '$name', '$price', '$desc', '$spec', '$type', '$typeList', '$discount', '1');";        
+  }
+
 }
+
 
 
 try{

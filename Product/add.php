@@ -4,22 +4,26 @@ require_once("./connect.php");
 
 $sql="SELECT * FROM `product_type`";
 $sql2nd="SELECT * FROM `product_type_list`";
+$sql3rd="SELECT * FROM `discount_rate`";
 
 // $sql2nd="SELECT product_type_list_id,product_type_list_name 
 // FROM `product_type_list` JOIN `product_type` 
 // ON product_type_list.product_type_id = product_type.product_type_id
 // WHERE product_type_list.product_type_id = 1;
 // ";
-
+000
 try{
     $result = $conn->query($sql);
     $result2nd = $conn->query($sql2nd);
+    $result3rd = $conn->query($sql3rd);
     //將結果取出為關聯式陣列
     $rows = $result->fetch_all(MYSQLI_ASSOC);
     $rows2nd = $result2nd->fetch_all(MYSQLI_ASSOC);
+    $rows3rd = $result3rd->fetch_all(MYSQLI_ASSOC);
 
     $count = count($rows);
     $count2nd = count($rows2nd);
+    $count3rd = count($rows3rd);
     
   }catch(mysqli_sql_exception $exc){
   }
@@ -61,20 +65,30 @@ try{
                     </div>
                     <div class="input-group mt-1">
                         <span class="input-group-text">分類</span>
-                        <select  id="type1" name="type[]" class="form-select">
+                        <select  class="type1" name="type[]" class="form-select">
                             <option value selected disabled>請選擇</option>
                             <?php foreach($rows as $row): ?>
                                 <option value="<?=$row["product_type_id"]?>"><?=$row["product_type_name"]?></option>
                             <?php endforeach; ?>        
                         </select>
-                        </div>
+                    </div>
                     <div class="input-group mt-1">
                         <span class="input-group-text">次分類</span>
-                        <select id="typeList1" name="typeList[]" class="form-select">
+                        <select class="typeList1" name="typeList[]" class="form-select">
                             <option value selected disabled>請選擇</option>
                             
                             <?php foreach($rows2nd as $row2nd): ?>
                                 <option value="<?=$row2nd["product_type_list_id"]?>"><?=$row2nd["product_type_list_name"]?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="input-group mt-1">
+                        <span class="input-group-text">折扣</span>
+                        <select name="discount[]" class="form-select">
+                            <option value selected disabled>請選擇</option>
+                            
+                            <?php foreach($rows3rd as $row3rd): ?>
+                                <option value="<?=$row3rd["discount_rate_id"]?>"><?=$row3rd["discount_rate"]?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -109,16 +123,16 @@ try{
                 </div>
                 <div class="input-group mt-1">
                         <span class="input-group-text">分類</span>
-                        <select  id="type1" name="type[]" class="form-select">
+                        <select  class="type1" name="type[]" class="form-select">
                             <option value selected disabled>請選擇</option>
                             <?php foreach($rows as $row): ?>
                                 <option value="<?=$row["product_type_id"]?>"><?=$row["product_type_name"]?></option>
                             <?php endforeach; ?>        
                         </select>
-                        </div>
+                    </div>
                     <div class="input-group mt-1">
                         <span class="input-group-text">次分類</span>
-                        <select id="typeList1" name="typeList[]" class="form-select">
+                        <select class="typeList1" name="typeList[]" class="form-select">
                             <option value selected disabled>請選擇</option>
                             
                             <?php foreach($rows2nd as $row2nd): ?>
@@ -126,8 +140,16 @@ try{
                             <?php endforeach; ?>
                         </select>
                     </div>
-
-            </div>
+                    <div class="input-group mt-1">
+                        <span class="input-group-text">折扣</span>
+                        <select name="discount[]" class="form-select">
+                            <option value selected disabled>請選擇</option>
+                            
+                            <?php foreach($rows3rd as $row3rd): ?>
+                                <option value="<?=$row3rd["discount_rate_id"]?>"><?=$row3rd["discount_rate"]?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
 </template>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
@@ -165,29 +187,63 @@ try{
         //         form.submit();
         //     }
         // });
-        let typeSelect=document.querySelector("#type1");
-        let typeListSelect=document.querySelector("#typeList1");
+        
 
-        typeSelect.addEventListener("change",(e)=>{
-            // console.log(e.target.value); 抓到大分類被選的值 1.2.3.4...
+        //----------只有一組大小分類用
+        // let typeSelect=document.querySelector("#type1");
+        // let typeListSelect=document.querySelector("#typeList1");
+        
+        // typeSelect.addEventListener("change",(e)=>{
+        //     // console.log(e.target.value); 抓到大分類被選的值 1.2.3.4...
             
-            // 清空次分類的select元素
-            typeListSelect.innerHTML='<option value selected disabled>請選擇</option>';
+        //     // 清空次分類的select元素
+        //     typeListSelect.innerHTML='<option value selected disabled>請選擇</option>';
 
-            // 大分類被選的值塞進變數
-            let selectedTypeID =e.target.value;
+        //     // 大分類被選的值塞進變數
+        //     let selectedTypeID =e.target.value;
 
-            // 次分類的每一筆值拿起來看，如果裡面的大分類ID跟選到的數字一樣，
-            // 就新增<option>把次分類ID跟名稱設進<option>，再把<option>放進次分類的<select>
-            <?php foreach($rows2nd as $row2nd): ?>
-                if (selectedTypeID === '<?=$row2nd["product_type_id"]?>'){
-                    let option = document.createElement("option");
-                    option.value = '<?=$row2nd["product_type_list_id"]?>';
-                    option.text = '<?=$row2nd["product_type_list_name"]?>';
-                    typeListSelect.appendChild(option);                
-                }
-            <?php endforeach; ?>
+        //     // 次分類的每一筆值拿起來看，如果裡面的大分類ID跟選到的數字一樣， 就新增<option>把次分類ID跟名稱設進<option>，再把<option>放進次分類的<select>
+        //     <?php foreach($rows2nd as $row2nd): ?>
+        //         if (selectedTypeID === '<?=$row2nd["product_type_id"]?>'){
+        //             let option = document.createElement("option");
+        //             option.value ='<?=$row2nd["product_type_list_id"]?>';
+        //             option.text = '<?=$row2nd["product_type_list_name"]?>';
+        //             typeListSelect.appendChild(option);                
+        //         }
+        //     <?php endforeach; ?>
 
+        // })
+    
+
+        //----------有多組大小分類時使用事件委託處理動態創建的元素選擇
+        // let typeSelect=document.querySelectorAll(".type1");
+        // let typeListSelect=document.querySelectorAll(".typeList1");
+        
+        contentArea.addEventListener("change",(e)=>{
+            const target = e.target;
+
+            //處理type1選擇元素的變化
+            if(target.classList.contains("type1")){
+                // 大分類被選的值塞進變數
+                let selectedTypeID = target.value;
+                // 小分類=被change的select的父曾div的後面隔壁div的裡面找到的小分類
+                let typeListSelect = target.parentNode.nextElementSibling.querySelector(".typeList1");
+
+                // 清空次分類的select元素
+                typeListSelect.innerHTML='<option value selected disabled>請選擇</option>';
+
+
+                // 次分類的每一筆值拿起來看，如果裡面的大分類ID跟選到的數字一樣，
+                // 就新增<option>把次分類ID跟名稱設進<option>，再把<option>放進次分類的<select>
+                <?php foreach($rows2nd as $row2nd): ?>
+                    if (selectedTypeID === '<?=$row2nd["product_type_id"]?>'){
+                        let option = document.createElement("option");
+                        option.value = '<?=$row2nd["product_type_list_id"]?>';
+                        option.text = '<?=$row2nd["product_type_list_name"]?>';
+                        typeListSelect.appendChild(option);                
+                    }
+                <?php endforeach; ?>
+            }
         })
 
 

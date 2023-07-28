@@ -5,28 +5,24 @@
 require_once("./connect.php");
 
 
-$where1="";
-if(isset($_GET["product_id"])){
-    $id= $_GET["product_id"];
-    $where1="where `product_id` =$id";
-}
-
-
-
+// $where1="";
+// if(isset($_GET["product_id"])){
+//     $id= $_GET["product_id"];
+//     $where1="where `product_id` =$id";
+// }
 
 //V
 $tid=(isset($_GET["tid"]))?intval($_GET["tid"]):0;
 if($tid == 0){
   $typeSQL = "";
 }else{
-  $typeSQL = "`product_type_id` = $tid AND";
+  $typeSQL = "`product`.`product_type_id` = $tid AND";
 }
 
-
-
-
+//將從送出搜尋btn得到的網址變數設定至變數中
 $search = (isset($_GET["search"]))?$_GET["search"]:"";
 $searchType = (isset($_GET["qtype"]))?$_GET["qtype"]:"";
+
 
 if($search == ""){
   $searchSQL = "";
@@ -45,13 +41,13 @@ $pageStart = ($page - 1) * $perPage;
 //索引>>從0開始取10筆/從10開始取10.....
 
 
-$sql = "SELECT * FROM `product` WHERE  $typeSQL $searchSQL `isValid` = 1 LIMIT $pageStart, $perPage";
+$sql = "SELECT * FROM (`product` JOIN `product_type_list` ON product.product_type_list_id = product_type_list.product_type_list_id) JOIN product_type
+ON product_type.product_type_id = product_type_list.product_type_id WHERE $typeSQL $searchSQL product.isValid = 1 LIMIT $pageStart, $perPage; ";
+
 // limit0,5五個一頁  
-$sqlAll = "SELECT * FROM `product` WHERE $typeSQL $searchSQL `isValid` = 1";
+$sqlAll = "SELECT * FROM `product` WHERE $typeSQL $searchSQL product.isValid = 1";
 
-
-$sqlType="SELECT * FROM `product_type`";
-
+$sqlType="SELECT * FROM `product_type` WHERE isValid = 1";
 
 
 try{
@@ -70,6 +66,7 @@ try{
   $rowsType = $resultType->fetch_all(MYSQLI_ASSOC);
     //用fetch_all()方法取出全部
     //MYSQLI_ASSOC將內容轉成關聯式陣列
+  
 }catch(mysqli_sql_exception $exc){
   //die("讀取失敗" .$exc->getmessage());
   $errorMsg=$exc->getmessage();
@@ -94,7 +91,8 @@ $conn->close();
           display: flex;
         }
         .id{
-          width: 40px;
+          width: 35px;
+        
         }
         .name{
           width: 180px;
@@ -103,13 +101,25 @@ $conn->close();
           width: 40px;
         }
         .description{
-          width: calc((100% - 30px - 180px - 40px - 100px) / 2);
+          width: calc((100% - 35px - 180px - 40px - 100px - 100px - 20px - 100px));
         }
-        .specification{
-          width: calc((100% - 30px - 180px - 40px - 100px) / 2);
+        .product_type_id{
+          width: 100px;
+        }
+        .product_type_list_id{
+          width: 100px;
+        }
+
+        .discount_rate_id{
+          width: 20px;
         }
         .control{
           width: 100px;
+        }
+        .id,.name,.price,.description,.product_type_id,.product_type_list_id,.discount_rate_id,.control{
+          display:flex;
+          justify-content:center; 
+          align-items:center;
         }
     </style>
   </head>
@@ -121,16 +131,18 @@ $conn->close();
 
   <?php if($msgNum>0): ?>
     <div class=" d-flex">
-        <div class="my-2 me-auto"> 目前共<?=$totalAll?> 項商品</div>
+        <div class="my-2 me-auto"> 目前共<?=$totalAll?>項商品</div>
 
         <div class="me-1">
           <div class="input-group input-group-sm">
             <div class="input-group-text">
-              <input name="searchType" id="searchType1" type="radio" class="form-check-input" value="name" checked>
-              <label for="searchType1" class="me-2">名字</label>
+              <input name="searchType" id="searchType1" type="radio" class="form-check-input" value="product_name" checked>
+              <label for="searchType1" class="me-2">品名</label>
 
-              <input name="searchType" id="searchType2" type="radio" class="form-check-input" value="content">
-              <label for="searchType2">內文</label>
+              <input name="searchType" id="searchType2" type="radio" class="form-check-input" value="product_description">
+              <label for="searchType2">商品內文</label>
+
+
             </div>
               <input name="search" type="text" class="form-control form-control-sm" placeholder="搜尋">
               <div class="btn btn-primary btn-sm btn-search">送出搜尋</div>
@@ -139,13 +151,14 @@ $conn->close();
 
 
         <div>
-          <a href="./add.php" class="btn btn-warning">新增資料</a>
+          <a href="./add.php" class="btn btn-warning btn-sm">新增資料</a>
         </div>
     </div>
 
     <div class="nav nav-tabs">
         <a class="nav-link <?=($tid==0)?"active":""?>" href="./list.php">全部</a>
         
+        <!-- 逐筆將大分類ID放進tabs，點擊時將其設至網址變數，網址變數和tabs所屬ID一致時active -->
         <?php foreach($rowsType as $row): ?>
         <a class="nav-link <?=($tid==$row["product_type_id"])?"active":""?>" href="./list.php?tid=<?=$row["product_type_id"]?>"><?=$row["product_type_name"]?></a>
         <?php endforeach; ?>
@@ -155,25 +168,30 @@ $conn->close();
 
 <!-- 重複一輪從這 -->
   <div class="border border-top-0 p-3 rounded rounded-top-0">
-    <div class="msg text-bg-dark ">
-        <div class="id">編號</div>
-        <div class="name">品名</div>
-        <div class="price">價錢</div>
-        <div class="description">介紹</div>
-        <div class="specification">規格</div>
-        <div class="control">控制</div>
+    <div class="msg text-bg-dark">
+        <div class="id px-2 ">編號</div>
+        <div class="name px-2 ">品名</div>
+        <div class="price px-2">價錢</div>
+        <div class="description px-2">介紹</div>
+        <!-- <div class="specification">規格</div> -->
+        <div class="product_type_id px-2">分類</div>
+        <div class="product_type_list_id px-2">次分類</div>
+        <div class="discount_rate_id px-2">折扣</div>
+        <div class="control ps-2">控制</div>
     </div>
     <?php foreach($rows as $index => $row): ?>
-        <div class="msg my-1 p-3">
-            <div class="id"><?=($index+1)?></div>
-            <div class="name overflow-auto h70"><?=$row["product_name"]?></div>
-            <div class="price"><?=$row["price"]?></div>
-            <div class="description overflow-auto h70"><?=$row
-            ["product_description"]?></div>
-            <div class="specification overflow-auto h70"><?=$row["specification"]?></div>
-            <div class="control">
+        <div class="msg my-3 ">
+            <div class="id px-2"><?=$row["product_id"]?></div>
+            <div class="name px-2"><?=$row["product_name"]?></div>
+            <div class="price px-2"><?=$row["price"]?></div>
+            <div class="description px-2"><?=$row["product_description"]?></div>
+            <div class="product_type_id px-2"><?=$row["product_type_id"].$row["product_type_name"]?></div>
+            <div class="product_type_list_id px-2"><?=$row["product_type_list_id"].$row["product_type_list_name"]?></div>
+            <div class="discount_rate_id px-2"><?=$row["discount_rate_id"]?></div>
+            <div class="control ps-2">
                 <span class="btn btn-danger btn-sm btn-del" idn="<?=$row["product_id"]?>">刪除</span>
                 <a href="./update.php?id=<?=$row["product_id"]?>" class="btn btn-warning btn-sm" >修改</a>
+                <a href="./Img.php?id=<?=$row["product_id"]?>" class="btn btn-warning btn-sm" >圖片管理</a>
             </div>
         </div>
     <?php endforeach; ?>
@@ -184,11 +202,7 @@ $conn->close();
 
         <li class="page-item">
           <a class="page-link <?=($page==$i)?"active":""?>" 
-              href="./list.php?
-                  page=<?=$i?>
-                  <?=($tid>0)?"&tid=$tid":""?>
-                  <?=($search=="")?"":"&search=$search&qtype=$searchType"?>
-                  "><?=$i?></a>
+              href="./list.php?page=<?=$i?><?=($tid>0)?"&tid=$tid":""?><?=($search=="")?"":"&search=$search&qtype=$searchType"?>"><?=$i?></a>
         </li>
       <?php endfor; ?>
 
@@ -199,7 +213,7 @@ $conn->close();
     
 
     <?php elseif($msgNum==0): ?>
-        目前沒有商品
+       目前沒有商品
     <?php else: ?>
         發生錯誤:<?=$errorMsg?>
     <?php endif; ?>
@@ -219,7 +233,7 @@ $conn->close();
           }
         })
         });
-
+            //抓取搜尋radio及搜尋input的值並加入網址變數
         const btnSearch = document.querySelector(".btn-search");
         btnSearch.addEventListener("click", function(){
           let query = document.querySelector("input[name=search]").value;
