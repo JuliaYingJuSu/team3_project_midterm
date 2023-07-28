@@ -2,7 +2,7 @@
 $servername="localhost";
 $username="test";
 $password="1234";
-$dbname="user";
+$dbname="team3project";
 $port="3306";
 
 try{
