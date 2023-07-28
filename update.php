@@ -187,7 +187,7 @@ $conn->close();
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?=$id?>">
                 <span class="input-group-text text-light bg-primary fw-bold rounded-start-4">自我簡介</span>
-                <textarea class="form-control" rows="3"><?=$row["self_intr"];?></textarea>
+                <textarea class="form-control" rows="3" name="selfintr"><?=$row["self_intr"];?></textarea>
             </div>
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?=$id?>">

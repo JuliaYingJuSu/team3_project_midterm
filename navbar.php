@@ -23,11 +23,10 @@ if(isset($_GET["webpage"])){
 </head>
 
 <body>
-    <nav class="navbar bg-primary navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand ms-4 text-light fw-bold fs-3" href="#">
-                <img src="./uimg/product5.jpg" alt="Logo" width="60" height="60" class="d-inline-block">
-                食食嗑嗑
+            <a class="navbar-brand ms-5 text-light fw-bold fs-3" href="#">
+                <img src="./uimg/logo.png" alt="Logo" width="110" height="80" class="d-inline-block">
             </a>
             <div class="collapse navbar-collapse justify-content-end">
                 <ul class="navbar-nav fw-bold">
