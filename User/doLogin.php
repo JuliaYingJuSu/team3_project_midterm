@@ -1,7 +1,7 @@
 <?php
 //引用連線檔案
 session_start();
-require_once("../connect.php");
+require("../connect.php");
 //使用 POST 變數中的 email 檢查是不是正常方式進來的
 if(!isset($_POST["email"])){
     alertgoBack("請透過正常方式進入");
@@ -37,7 +37,7 @@ try{
                 "lastlogintime"=>$row["last_login_time"],
             ];
             //轉到這一頁
-            header("location:../admin.php");
+            header("location:../utilities/navbar.php");
         }else{
             $msg="不要再試惹!!";
         }
