@@ -44,7 +44,7 @@ if(isset($_GET["webpage"])){
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end bg-light">
                             <li><a class="dropdown-item fw-bold" href="#">更換大頭照</a></li>
-                            <li><a class="dropdown-item fw-bold" href="./User/logout.php">登出</a></li>
+                            <li><a class="dropdown-item fw-bold" href="../User/logout.php">登出</a></li>
                         </ul>
                     </li>
                 </ul>
