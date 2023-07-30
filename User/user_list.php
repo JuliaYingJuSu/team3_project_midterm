@@ -1,9 +1,8 @@
 <?php
-// session_start();
-// if(!isset($_SESSION["user"])){
-//   header("location: ./login.php");
-// }
-// require_once("./connect.php");
+if(!isset($_SESSION["user"])){
+  header("location:./login.php");
+}
+require_once("../connect.php");
 
 $where1="";
 if(isset($_GET["id"])){
@@ -112,7 +111,7 @@ $conn->close();
                 </div>
             </div>
         <div class="border p-3 mb-5 rounded bg-white">
-                <div class="msg text-bg-primary ps-1 fw-bold rounded">
+                <div class="msg bg-primary text-light ps-1 fw-bold rounded">
                     <div class="id">ID</div>
                     <div class="name">Name</div>
                     <div class="name ms-3">暱稱</div>

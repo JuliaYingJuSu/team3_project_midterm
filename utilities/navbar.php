@@ -1,10 +1,12 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 if(!isset($_SESSION["user"])){
-  header("location: ./User/login.php");
+  header("location: ../User/login.php");
 }
 
-require_once("./connect.php");
+require("../connect.php");
 $webpage="";
 if(isset($_GET["webpage"])){
     $webpage=$_GET["webpage"];
@@ -18,7 +20,7 @@ if(isset($_GET["webpage"])){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,	initial-scale=1">
     <title>選單</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -26,7 +28,7 @@ if(isset($_GET["webpage"])){
     <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand ms-5 text-light fw-bold fs-3" href="#">
-                <img src="./img/logo.png" alt="Logo" width="110" height="80" class="d-inline-block">
+                <img src="../img/logo.png" alt="Logo" width="110" height="80" class="d-inline-block">
             </a>
             <div class="collapse navbar-collapse justify-content-end">
                 <ul class="navbar-nav fw-bold">
@@ -37,9 +39,9 @@ if(isset($_GET["webpage"])){
                     <li class="nav-item dropdown pe-1">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                         <?php if (isset($_SESSION["user"]["img"]) && !empty($_SESSION["user"]["img"])): ?>
-                        <img src="./img/<?=$_SESSION["user"]["img"]?>" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
+                        <img src="../img/<?=$_SESSION["user"]["img"]?>" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
                         <?php else: ?>
-                        <img src="./img/noimg.png" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
+                        <img src="../img/noimg.png" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
                         <?php endif; ?>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end bg-light">
@@ -110,16 +112,16 @@ if(isset($_GET["webpage"])){
             </div>
         </nav>
         <main class="w-100 bg-body-tertiary">
-            <?php if($webpage == ""){require("./index.php");} ?>
-            <?php if($webpage == "user_list.php"){require("./User/user_list.php");}?>
-            <?php if($webpage == "user_add.php"){require("./User/user_add.php");}?>
-            <?php if($webpage == "user_update.php"){require("./User/user_update.php");}?>
+            <?php if($webpage == ""){require("../index.php");} ?>
+            <?php if($webpage == "user_list.php"){require("../User/user_list.php");}?>
+            <?php if($webpage == "user_add.php"){require("../User/user_add.php");}?>
+            <?php if($webpage == "user_update.php"){require("../User/user_update.php");}?>
     
     
     
         </main>
     </div>
-    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
