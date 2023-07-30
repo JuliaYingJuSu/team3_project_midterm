@@ -76,7 +76,8 @@ if(isset($_GET["webpage"])){
                 <div class="d-grid gap-2 p-3">
                     <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu3" data-bs-toggle="collapse">
                         <i class="fa-solid fa-bowl-rice fa-sm me-2" style="color: #ffffff;"></i>訂位</button>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu3">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu3"
+                    <?= ($webpage == "pageBooksList3.php") ? "active" : "" ?> id="menu6" href="?webpage=pageBooksList3.php">
                         <i class="fa-solid fa-folder fa-sm me-2" style="color: #ffffff;"></i>訂位管理</a>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu3">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
@@ -84,7 +85,8 @@ if(isset($_GET["webpage"])){
                 <div class="d-grid gap-2 p-3">
                     <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu4" data-bs-toggle="collapse">
                         <i class="fa-solid fa-cart-shopping fa-sm me-2" style="color: #ffffff;"></i>購物車</button>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu4">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu4"
+                    <?= ($webpage == "cartPage.php") ? "active" : "" ?> id="menu6" href="?webpage=cartPage.php">
                         <i class="fa-solid fa-folder fa-sm me-2" style="color: #ffffff;"></i>購物車管理</a>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu4">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
@@ -116,7 +118,8 @@ if(isset($_GET["webpage"])){
             <?php if($webpage == "user_update.php"){require("../User/user_update.php");}?>
             <?php if($webpage == "post_ArticleList.php"){require("../post/post_ArticleList.php");}?>
             <?php if($webpage == "product_list.php"){require("../product/product_list.php");}?>
-    
+            <?php if($webpage == "cartPage.php"){require("../Cart/cart/cartPage.php");}?>
+            <?php if($webpage == "pageBooksList3.php"){require("../book/pageBooksList3.php");}?>          
         </main>
     </div>
     <script src="../js/bootstrap.bundle.min.js"></script>
