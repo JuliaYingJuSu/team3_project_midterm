@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <title>新增訂單表單</title>
+</head>
+
+<body>
+    <div class="container mt-3">
+        <form action="./doInsert01.php" method="post">
+            <div class="input-group">
+                <span class="input-group-text">訂單編號</span>
+                <input name="order_id" type="text" class="form-control">
+            </div>
+            <div class="input-group mt-1">
+                <span class="input-group-text">訂單狀態</span>
+                <input name="payment_status" type="text" class="form-control">
+            </div>
+            <div class="input-group mt-1">
+                <span class="input-group-text">會員號碼</span>
+                <input name="user_id" type="text" class="form-control">
+            </div>
+            <div class="input-group mt-1">
+                <span class="input-group-text">付款方式</span>
+                <input name="payment_method" type="text" class="form-control">
+            </div>
+            <div class="input-group mt-1">
+                <span class="input-group-text">運送方式</span>
+                <input name="delivery_method" type="text" class="form-control">
+            </div>
+            <div class="input-group mt-1">
+                <span class="input-group-text">運送狀態</span>
+                <input name="delivery_status" type="text" class="form-control">
+            </div>
+            <div class="mt-1 text-end">
+                <button type="submit" class="btn btn-info">送出</button>
+            </div>
+        </form>
+    </div>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
