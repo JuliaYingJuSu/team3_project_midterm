@@ -1,13 +1,13 @@
 <?php
 session_start();
-if(!isset($_SESSION["user"])){
-  header("location: ../User/login.php");
+if (!isset($_SESSION["user"])) {
+    header("location: ../User/login.php");
 }
 
 require("../connect.php");
-$webpage="";
-if(isset($_GET["webpage"])){
-    $webpage=$_GET["webpage"];
+$webpage = "";
+if (isset($_GET["webpage"])) {
+    $webpage = $_GET["webpage"];
 }
 
 
@@ -35,12 +35,12 @@ if(isset($_GET["webpage"])){
                         <?= $_SESSION["user"]["name"] ?>
                     </span>
                     <li class="nav-item dropdown pe-1">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                        <?php if (isset($_SESSION["user"]["img"]) && !empty($_SESSION["user"]["img"])): ?>
-                        <img src="../img/<?=$_SESSION["user"]["img"]?>" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
-                        <?php else: ?>
-                        <img src="../img/noimg.png" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
-                        <?php endif; ?>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                            <?php if (isset($_SESSION["user"]["img"]) && !empty($_SESSION["user"]["img"])) : ?>
+                                <img src="../img/<?= $_SESSION["user"]["img"] ?>" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
+                            <?php else : ?>
+                                <img src="../img/noimg.png" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
+                            <?php endif; ?>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end bg-light">
                             <li><a class="dropdown-item fw-bold" href="#">更換大頭照</a></li>
@@ -59,8 +59,7 @@ if(isset($_GET["webpage"])){
                     <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu1" data-bs-toggle="collapse">
                         <i class="fa-solid fa-user fa-sm me-2" style="color: #ffffff;"></i>使用者</button>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold
-                    <?= ($webpage == "user_list.php") ? "active" : "" ?>" id="menu1"
-                    href="?webpage=user_list.php">
+                    <?= ($webpage == "user_list.php") ? "active" : "" ?>" id="menu1" href="?webpage=user_list.php">
                         <i class="fa-solid fa-user-gear fa-sm me-2" style="color: #ffffff;"></i>使用者管理</a>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu1">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
@@ -76,8 +75,7 @@ if(isset($_GET["webpage"])){
                 <div class="d-grid gap-2 p-3">
                     <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu3" data-bs-toggle="collapse">
                         <i class="fa-solid fa-bowl-rice fa-sm me-2" style="color: #ffffff;"></i>訂位</button>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu3"
-                    <?= ($webpage == "pageBooksList3.php") ? "active" : "" ?> id="menu6" href="?webpage=pageBooksList3.php">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu3" <?= ($webpage == "pageBooksList3.php") ? "active" : "" ?> id="menu6" href="?webpage=pageBooksList3.php">
                         <i class="fa-solid fa-folder fa-sm me-2" style="color: #ffffff;"></i>訂位管理</a>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu3">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
@@ -85,8 +83,7 @@ if(isset($_GET["webpage"])){
                 <div class="d-grid gap-2 p-3">
                     <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu4" data-bs-toggle="collapse">
                         <i class="fa-solid fa-cart-shopping fa-sm me-2" style="color: #ffffff;"></i>購物車</button>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu4"
-                    <?= ($webpage == "cartPage.php") ? "active" : "" ?> id="menu6" href="?webpage=cartPage.php">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu4" <?= ($webpage == "cartPage.php") ? "active" : "" ?> id="menu6" href="?webpage=cartPage.php">
                         <i class="fa-solid fa-folder fa-sm me-2" style="color: #ffffff;"></i>購物車管理</a>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu4">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
@@ -94,8 +91,7 @@ if(isset($_GET["webpage"])){
                 <div class="d-grid gap-2 p-3">
                     <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu5" data-bs-toggle="collapse">
                         <i class="fa-solid fa-store fa-sm me-2" style="color: #ffffff;"></i>團購</button>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu5"
-                    <?= ($webpage == "product_list.php") ? "active" : "" ?> id="menu5" href="?webpage=product_list.php" >
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu5" <?= ($webpage == "product_list.php") ? "active" : "" ?> id="menu5" href="?webpage=product_list.php">
                         <i class="fa-solid fa-cash-register fa-sm me-2" style="color: #ffffff;"></i>團購管理</a>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu5">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i></a>
@@ -103,8 +99,7 @@ if(isset($_GET["webpage"])){
                 <div class="d-grid gap-2 p-3">
                     <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu6" data-bs-toggle="collapse">
                         <i class="fa-solid fa-camera-retro fa-sm me-2" style="color: #ffffff;"></i>食記</button>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu6"
-                    <?= ($webpage == "post_ArticleList.php") ? "active" : "" ?> id="menu6" href="?webpage=post_ArticleList.php">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu6" <?= ($webpage == "post_ArticleList.php") ? "active" : "" ?> id="menu6" href="?webpage=post_ArticleList.php">
                         <i class="fa-solid fa-pen-to-square me-2" style="color: #ffffff;"></i>食記管理</a>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu6">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
@@ -112,15 +107,34 @@ if(isset($_GET["webpage"])){
             </div>
         </nav>
         <main class="w-100 bg-body-tertiary">
-            <?php if($webpage == ""){require("../index.php");} ?>
-            <?php if($webpage == "user_list.php"){require("../User/user_list.php");}?>
-            <?php if($webpage == "user_add.php"){require("../User/user_add.php");}?>
-            <?php if($webpage == "user_update.php"){require("../User/user_update.php");}?>
-            <?php if($webpage == "post_ArticleList.php"){require("../post/post_ArticleList.php");}?>
-            <?php if($webpage == "product_list.php"){require("../product/product_list.php");}?>
-            <?php if($webpage == "cartPage.php"){require("../Cart/cart/cartPage.php");}?>
-            <?php if($webpage == "pageBooksList3.php"){require("../book/pageBooksList3.php");}?>
-                      
+            <?php if ($webpage == "") {
+                require("../index.php");
+            } ?>
+            <?php if ($webpage == "user_list.php") {
+                require("../User/user_list.php");
+            } ?>
+            <?php if ($webpage == "user_add.php") {
+                require("../User/user_add.php");
+            } ?>
+            <?php if ($webpage == "user_update.php") {
+                require("../User/user_update.php");
+            } ?>
+            <?php if ($webpage == "post_ArticleList.php") {
+                require("../post/post_ArticleList.php");
+            } ?>
+            <?php if ($webpage == "product_list.php") {
+                require("../product/product_list.php");
+            } ?>
+            <?php if ($webpage == "cartPage.php") {
+                require("../Cart/cart/cartPage.php");
+            } ?>
+            <?php if ($webpage == "pageBooksList3.php") {
+                require("../book/pageBooksList3.php");
+            } ?>
+            <?php if ($webpage == "post_NewArticle.php") {
+                require("../post/post_NewArticle.php");
+            } ?>
+
         </main>
     </div>
     <script src="../js/bootstrap.bundle.min.js"></script>
