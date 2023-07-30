@@ -1,7 +1,31 @@
 <?php
 // session_start();
 require_once("../../connect.php"); // 引用連線
-require_once("../utilities/alertFunc.php"); // 引用常用函數
+
+// 通知的小視窗加上回列表
+function alertAndGoToList($msg){
+  echo "<script>
+    alert(\"$msg\");
+    window.location.href = \"./product_list.php\";
+  </script>";
+}
+// 通知的小視窗加上回上一頁
+function alertAndGoBack($msg){
+  echo "<script>
+    alert(\"$msg\");
+    window.history.back();
+  </script>";
+}
+// 通知的小視窗加上回上一頁
+function alertAndBackToPage($msg, $page){
+  echo "<script>
+    alert(\"$msg\");
+    window.location.href = \"$page\";
+  </script>";
+}
+// require_once("../utilities/alertFunc.php"); // 引用常用函數
+
+
 
 $error = ""; // 初始化錯訊訊息，預設無錯誤
 //分類頁籤
@@ -109,11 +133,9 @@ try {
     <div class="container my-3 ">
 
 <!-- 分類 -->
-      <div class="d-flex mb-2">
-        <h1 class=" align-middle ms-1">分類列表</h1>
-      </div>
-      <div class=" d-flex justify-content-end ">
-        <a class="btn btn-info btn-sm my-1" href="./product_add.php">增加分類</a>
+      <div class="d-flex mb-2 justify-content-between">
+        <h3 class=" align-middle ms-1">分類列表</h3>
+         <a class="btn btn-info btn-sm my-1" href="../utilities/navbar.php?webpage=style-product_add.php">增加分類</a>       
 
       </div>
       <?php if($error !== ""): ?>
@@ -127,12 +149,12 @@ try {
         </div>
 
           <?php foreach($rows as $index => $row): ?>
-          <div class="category data py-2">
+          <div class="category data py-1">
             <div class="sn "><?=($perPage*($page-1))+$index+1?></div>
             <div class="name"><?=$row["product_type_name"]?></div>
             <!-- <div class="cTime"><?=$row["createTime"]?></div> -->
             <div class="ctrl text-center">
-              <a href="./product_update.php?id=<?=$row["product_type_id"]?>" class="btn btn-primary btn-sm">管理</a>
+              <a href="../utilities/navbar.php?webpage=style-product_update.php&id=<?=$row["product_type_id"]?>" class="btn btn-primary btn-sm">管理</a>
               <div href="#" class="btn btn-danger btn-sm btn-del" idn="<?=$row["product_type_id"]?>">刪除</div>
             </div>
           </div>
@@ -149,13 +171,10 @@ try {
           <?php endif; ?>
 
 <!-- 次分類 -->
-          <div class="d-flex mb-2">
-            <h1 class=" align-middle ms-1">次分類列表</h1>
+          <div class="d-flex mb-2 justify-content-between">
+            <h3 class=" align-middle ms-1">次分類列表</h3>
+            <a class="btn btn-info btn-sm my-1"   href="../utilities/navbar.php?webpage=style-product_addL.php">增加次分類</a>
            </div>
-          <div class=" d-flex justify-content-end ">
-            <a class="btn btn-info btn-sm my-1" href="./product_addL.php">增加分類</a>
-          </div>
-
      
       <?php if($error !== ""): ?>
         <div class="text-danger fw-bold fs-3">發生錯誤，請洽管理人員</div>
@@ -168,12 +187,12 @@ try {
         </div>
 
           <?php foreach($rowsL as $index => $rowL): ?>
-          <div class="category data py-2">
+          <div class="category data py-1">
             <div class="sn"><?=($perPageL*($pageL-1))+$index+1?></div>
             <div class="name"><?=$rowL["product_type_list_name"]?></div>
             <div class="cTime"><?=$rowL["product_type_name"]?></div>
             <div class="ctrl text-center">
-              <a href="./product_updateL.php?id=<?=$rowL["product_type_list_id"]?>" class="btn btn-primary btn-sm">管理</a>
+              <a href="../utilities/navbar.php?webpage=style-product_updateL.php&id=<?=$rowL["product_type_list_id"]?>" class="btn btn-primary btn-sm">管理</a>
               <div href="#" class="btn btn-danger btn-sm btn-delL" idnL="<?=$rowL["product_type_list_id"]?>">刪除</div>
             </div>
           </div>
@@ -183,7 +202,7 @@ try {
           <div class="pagination pagination-sm justify-content-center my-2">
             <?php for($i=1;$i<=$totalPageL;$i++): ?>
               <div class="page-item">
-                <a href="?pageL=<?=$i?>" class="page-link <?=($pageL==$i)?"active":""?>"><?=$i?></a>
+                <a href="../utilities/navbar.php?webpage=style-product_list.php&pageL=<?=$i?>" class="page-link <?=($pageL==$i)?"active":""?>"><?=$i?></a>
               </div>
             <?php endfor; ?>
           </div>
@@ -197,7 +216,7 @@ try {
         btnDel.addEventListener("click", function(){
           let id = this.getAttribute("idn");
           if(confirm("確定要刪除嗎？")){
-            window.location.href = `./product_doDelete.php?id=${id}`;
+            window.location.href = `../utilities/navbar.php?webpage=product_doDelete.php&id=${id}`;
           }
         })
       });
@@ -209,7 +228,7 @@ try {
         btnDelL.addEventListener("click", function(){
           let idL = this.getAttribute("idnL");
           if(confirm("確定要刪除嗎？")){
-            window.location.href = `./product_doDeleteL.php?idL=${idL}`;
+            window.location.href = `../utilities/navbar.php?webpage=product_doDeleteL.php&idL=${idL}`;
           }
         })
       });

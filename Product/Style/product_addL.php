@@ -29,7 +29,7 @@ try{
 
     <div class="container my-3">
       <h1>增加次分類<span class="badge text-bg-info fs-6 align-middle ms-1">商品</span></h1>
-      <form action="./product_doAddL.php" method="post" enctype="multipart/form-data">
+      <form action="../utilities/navbar.php?webpage=style-product_doAddL.php" method="post" enctype="multipart/form-data">
             <div class="input-group mt-1">
                 <!-- 隸屬大分類 -->
                 <span class="input-group-text">分類</span>
@@ -47,7 +47,7 @@ try{
         </div>
         <div class="mt-1 text-end">
           <button type="submit" class="btn btn-primary btn-send">送出</button>
-          <a class="btn btn-info" href="./product_list.php">取消</a>
+          <a class="btn btn-info" href="../utilities/navbar.php?webpage=style-product_list.php">取消</a>
         </div>
       </form>
     </div>
