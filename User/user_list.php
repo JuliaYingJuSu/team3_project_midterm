@@ -107,8 +107,8 @@ $conn->close();
                     </div>
                 </div>
                 <div>
-                    <a href="?webpage=add.php" class="btn btn-info btn-sm
-                    <?= ($webpage == "add.php") ? "active" : "" ?>">新增資料</a>
+                    <a href="?webpage=user_add.php" class="btn btn-info btn-sm
+                    <?= ($webpage == "user_add.php") ? "active" : "" ?>">新增資料</a>
                 </div>
             </div>
         <div class="border p-3 mb-5 rounded bg-white">
@@ -128,8 +128,8 @@ $conn->close();
                 <div class="content ms-5 text-center"><?=$row["user_email"]?></div>
                 <div class="time">
                     <span class="btn btn-danger btn-sm btn-del" idn="<?=$row["user_id"]?>">刪除</span>
-                    <a href="?webpage=update.php&id=<?=$row["user_id"]?>" class="btn btn-info btn-sm ms-1
-                    <?= ($webpage == "update.php") ? "active" : "" ?>">修改</a>
+                    <a href="?webpage=user_update.php&id=<?=$row["user_id"]?>" class="btn btn-info btn-sm ms-1
+                    <?= ($webpage == "user_update.php") ? "active" : "" ?>">修改</a>
                 </div>
             </div>
             <?php endforeach;?>
@@ -146,7 +146,7 @@ $conn->close();
                         <a 
                         class="page-link
                          <?=($page==$n)?"active":""?>"
-                          href="./navbar.php?webpage=list.php&page=<?=$n?>
+                          href="./navbar.php?webpage=user_list.php&page=<?=$n?>
                           <?=($cid>0)?"&cid=$cid":""?>
                           <?=($search=="")?"":"&search=$search&qtype=$searchType"?>
                           ">
@@ -172,7 +172,7 @@ $conn->close();
         btnSearch.addEventListener("click",function(){
             let query=document.querySelector("input[name=search]").value;
             let querytype=document.querySelector("input[name=searchType]:checked").value;
-            window.location.href=`./list.php?search=${query}&qtype=${querytype}`
+            window.location.href=`./user_list.php?search=${query}&qtype=${querytype}`
         }
         );
         

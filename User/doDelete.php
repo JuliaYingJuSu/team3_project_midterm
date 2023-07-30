@@ -1,5 +1,5 @@
 <?php
-require_once("./connect.php");
+require_once("../connect.php");
 
 if(!isset($_GET["id"])){
     echo "請透過正常方式進入";
