@@ -57,14 +57,18 @@ $conn->close();
         <form action="./doUpdate.php" method="post" enctype="multipart/form-data">
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?= $id ?>">
-                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4" type="button">上傳照片</span>
+                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4" type="button">更改大頭照</span>
+                <div class="col-auto ps-5 pt-5 ">
                 <input class="form-control" type="file" name="myfile" accept=".png,.jpg,.jpeg">
-                <div class="col-auto">
-                    <span class="fs-4 fw-bold">目前的大頭照:</span>
+                </div>
+                <div class="ms-4">
+                <span class="fs-4 fw-bold ms-5">目前的大頭照:</span>
+                </div>
+                <div class="col-auto ms-5">
                     <?php if (isset($_SESSION["user"]["img"]) && !empty($_SESSION["user"]["img"])) : ?>
-                        <img src="./uimg/<?= $_SESSION["user"]["img"] ?>" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
+                        <img src="./uimg/<?= $_SESSION["user"]["img"] ?>" width="100" height="100" class="d-inline-block align-text-bottom rounded-circle img-fluid">
                     <?php else : ?>
-                        <img src="./uimg/noimg.png" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
+                        <img src="./uimg/noimg.png" width="100" height="100" class="d-inline-block align-text-bottom rounded-circle img-fluid">
                     <?php endif; ?>
                 </div>
             </div>
