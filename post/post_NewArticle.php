@@ -33,7 +33,7 @@ $conn->close();
     </head>
     <body>
         <div class="container mt-3">
-            <form action="./post_NewArticleInsert.php" method="post" enctype="multipart/form-data">
+            <form action="../utilities/navbar.php?webpage=post_NewArticleInsert.php" method="post" enctype="multipart/form-data">
               <div class="input-group mt-2">
                 <span class="input-group-text">文章標題</span>
                 <input name="name" type="text" class="form-control" placeholder="文章標題">

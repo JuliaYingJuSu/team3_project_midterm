@@ -25,13 +25,13 @@ if($_FILES["myFile"]["error"] == 0){
 }
 
 $sql ="INSERT INTO `post` 
-  (`post_ID`, `post_title`, `post_content`, `img`,`updating_restaurant_ID`, `restaurant_name`, `price_range_ID`, `create_time`, `user_ID`, `editing_date`, `flag_ID`, `isValid`) 
+  (`post_ID`, `post_title`, `post_content`, `img`,`updating_restaurant_ID`, `restaurant_name`, `price_range_ID`, `create_time`, `user_ID`, `editing_date`, `flag_ID`, `postisValid`) 
   VALUES 
   (NULL, '$name', '$content', '$img','$updating_restaurant_ID', '$restaurant_name', NULL, current_timestamp(), 22, NULL, '1', '1');";
 $sql1 = "select scope identity();";
 
 $sql2 = "INSERT INTO `postimage` 
-(`postimage_ID`, `post_ID`, `postimage_name`) 
+(`postimage_ID`, `postID`, `postimage_name`) 
 VALUES 
 (NULL, '$post_ID', '$img')";
 
@@ -50,7 +50,7 @@ $conn->close();
 
 echo "<script>
     alert(\"資料新增成功\")
-    window.location.href = \"./post_ArticleList.php\";
+    window.location.href = \"../utilities/navbar.php?webpage=post_ArticleList.php\";
     </script>";
 
 function alertGoBack(){

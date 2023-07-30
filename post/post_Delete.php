@@ -22,6 +22,6 @@ $conn->close();
 
 echo "<script>
     alert(\"$msg\");
-    window.location.href = \"./post_ArticleList.php\";</script>";
+    window.location.href = \"../utilities/navbar.php?webpage=post_ArticleList.php\";</script>";
 ?>
 
