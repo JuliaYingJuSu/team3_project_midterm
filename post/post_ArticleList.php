@@ -18,8 +18,8 @@ if(!isset($_GET["page"])){
 $perPage = 10;
 $pageStart = ($page - 1)* $perPage;
 
-$sql = "SELECT * FROM `post` join updating_restaurant on post.updating_restaurant_ID = updating_restaurant.updating_restaurant_ID WHERE $searchSQL `isValid` = 1 ORDER BY `create_time` DESC LIMIT $pageStart, $perPage;";
-$sqlAll = "SELECT * FROM `post` WHERE $searchSQL `isValid` = 1 ;";
+$sql = "SELECT * FROM `post` join `user` on post.user_ID=user.user_id join updating_restaurant on post.updating_restaurant_ID = updating_restaurant.updating_restaurant_ID WHERE $searchSQL `postisValid` = 1 ORDER BY `create_time` DESC LIMIT $pageStart, $perPage;";
+$sqlAll = "SELECT * FROM `post` WHERE $searchSQL `postisValid` = 1 ;";
 
 
 
@@ -128,7 +128,7 @@ $conn->close();
                 <?php foreach($rows as $index => $row): ?>
                 <div class="posts my-1">
                     <div class="id"><?=$row["post_ID"]?></div>
-                    <div class="name"><?=$row["user_ID"]?></div>
+                    <div class="name"><?=$row["nickname"]?></div>
                     <div class="title"><?=$row["post_title"]?></div>
                     <div class="post_content"><?=$row["post_content"]?></div>
                     <div class="restaurant_name"><?=$row["updating_restaurant_name"]?></div>

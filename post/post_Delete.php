@@ -9,7 +9,7 @@ if(!isset($_GET["post"])){
 $post_ID = $_GET["post"];
 
 
-$sql = "UPDATE `post` SET `isValid` = 0 WHERE  `post_ID` = '$post_ID';";
+$sql = "UPDATE `post` SET `postisValid` = 0 WHERE  `post_ID` = '$post_ID';";
 
 try{
     $conn->query($sql);

@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/connect.php');
+require('../connect.php');
 
 if (!isset($_GET["id"])) {
     exit;
