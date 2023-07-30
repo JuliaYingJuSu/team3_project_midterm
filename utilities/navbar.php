@@ -107,6 +107,7 @@ if (isset($_GET["webpage"])) {
             </div>
         </nav>
         <main class="w-100 bg-body-tertiary">
+<<<<<<< HEAD
             <?php if ($webpage == "") {
                 require("../index.php");
             } ?>
@@ -135,6 +136,18 @@ if (isset($_GET["webpage"])) {
                 require("../post/post_NewArticle.php");
             } ?>
 
+=======
+            <?php if($webpage == ""){require("../index.php");} ?>
+            <?php if($webpage == "user_list.php"){require("../User/user_list.php");}?>
+            <?php if($webpage == "user_add.php"){require("../User/user_add.php");}?>
+            <?php if($webpage == "user_update.php"){require("../User/user_update.php");}?>
+            <?php if($webpage == "post_ArticleList.php"){require("../post/post_ArticleList.php");}?>
+            <?php if($webpage == "product_list.php"){require("../product/product_list.php");}?>
+            <?php if($webpage == "cartPage.php"){require("../Cart/cart/cartPage.php");}?>
+            <?php if($webpage == "pageBooksList3.php"){require("../book/pageBooksList3.php");}?>
+            <?php if($webpage == "post_NewArticle.php"){require("../post/post_NewArticle.php");}?>
+                      
+>>>>>>> d194277900d3b4b416f00543a99f647ffd6386a0
         </main>
     </div>
     <script src="../js/bootstrap.bundle.min.js"></script>

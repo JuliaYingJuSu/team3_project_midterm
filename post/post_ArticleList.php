@@ -21,10 +21,15 @@ $pageStart = ($page - 1) * $perPage;
 $sql = "SELECT * FROM `post` join `user` on post.user_ID=user.user_id join updating_restaurant on post.updating_restaurant_ID = updating_restaurant.updating_restaurant_ID WHERE $searchSQL `postisValid` = 1 ORDER BY `create_time` DESC LIMIT $pageStart, $perPage;";
 $sqlAll = "SELECT * FROM `post` WHERE $searchSQL `postisValid` = 1 ;";
 
+<<<<<<< HEAD
 
 
 try {
     $result = $conn->query($sql);
+=======
+try{
+    $result = $conn -> query($sql);
+>>>>>>> d194277900d3b4b416f00543a99f647ffd6386a0
     $resultAll = $conn->query($sqlAll);
     $msgNum = $result->num_rows;
     $rows = $result->fetch_all(MYSQLI_ASSOC);
@@ -110,15 +115,26 @@ $conn->close();
                     </div>
                 </div>
                 <div>
+<<<<<<< HEAD
                     <a href="?webpage=post_NewArticle.php" class="btn btn-primary btn-sm" <?= ($webpage == "post_NewArticle.php") ? "active" : "" ?>>新增文章</a>
                 </div>
+=======
+                    <a href="?webpage=post_NewArticle.php" class="btn btn-primary btn-sm" <?= ($webpage == "post_NewArticle.php")?"active":""?>>新增文章</a>
+                </div> 
+>>>>>>> d194277900d3b4b416f00543a99f647ffd6386a0
             </div>
             <div class="border border-top p-3 mb-5 rounded rounded-top-0">
                 <div aria-label="Page navigation example">
                     <ul class="pagination">
                         <?php for ($i = 1; $i <= $totalPage; $i++) : ?>
                             <li class="page-item">
+<<<<<<< HEAD
                                 <a class="page-link <?= ($page == $i) ? "active" : "" ?>" href="./navbar.php?webpage=post_ArticleList.php&page=<?= $i ?><?= ($search == "") ? "" : "&search=$search&qtype=$searchType" ?>"><?= $i ?></a>
+=======
+                             <a 
+                             class="page-link <?=($page == $i)?"active":""?>" 
+                             href="?webpage=post_ArticleList.php&page=<?=$i?><?=($search=="")?"":"&search=$search&qtype=$searchType"?>"><?=$i?></a>
+>>>>>>> d194277900d3b4b416f00543a99f647ffd6386a0
                             </li>
                         <?php endfor; ?>
                     </ul>
@@ -133,6 +149,7 @@ $conn->close();
                     <div class="editing_date">更新日期</div>
                     <div class="editing">修改刪除</div>
                 </div>
+<<<<<<< HEAD
                 <?php foreach ($rows as $index => $row) : ?>
                     <div class="posts my-1">
                         <div class="id"><?= $row["post_ID"] ?></div>
@@ -146,6 +163,20 @@ $conn->close();
                             <span class="btn btn-danger btn-sm btn-del" idn="<?= $row["post_ID"] ?>">刪除</span>
                             <a href="./post_ModifyArticle.php?id=<?= $row["post_ID"] ?>" class="btn btn-primary btn-sm">修改</a>
                         </div>
+=======
+                <?php foreach($rows as $index => $row): ?>
+                <div class="posts my-1">
+                    <div class="id"><?=$row["post_ID"]?></div>
+                    <div class="name"><?=$row["nickname"]?></div>
+                    <div class="title"><?=$row["post_title"]?></div>
+                    <div class="post_content"><?=$row["post_content"]?></div>
+                    <div class="restaurant_name"><?=$row["updating_restaurant_name"]?></div>
+                    <div class="createTime"><?=$row["create_time"]?></div>
+                    <div class="editing_date"><?=$row["editing_date"]?></div>
+                    <div class="editing">
+                    <span class="btn btn-danger btn-sm btn-del" idn="<?=$row["post_ID"]?>">刪除</span>
+                    <a href="?webpage=post_ModifyArticle.php?id=<?=$row["post_ID"]?>" class="btn btn-primary btn-sm" <?=($webpage =="post_ModifyArticle.php")?"active":""?>>修改</a>
+>>>>>>> d194277900d3b4b416f00543a99f647ffd6386a0
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -161,19 +192,33 @@ $conn->close();
         [...btnDels].map(function(btnDel) {
             btnDel.addEventListener("click", function() {
 
+<<<<<<< HEAD
                 let post_ID = parseInt(this.getAttribute("idn"));
                 if (window.confirm("確定要刪除嗎？") === true) {
                     window.location.href = `./post_Delete.php?post=${post_ID}`;
                 }
+=======
+            let post_ID = parseInt(this.getAttribute("idn"));
+            if(window.confirm("確定要刪除嗎？")===true){
+                window.location.href = `./navebar.php?webpage=post_Delete.php?post=${post_ID}`;
+            }
+>>>>>>> d194277900d3b4b416f00543a99f647ffd6386a0
             })
         })
         const btnSearch = document.querySelector(".btn-search");
         btnSearch.addEventListener("click", function() {
             let query = document.querySelector("input[name=search]").value;
             let queryType = document.querySelector("input[name=searchType]:checked").value;
+<<<<<<< HEAD
             window.location.href = `./post_Articlelist.php?search=${query}&qtype=${queryType}`;
         })
     </script>
 </body>
 
+=======
+            window.location.href = `./navbar.php?webpage=post_Articlelist.php&search=${query}&qtype=${queryType}`;
+            })
+        </script>
+    </body>
+>>>>>>> d194277900d3b4b416f00543a99f647ffd6386a0
 </html>
