@@ -29,12 +29,12 @@ try {
 
 $img = "";
 if ($_FILES["myfile"]["error"] == 0) {
-  $ext = pathinfo($_FILES["myfile"]["tmp_name"], PATHINFO_EXTENSION);
+  $ext = pathinfo($_FILES["myfile"]["name"], PATHINFO_EXTENSION);
   $timestamp = time();
   $file = $timestamp . "." . $ext;
   $result = move_uploaded_file($_FILES["myfile"]["tmp_name"], "./uimg/" . $file);
   if ($result == true) {
-    $img = "./uimg/" . $file;
+    $img = $file;
   }
 };
 
