@@ -1,5 +1,5 @@
 <?php
-require_once("./connect.php");
+require_once("../connect.php");
 
 $sql = "SELECT * FROM `book` WHERE `book_isValid` = 1 ORDER BY `book_create_time` DESC;";
 
