@@ -120,6 +120,7 @@ if(isset($_GET["webpage"])){
             <?php if($webpage == "product_list.php"){require("../product/product_list.php");}?>
             <?php if($webpage == "cartPage.php"){require("../Cart/cart/cartPage.php");}?>
             <?php if($webpage == "pageBooksList3.php"){require("../book/pageBooksList3.php");}?>
+            <?php if($webpage == "post_NewArticle.php"){require("../post/post_NewArticle.php");}?>
                       
         </main>
     </div>

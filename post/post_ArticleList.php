@@ -21,8 +21,6 @@ $pageStart = ($page - 1)* $perPage;
 $sql = "SELECT * FROM `post` join `user` on post.user_ID=user.user_id join updating_restaurant on post.updating_restaurant_ID = updating_restaurant.updating_restaurant_ID WHERE $searchSQL `postisValid` = 1 ORDER BY `create_time` DESC LIMIT $pageStart, $perPage;";
 $sqlAll = "SELECT * FROM `post` WHERE $searchSQL `postisValid` = 1 ;";
 
-
-
 try{
     $result = $conn -> query($sql);
     $resultAll = $conn->query($sqlAll);
@@ -100,7 +98,7 @@ $conn->close();
                     </div>      
                 </div>
                 <div>
-                    <a href="./navbar.php?webpage=post_NewArticle.php" class="btn btn-primary btn-sm">新增文章</a>
+                    <a href="?webpage=post_NewArticle.php" class="btn btn-primary btn-sm" <?= ($webpage == "post_NewArticle.php")?"active":""?>>新增文章</a>
                 </div> 
             </div>
             <div class="border border-top p-3 mb-5 rounded rounded-top-0">
@@ -110,7 +108,7 @@ $conn->close();
                             <li class="page-item">
                              <a 
                              class="page-link <?=($page == $i)?"active":""?>" 
-                             href="./navbar.php?webpage=post_ArticleList.php&page=<?=$i?><?=($search=="")?"":"&search=$search&qtype=$searchType"?>"><?=$i?></a>
+                             href="?webpage=post_ArticleList.php&page=<?=$i?><?=($search=="")?"":"&search=$search&qtype=$searchType"?>"><?=$i?></a>
                             </li>
                         <?php endfor; ?>
                     </ul>
@@ -136,7 +134,7 @@ $conn->close();
                     <div class="editing_date"><?=$row["editing_date"]?></div>
                     <div class="editing">
                     <span class="btn btn-danger btn-sm btn-del" idn="<?=$row["post_ID"]?>">刪除</span>
-                    <a href="./navbar.php?webpage=post_ModifyArticle.php?id=<?=$row["post_ID"]?>" class="btn btn-primary btn-sm">修改</a>
+                    <a href="?webpage=post_ModifyArticle.php?id=<?=$row["post_ID"]?>" class="btn btn-primary btn-sm" <?=($webpage =="post_ModifyArticle.php")?"active":""?>>修改</a>
                     </div>
                 </div>
                 <?php endforeach;?>
@@ -155,7 +153,7 @@ $conn->close();
 
             let post_ID = parseInt(this.getAttribute("idn"));
             if(window.confirm("確定要刪除嗎？")===true){
-                window.location.href = `./navbar.php?webpage=post_Delete.php?post=${post_ID}`;
+                window.location.href = `./navebar.php?webpage=post_Delete.php?post=${post_ID}`;
             }
             })
             })
@@ -163,7 +161,7 @@ $conn->close();
             btnSearch.addEventListener("click",function(){
             let query = document.querySelector("input[name=search]").value;
             let queryType = document.querySelector("input[name=searchType]:checked").value;
-            window.location.href = `./navbar.php?webpage=post_Articlelist.php?search=${query}&qtype=${queryType}`;
+            window.location.href = `./navbar.php?webpage=post_Articlelist.php&search=${query}&qtype=${queryType}`;
             })
         </script>
     </body>
