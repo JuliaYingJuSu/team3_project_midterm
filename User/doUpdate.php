@@ -1,5 +1,5 @@
 <?php
-require_once("./connect.php");
+require_once("../connect.php");
 
 if(!isset($_POST["name"])){
     echo "請透過正常方式進入";
@@ -65,7 +65,7 @@ try {
 
   echo "<script>
         alert(\"$msg\")
-          window.location.href=\"navbar.php?webpage=list.php\";
+          window.location.href=\"navbar.php?webpage=user_list.php\";
         </script>";
 
 function alertgoBack($msg2){

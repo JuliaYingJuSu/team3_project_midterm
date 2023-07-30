@@ -20,5 +20,5 @@ if(!isset($_GET["id"])){
 
   echo "<script>
         alert(\"$msg\")
-        window.location.href =\"./navbar.php?webpage=list.php\";
+        window.location.href =\"./navbar.php?webpage=user_list.php\";
         </script>";

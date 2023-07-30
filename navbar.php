@@ -26,7 +26,7 @@ if(isset($_GET["webpage"])){
     <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand ms-5 text-light fw-bold fs-3" href="#">
-                <img src="./uimg/logo.png" alt="Logo" width="110" height="80" class="d-inline-block">
+                <img src="./img/logo.png" alt="Logo" width="110" height="80" class="d-inline-block">
             </a>
             <div class="collapse navbar-collapse justify-content-end">
                 <ul class="navbar-nav fw-bold">
@@ -37,9 +37,9 @@ if(isset($_GET["webpage"])){
                     <li class="nav-item dropdown pe-1">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                         <?php if (isset($_SESSION["user"]["img"]) && !empty($_SESSION["user"]["img"])): ?>
-                        <img src="./uimg/<?=$_SESSION["user"]["img"]?>" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
+                        <img src="./img/<?=$_SESSION["user"]["img"]?>" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
                         <?php else: ?>
-                        <img src="./uimg/noimg.png" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
+                        <img src="./img/noimg.png" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
                         <?php endif; ?>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end bg-light">
@@ -59,8 +59,8 @@ if(isset($_GET["webpage"])){
                     <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu1" data-bs-toggle="collapse">
                         <i class="fa-solid fa-user fa-sm me-2" style="color: #ffffff;"></i>使用者</button>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold
-                    <?= ($webpage == "list.php") ? "active" : "" ?>" id="menu1"
-                    href="?webpage=list.php">
+                    <?= ($webpage == "user_list.php") ? "active" : "" ?>" id="menu1"
+                    href="?webpage=user_list.php">
                         <i class="fa-solid fa-user-gear fa-sm me-2" style="color: #ffffff;"></i>使用者管理</a>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu1">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
@@ -109,9 +109,9 @@ if(isset($_GET["webpage"])){
         </nav>
         <main class="w-100 bg-body-tertiary">
             <?php if($webpage == ""){require("./index.php");} ?>
-            <?php if($webpage == "list.php"){require("./User/user_list.php");}?>
-            <?php if($webpage == "add.php"){require("./User/add.php");}?>
-            <?php if($webpage == "update.php"){require("./User/update.php");}?>
+            <?php if($webpage == "user_list.php"){require("./User/user_list.php");}?>
+            <?php if($webpage == "user_add.php"){require("./User/user_add.php");}?>
+            <?php if($webpage == "user_update.php"){require("./User/user_update.php");}?>
     
     
     
