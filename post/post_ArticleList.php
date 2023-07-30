@@ -110,7 +110,7 @@ $conn->close();
                             <li class="page-item">
                              <a 
                              class="page-link <?=($page == $i)?"active":""?>" 
-                             href="./post_ArticleList.php?page=<?=$i?><?=($search=="")?"":"&search=$search&qtype=$searchType"?>"><?=$i?></a>
+                             href="./navbar.php?webpage=post_ArticleList.php&page=<?=$i?><?=($search=="")?"":"&search=$search&qtype=$searchType"?>"><?=$i?></a>
                             </li>
                         <?php endfor; ?>
                     </ul>
