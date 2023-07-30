@@ -100,7 +100,7 @@ $conn->close();
                     </div>      
                 </div>
                 <div>
-                    <a href="./post_NewArticle.php" class="btn btn-primary btn-sm">新增文章</a>
+                    <a href="../utilities/navbar.php?webpage=post_NewArticle.php" class="btn btn-primary btn-sm">新增文章</a>
                 </div> 
             </div>
             <div class="border border-top p-3 mb-5 rounded rounded-top-0">
@@ -110,7 +110,7 @@ $conn->close();
                             <li class="page-item">
                              <a 
                              class="page-link <?=($page == $i)?"active":""?>" 
-                             href="./navbar.php?webpage=post_ArticleList.php&page=<?=$i?><?=($search=="")?"":"&search=$search&qtype=$searchType"?>"><?=$i?></a>
+                             href="../navbar.php?webpage=post_ArticleList.php&page=<?=$i?><?=($search=="")?"":"&search=$search&qtype=$searchType"?>"><?=$i?></a>
                             </li>
                         <?php endfor; ?>
                     </ul>
@@ -155,7 +155,7 @@ $conn->close();
 
             let post_ID = parseInt(this.getAttribute("idn"));
             if(window.confirm("確定要刪除嗎？")===true){
-                window.location.href = `./post_Delete.php?post=${post_ID}`;
+                window.location.href = `../utilities/navbar.php?webpage=post_Delete.php?post=${post_ID}`;
             }
             })
             })
@@ -163,7 +163,7 @@ $conn->close();
             btnSearch.addEventListener("click",function(){
             let query = document.querySelector("input[name=search]").value;
             let queryType = document.querySelector("input[name=searchType]:checked").value;
-            window.location.href = `./post_Articlelist.php?search=${query}&qtype=${queryType}`;
+            window.location.href = `../utilities/navbar.php?webpage=post_Articlelist.php?search=${query}&qtype=${queryType}`;
             })
         </script>
     </body>
