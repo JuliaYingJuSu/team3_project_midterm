@@ -1,9 +1,7 @@
 <!-- 訊息列表 -->
 
-
 <?php
-require_once("./product_connect.php");
-
+require_once("../connect.php");
 
 // $where1="";
 // if(isset($_GET["product_id"])){
@@ -15,7 +13,6 @@ $dir="";
 if(isset($_GET["dir"])){
     $dir= $_GET["dir"];
 }
-
 
 // $sort="id";
 // if(isset($_GET["sort"])){

@@ -1,7 +1,7 @@
 <!-- 上傳多張圖片用 -->
 
 <?php
-require_once("./product_connect.php");
+require_once("../connect.php");
 
 if(!isset($_GET["id"])){
     echo "走開";

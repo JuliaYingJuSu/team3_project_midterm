@@ -1,7 +1,7 @@
 <!-- 按修改完跳轉的修改留言頁 -->
 
 <?php
-require_once("./product_connect.php");
+require_once("../connect.php");
 
 if(!isset($_GET["id"])){
  exit;

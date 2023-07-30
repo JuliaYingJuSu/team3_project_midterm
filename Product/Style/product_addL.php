@@ -1,5 +1,5 @@
 <?php
-require_once("../product_connect.php");
+require_once("../../connect.php");
 
 $sql="SELECT * FROM `product_type` WHERE `isValid` = 1";
 

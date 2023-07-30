@@ -1,5 +1,5 @@
 <?php
-require_once("./connect.php");
+require_once("../connect.php");
 
 if(!isset($_GET["id"])){
     echo "請由正常管道進入";
@@ -8,7 +8,7 @@ if(!isset($_GET["id"])){
 
 $id = $_GET["id"];
 
-$sql = "UPDATE `book` SET `isValid` = '0' WHERE `book`.`book_id` = $id;";
+$sql = "UPDATE `book` SET `book_isValid` = '0' WHERE `book`.`book_id` = $id;";
 
 try{
     $conn->query($sql);

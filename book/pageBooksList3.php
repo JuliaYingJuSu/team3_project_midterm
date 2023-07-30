@@ -1,7 +1,7 @@
 <?php
-require_once("./connect.php");
+require_once("../connect.php");
 
-$sql = "SELECT * FROM `book` WHERE `isValid` = 1 ORDER BY `book_create_time` DESC;";
+$sql = "SELECT * FROM `book` WHERE `book_isValid` = 1 ORDER BY `book_create_time` DESC;";
 
 $search = isset($_GET["search"])?$_GET["search"]:"";
 $searchType = isset($_GET["qtype"])?$_GET["qtype"]:"";
@@ -22,8 +22,8 @@ $perPage = 10;
 $pageStart = ($page - 1) * $perPage;
 
 
-$sql = "SELECT * FROM `book` WHERE $searchSQL `isValid` = 1 ORDER BY `book_id` DESC LIMIT $pageStart, $perPage";
-$sqlAll = "SELECT * FROM `book` WHERE $searchSQL `isValid` = 1";
+$sql = "SELECT * FROM `book` WHERE $searchSQL `book_isValid` = 1 ORDER BY `book_id` DESC LIMIT $pageStart, $perPage";
+$sqlAll = "SELECT * FROM `book` WHERE $searchSQL `book_isValid` = 1";
 
 
 try{
