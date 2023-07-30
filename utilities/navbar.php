@@ -93,8 +93,7 @@ if(isset($_GET["webpage"])){
                     <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu5" data-bs-toggle="collapse">
                         <i class="fa-solid fa-store fa-sm me-2" style="color: #ffffff;"></i>團購</button>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu5"
-                    <?= ($webpage == "user_list.php") ? "active" : "" ?> id="menu1"
-                    href="?webpage=user_list.php" >
+                    <?= ($webpage == "product_list.php") ? "active" : "" ?> id="menu5" href="?webpage=product_list.php" >
                         <i class="fa-solid fa-cash-register fa-sm me-2" style="color: #ffffff;"></i>團購管理</a>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu5">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
@@ -116,7 +115,7 @@ if(isset($_GET["webpage"])){
             <?php if($webpage == "user_add.php"){require("../User/user_add.php");}?>
             <?php if($webpage == "user_update.php"){require("../User/user_update.php");}?>
             <?php if($webpage == "post_ArticleList.php"){require("../post/post_ArticleList.php");}?>
-           
+            <?php if($webpage == "product_list.php"){require("../product/product_list.php");}?>
     
         </main>
     </div>
