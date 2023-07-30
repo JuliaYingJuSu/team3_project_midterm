@@ -1,6 +1,6 @@
 <!-- 可同時新增多筆資料更新資料庫 -->
 <?php
-require_once("./product_connect.php");
+require_once("..connect.php");
 
 $sql="SELECT * FROM `product_type`";
 $sql2nd="SELECT * FROM `product_type_list`";

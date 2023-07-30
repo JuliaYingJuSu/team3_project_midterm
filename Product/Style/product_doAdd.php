@@ -1,6 +1,6 @@
 <?php
-session_start();
-require_once("../product_connect.php"); // 引用連線
+// session_start();
+require_once("../../connect.php"); // 引用連線
 require_once("../utilities/alertFunc.php"); // 引用常用函數
 
 

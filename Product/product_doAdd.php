@@ -1,5 +1,5 @@
 <?php
-require_once("./product_connect.php");
+require_once("../connect.php");
 
 if(!isset($_POST["name"])){
     echo "走開";

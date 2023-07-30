@@ -1,6 +1,6 @@
 <?php
 // session_start();
-require_once("../product_connect.php"); // 引用連線
+require_once("../../connect.php"); // 引用連線
 require_once("../utilities/alertFunc.php"); // 引用常用函數
 
 $error = ""; // 初始化錯訊訊息，預設無錯誤
