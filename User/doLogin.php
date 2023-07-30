@@ -1,7 +1,7 @@
 <?php
 //引用連線檔案
 session_start();
-require_once("./connect.php");
+require_once("../connect.php");
 //使用 POST 變數中的 email 檢查是不是正常方式進來的
 if(!isset($_POST["email"])){
     alertgoBack("請透過正常方式進入");
@@ -25,6 +25,19 @@ try{
     if($result->num_rows>0){//如果資料>0
         if($password1=$row["user_password"]){//password_verify()<--解析加密密碼
             // $msg=true;
+            $_SESSION["user"]=[
+                "email"=>$row["user_email"],
+                "name"=>$row["user_name"],
+                "img"=>$row["user_img"],
+                "nickname"=>$row["nickname"],
+                "phone"=>$row["user_phone"],
+                "selfintr"=>$row["self_intr"],
+                "createdate"=>$row["create_date"],
+                "updatetime"=>$row["updatetime"],
+                "lastlogintime"=>$row["last_login_time"],
+            ];
+            //轉到這一頁
+            header("location:../admin.php");
         }else{
             $msg="不要再試惹!!";
         }
@@ -39,22 +52,6 @@ try{
 if($msg !==""){
     alertgoBack($msg);
 }
-
-$_SESSION["user"]=[
-    "email"=>$row["user_email"],
-    "name"=>$row["user_name"],
-    "img"=>$row["user_img"],
-    "nickname"=>$row["nickname"],
-    "phone"=>$row["user_phone"],
-    "selfintr"=>$row["self_intr"],
-    "createdate"=>$row["create_date"],
-    "updatetime"=>$row["updatetime"],
-    "lastlogintime"=>$row["last_login_time"],
-];
-
-
-//轉到這一頁
-header("location:./navbar.php");
 
 //跳視窗回上一頁
 function alertgoBack($msg){

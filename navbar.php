@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION["user"])){
-  header("location: ./login.php");
+  header("location: ./User/login.php");
 }
 
 require_once("./connect.php");
@@ -44,7 +44,7 @@ if(isset($_GET["webpage"])){
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end bg-light">
                             <li><a class="dropdown-item fw-bold" href="#">更換大頭照</a></li>
-                            <li><a class="dropdown-item fw-bold" href="./logout.php">登出</a></li>
+                            <li><a class="dropdown-item fw-bold" href="./User/logout.php">登出</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -92,7 +92,9 @@ if(isset($_GET["webpage"])){
                 <div class="d-grid gap-2 p-3">
                     <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu5" data-bs-toggle="collapse">
                         <i class="fa-solid fa-store fa-sm me-2" style="color: #ffffff;"></i>團購</button>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu5">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu5"
+                    <?= ($webpage == "user_list.php") ? "active" : "" ?> id="menu1"
+                    href="?webpage=user_list.php" >
                         <i class="fa-solid fa-cash-register fa-sm me-2" style="color: #ffffff;"></i>團購管理</a>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu5">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>

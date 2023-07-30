@@ -1,5 +1,5 @@
 <?php
-require_once("../connect.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . '/connect.php');
 
 if(!isset($_GET["id"])){
     echo "請透過正常方式進入";
@@ -20,5 +20,5 @@ if(!isset($_GET["id"])){
 
   echo "<script>
         alert(\"$msg\")
-        window.location.href =\"./navbar.php?webpage=user_list.php\";
+        window.location.href =\"../navbar.php?webpage=user_list.php\";
         </script>";
