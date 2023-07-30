@@ -21,5 +21,5 @@ $conn->close();
 
 echo "<script>
 alert(\"$msg\");
-window.location.href = \"./pageBooksList3.php\";
+window.location.href = \"./navbar.php?webpage=book_list.php\";
 </script>";

@@ -39,5 +39,5 @@ $conn->close();
 
 echo "<script>
 alert(\"資料新增 $endWording 成功\");
-window.location.href = \"./pageBooksList3.php\";
+window.location.href = \"./navbar.php?webpage=book_list.php\";
 </script>";
