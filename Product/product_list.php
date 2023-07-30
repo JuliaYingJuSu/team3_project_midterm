@@ -179,18 +179,18 @@ $conn->close();
 
 
         <div>
-          <a href="./product_add.php" class="btn btn-warning btn-sm">新增資料</a>
+          <a href="../utilities/navbar.php?webpage=product_add.php" <?= ($webpage == "product_add.php") ? "active" : "" ?> class="btn btn-warning btn-sm">新增商品</a>
         </div>
     </div>
 
     <div class="nav nav-tabs">
-        <a class="nav-link <?=($tid==0)?"active":""?>" href="./product_list.php?>">全部</a>
+        <a class="nav-link <?=($tid==0)?"active":""?>" href="../utilities/navbar.php?webpage=product_list.php">全部</a>
 
 
         
         <!-- 逐筆將大分類ID放進tabs，點擊時將其設至網址變數，網址變數和tabs所屬ID一致時active -->
         <?php foreach($rowsType as $row): ?>
-        <a class="nav-link <?=($tid==$row["product_type_id"])?"active":""?>" href="./product_list.php?tid=<?=$row["product_type_id"]?>"><?=$row["product_type_name"]?></a>
+        <a class="nav-link <?=($tid==$row["product_type_id"])?"active":""?>" href="../utilities/navbar.php?webpage=product_list.php&tid=<?=$row["product_type_id"]?>"><?=$row["product_type_name"]?></a>
         <?php endforeach; ?>
     </div>
 
@@ -206,7 +206,7 @@ $conn->close();
         </button>
 
         <div class="control ps-2 ">
-          <a href="./product_updateOO.php?id=<?=$row["product_id"]?>" class="btn btn-warning btn-sm" >修改</a>
+          <a href="../utilities/navbar.php?webpage=product_updateOO.php&id=<?=$row["product_id"]?>" <?= ($webpage == "product_updeatOO.php") ? "active" : "" ?> class="btn btn-warning btn-sm" >修改</a>
           <span class="btn btn-danger btn-sm btn-del" idn="<?=$row["product_id"]?>">刪除</span>
             <!-- <a href="./Img.php?id=<?=$row["product_id"]?>" class="btn btn-warning btn-sm" >圖片管理</a> -->
       </div>
@@ -270,7 +270,7 @@ $conn->close();
 
         <li class="page-item">
           <a class="page-link <?=($page==$i)?"active":""?>" 
-              href="./product_list.php?page=<?=$i?><?=($tid>0)?"&tid=$tid":""?><?=($search=="")?"":"&search=$search&qtype=$searchType"?>"><?=$i?></a>
+              href="../utilities/navbar.php?webpage=product_list.php&page=<?=$i?><?=($tid>0)?"&tid=$tid":""?><?=($search=="")?"":"&search=$search&qtype=$searchType"?>"><?=$i?></a>
         </li>
       <?php endfor; ?>
 
@@ -297,7 +297,7 @@ $conn->close();
           btnDel.addEventListener("click", function(){
           let id = parseInt(this.getAttribute("idn"));
           if(window.confirm("確認要刪除嗎?") === true){
-          window.location.href=`./product_doDelete.php?id=${id}`;
+          window.location.href=`../utilities/navbar.php?webpage=product_doDelete.php&id=${id}`;
           }
         })
         });
@@ -307,7 +307,7 @@ $conn->close();
           let query = document.querySelector("input[name=search]").value;
           let queryType = document.querySelector("input[name=searchType]:checked").value;
 
-          window.location.href = `./product_list.php?search=${query}&qtype=${queryType}`;
+          window.location.href = `../utilities/navbar.php?webpage=product_list.php&search=${query}&qtype=${queryType}`;
         })
     </script>
       <script>

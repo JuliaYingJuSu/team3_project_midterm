@@ -137,7 +137,7 @@ $conn->close();
                         </div>
                     </div>
                 <div>
-                    <a href="./add.html" class="btn btn-info btn-sm">增加資料</a>
+                    <a href="./navbar.php?webpage=book_add.html" class="btn btn-info btn-sm">增加資料</a>
                 </div>
             </div>
 
@@ -146,14 +146,14 @@ $conn->close();
                 <div aria-label="Page navigation example me-auto">
                     <ul class="pagination">
                         <?php for($i=1;$i<=$totalPage;$i++):?>
-                        <li class="page-item"><a class="page-link <?=($page == $i)?"active":""?>" href="./pageBooksList3.php?page=<?=$i?>"><?=$i?></a></li>
+                        <li class="page-item"><a class="page-link <?=($page == $i)?"active":""?>" href="./navbar.php?webpage=book_list.php&page=<?=$i?>"><?=$i?></a></li>
                         <?php endfor;?>
                     </ul>
                 </div>
-
+                
                 <div>
-                    <a href="./pageBooksList3.php" class="btn btn-light btn-sm mt-2">重置</a>
-                    <a href="./dashboard.php" class="btn btn-light btn-sm mt-2">圖表</a>
+                    <a href="./navbar.php?webpage=book_list.php" class="btn btn-light btn-sm mt-2">重置</a>
+                    <a href="./navbar.php?webpage=book_dashboard.php" class="btn btn-light btn-sm mt-2">圖表</a>
                 </div>
             
             </div>
@@ -181,7 +181,7 @@ $conn->close();
                         <div class="book_create_time"><?=$row["book_create_time"]?></div>
                         <div class="time">
                             <span class="btn btn-danger btn-sm btn-del" idn="<?=$row["book_id"]?>">刪除</span>
-                            <a href="./pageBook.php?book_id=<?=$row["book_id"]?>" class="btn btn-info btn-sm">修改</a>
+                            <a href="./navbar.php?webpage=book_pageBook.php&book_id=<?=$row["book_id"]?>" class="btn btn-info btn-sm">修改</a>
                             <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample<?=$row["book_id"]?>" aria-expanded="false" aria-controls="collapseExample">展開</button>
                         </div>
                     </div>
@@ -203,7 +203,7 @@ $conn->close();
             btnDel.addEventListener("click",function(){
                 let id = parseInt(this.getAttribute("idn"));
                 if(window.confirm("確認要刪除嗎?") === true ){
-                    window.location.href = `./Delete01.php?id=${id}`;
+                    window.location.href = `./navbar.php?webpage=book_delete.php&id=${id}`;
                 }
             })
         });
@@ -211,7 +211,7 @@ $conn->close();
         btnSearch.addEventListener("click",function(){
             let query = document.querySelector("input[name=search]").value;
             let queryType = document.querySelector("input[name=searchType]:checked").value;
-            window.location.href = `./pageBooksList3.php?search=${query}&qtype=${queryType}`;
+            window.location.href = `./navbar.php?webpage=book_list.php&search=${query}&qtype=${queryType}`;
         })
 
         const demo1 = document.getElementById("collapseExample48");
@@ -224,7 +224,7 @@ $conn->close();
                     </div>
                     <div class="msg my-2">
                         <div class="name">維尼那隻熊</div>
-                        <div class="photo"><img src="./bimg/winnie.png" alt="小熊維尼"></div>
+                        <div class="photo"><img src="./navbar.php?webpage=bimg/winnie.png" alt="小熊維尼"></div>
                         <div class="restaurant">朵拉鬆餅坊</div>
                         <div class="note lh">
                             請幫我準備給小豬的生日蛋糕~~<br>

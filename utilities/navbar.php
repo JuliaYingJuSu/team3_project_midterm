@@ -90,11 +90,11 @@ if (isset($_GET["webpage"])) {
                 </div>
                 <div class="d-grid gap-2 p-3">
                     <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu5" data-bs-toggle="collapse">
-                        <i class="fa-solid fa-store fa-sm me-2" style="color: #ffffff;"></i>團購</button>
+                        <i class="fa-solid fa-store fa-sm me-2" style="color: #ffffff;"></i>商城</button>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu5" <?= ($webpage == "product_list.php") ? "active" : "" ?> id="menu5" href="?webpage=product_list.php">
-                        <i class="fa-solid fa-cash-register fa-sm me-2" style="color: #ffffff;"></i>團購管理</a>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu5">
-                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i></a>
+                        <i class="fa-solid fa-cash-register fa-sm me-2" style="color: #ffffff;"></i>商品管理</a>
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu5" <?=($webpage == "style-product_list.php") ? "active" : "" ?> id="menu5"  href="?webpage=style-product_list.php">
+                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>分類管理</a>
                 </div>
                 <div class="d-grid gap-2 p-3">
                     <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu6" data-bs-toggle="collapse">
@@ -122,9 +122,71 @@ if (isset($_GET["webpage"])) {
             <?php if ($webpage == "post_ArticleList.php") {
                 require("../post/post_ArticleList.php");
             } ?>
+
+
             <?php if ($webpage == "product_list.php") {
-                require("../product/product_list.php");
+                require("../Product/product_list.php");
             } ?>
+            <?php if ($webpage == "product_add.php") {
+                require("../Product/product_add.php");
+            } ?>
+            <?php if ($webpage == "product_doAdd.php") {
+                require("../Product/product_doAdd.php");
+            } ?>
+            <?php if ($webpage == "product_doAddImg.php") {
+                require("../Product/product_doAddImg.php");
+            } ?>
+            <?php if ($webpage == "product_doDelete.php") {
+                require("../Product/product_doDelete.php");
+            } ?>
+            <?php if ($webpage == "product_doDelImg.php") {
+                require("../Product/product_doDelImg.php");
+            } ?>
+            <?php if ($webpage == "product_doUpdateOO.php") {
+                require("../Product/product_doUpdateOO.php");
+            } ?>
+            <?php if ($webpage == "product_ImgOO.php") {
+                require("../Product/product_ImgOO.php");
+            } ?>
+            <?php if ($webpage == "product_updateOO.php") {
+                require("../Product/product_updateOO.php");
+            } ?>
+
+            <?php if ($webpage == "style-product_add.php") {
+                require("../Product/Style/product_add.php");
+            } ?>
+            <?php if ($webpage == "style-product_addL.php") {
+                require("../Product/Style/product_addL.php");
+            } ?>
+            <?php if ($webpage == "style-product_doAdd.php") {
+                require("../Product/Style/product_doAdd.php");
+            } ?>
+            <?php if ($webpage == "style-product_doAddL.php") {
+                require("../Product/Style/product_doAddL.php");
+            } ?>
+            <?php if ($webpage == "style-product_doDelete.php") {
+                require("../Product/Style/product_doDelete.php");
+            } ?>
+            <?php if ($webpage == "style-product_doDeleteL.php") {
+                require("../Product/Style/product_doDeleteL.php");
+            } ?>
+            <?php if ($webpage == "style-product_doUpdate.php") {
+                require("../Product/Style/product_doUpdate.php");
+            } ?>
+            <?php if ($webpage == "style-product_doUpdateL.php") {
+                require("../Product/Style/product_doUpdateL.php");
+            } ?>
+            <?php if ($webpage == "style-product_list.php") {
+                require("../Product/Style/product_list.php");
+            } ?>
+            <?php if ($webpage == "style-product_update.php") {
+                require("../Product/Style/product_update.php");
+            } ?>
+            <?php if ($webpage == "style-product_updateL.php") {
+                require("../Product/Style/product_updateL.php");
+            } ?>
+            
+
             <?php if ($webpage == "cartPage.php") {
                 require("../Cart/cart/cartPage.php");
             } ?>

@@ -32,7 +32,7 @@ $conn->close();
 
 <body>
     <div class="container mt-3">
-        <form action="./Update01.php" method="post">
+        <form action="./navbar.php?webpage=book_update.php" method="post">
             <input name="book_id" type="hidden" value="<?=$book_id?>">
             <div class="input-group">
                 <span class="input-group-text">會員編號</span>
