@@ -99,7 +99,7 @@ $conn->close();
                             <input name="searchType" id="searchType1" type="radio" class="form-check-input" value="name" checked>
                             <label for="searchType1" class="me-2">名字</label>
                             <input name="searchType" id="searchType2" type="radio" class="form-check-input" value="content">
-                            <label for="searchType2">內文</label>
+                            <label for="searchType2">暱稱</label>
                         </div>
                         <input name="search" type="text" class="form-control form-control-sm" placeholder="搜尋">
                         <div class="btn btn-primary btn-sm btn-search">送出搜尋</div>
