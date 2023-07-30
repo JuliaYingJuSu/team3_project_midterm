@@ -1,5 +1,5 @@
 <?php
-require_once("../product_connect.php");
+require_once("../../connect.php");
 require_once("../utilities/alertFunc.php"); // 引用常用函數
 
 if(!isset($_GET["id"])){
