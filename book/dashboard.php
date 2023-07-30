@@ -8,10 +8,10 @@
 </head>
 <body>
     <br><br>
-    <img src="./img/userCount.png" alt="會員總訂位次數"><br><br><br>
-    <img src="./img/restaurantCount.png" alt="餐廳總訂位次數"><br><br><br>
-    <img src="./img/userCountAug.png" alt="8月份會員總訂位次數"><br><br><br>
-    <img src="./img/restaurantCountAug.png" alt="8月份餐廳總訂位次數">
+    <img src="./bimg/userCount.png" alt="會員總訂位次數"><br><br><br>
+    <img src="./bimg/restaurantCount.png" alt="餐廳總訂位次數"><br><br><br>
+    <img src="./bimg/userCountAug.png" alt="8月份會員總訂位次數"><br><br><br>
+    <img src="./bimg/restaurantCountAug.png" alt="8月份餐廳總訂位次數">
 
 <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
