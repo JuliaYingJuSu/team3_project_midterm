@@ -1,5 +1,5 @@
 <?php
-require_once("./connect.php");
+require_once("../connect.php");
 
 if(!isset($_POST["name"])){
   echo "請由正式方法進入頁面";

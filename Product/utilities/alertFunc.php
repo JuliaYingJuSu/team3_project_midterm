@@ -3,7 +3,7 @@
 function alertAndGoToList($msg){
   echo "<script>
     alert(\"$msg\");
-    window.location.href = \"./list.php\";
+    window.location.href = \"./product_list.php\";
   </script>";
 }
 // 通知的小視窗加上回上一頁
