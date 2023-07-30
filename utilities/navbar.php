@@ -1,7 +1,5 @@
 <?php
 session_start();
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 if(!isset($_SESSION["user"])){
   header("location: ../User/login.php");
 }
@@ -104,7 +102,8 @@ if(isset($_GET["webpage"])){
                 <div class="d-grid gap-2 p-3">
                     <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu6" data-bs-toggle="collapse">
                         <i class="fa-solid fa-camera-retro fa-sm me-2" style="color: #ffffff;"></i>食記</button>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu6">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu6"
+                    <?= ($webpage == "post_ArticleList.php") ? "active" : "" ?> id="menu6" href="?webpage=post_ArticleList.php">
                         <i class="fa-solid fa-pen-to-square me-2" style="color: #ffffff;"></i>食記管理</a>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu6">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
@@ -116,8 +115,8 @@ if(isset($_GET["webpage"])){
             <?php if($webpage == "user_list.php"){require("../User/user_list.php");}?>
             <?php if($webpage == "user_add.php"){require("../User/user_add.php");}?>
             <?php if($webpage == "user_update.php"){require("../User/user_update.php");}?>
-    
-    
+            <?php if($webpage == "post_ArticleList.php"){require("../post/post_ArticleList.php");}?>
+           
     
         </main>
     </div>

@@ -64,7 +64,7 @@ $sql = "INSERT INTO `user`
 
   echo "<script>
           alert(\"$msg\")
-            window.location.href=\"./navbar.php?webpage=user_list.php\";
+            window.location.href=\"../utilities/navbar.php?webpage=user_list.php\";
         </script>";
 
 function alertgoBack($msg2){
