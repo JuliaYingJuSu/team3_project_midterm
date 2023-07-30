@@ -8,7 +8,7 @@ if (!isset($_GET["id"])) {
 }
 
 $sql = "SELECT * FROM `user` WHERE `user_id`=$id;";
-// $sql1 = "SELECT * FROM food_tag";
+$sql2 = "SELECT `user_img` FROM `user` WHERE `user_id`=$id;";
 $usertag = "SELECT user.user_id,food_tag.food_tag_id 
             FROM user_tag 
             JOIN food_tag ON food_tag.food_tag_id = user_tag.food_tag_id 
@@ -16,12 +16,13 @@ $usertag = "SELECT user.user_id,food_tag.food_tag_id
             WHERE user.user_id=$id;";
 try {
     $result = $conn->query($sql);
-    // $result1=$conn->query($sql1);
+    $result2 = $conn->query($sql2);
     $row = $result->fetch_assoc();
-    // $row1 = $result1->fetch_assoc();
+    $row2 = $result2->fetch_assoc();
 } catch (mysqli_sql_exception $exc) {
     die("讀取失敗" . $exc->getMessage());
 }
+
 
 try {
     $usertagresult = $conn->query($usertag);
@@ -54,19 +55,19 @@ $conn->close();
             <span class="fs-5 ms-auto fw-bold border rounded-4 p-2 bg-primary mb-1 text-light">
                 最後修改時間:<?= $row["updatetime"]; ?></span>
         </div>
-        <form action="./doUpdate.php" method="post" enctype="multipart/form-data">
+        <form action="../User/doUpdate.php" method="post" enctype="multipart/form-data">
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?= $id ?>">
                 <span class="input-group-text text-light bg-primary fw-bold rounded-start-4" type="button">更改大頭照</span>
                 <div class="col-auto ps-5 pt-5 ">
-                <input class="form-control" type="file" name="myfile" accept=".png,.jpg,.jpeg">
+                    <input class="form-control" type="file" name="myfile" accept=".png,.jpg,.jpeg">
                 </div>
                 <div class="ms-4">
-                <span class="fs-4 fw-bold ms-5">目前的大頭照:</span>
+                    <span class="fs-4 fw-bold ms-5">目前的大頭照:</span>
                 </div>
                 <div class="col-auto ms-5">
-                    <?php if (isset($_SESSION["user"]["img"]) && !empty($_SESSION["user"]["img"])) : ?>
-                        <img src="./uimg/<?= $_SESSION["user"]["img"] ?>" width="100" height="100" class="d-inline-block align-text-bottom rounded-circle img-fluid">
+                    <?php if (isset($row2["user_img"]) && !empty($row2["user_img"])) : ?>
+                        <img src="./uimg/<?= $row2["user_img"] ?>" width="100" height="100" class="d-inline-block align-text-bottom rounded-circle img-fluid">
                     <?php else : ?>
                         <img src="./uimg/noimg.png" width="100" height="100" class="d-inline-block align-text-bottom rounded-circle img-fluid">
                     <?php endif; ?>
