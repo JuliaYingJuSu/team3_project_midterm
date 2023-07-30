@@ -26,7 +26,7 @@ try{
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   </head>
   <body>
-    <!-- <?php require("../utilities/nav1.php"); ?> -->
+
     <div class="container my-3">
       <h1>增加次分類<span class="badge text-bg-info fs-6 align-middle ms-1">商品</span></h1>
       <form action="./doAddL.php" method="post" enctype="multipart/form-data">

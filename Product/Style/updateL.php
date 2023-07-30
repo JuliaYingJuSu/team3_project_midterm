@@ -32,7 +32,7 @@ if ($row == "ERROR" || $row == NULL) {
 </head>
 
 <body>
-  <!-- <?php require("../utilities/nav1.php"); ?> -->
+
   <div class="container my-3">
     <h1>管理分類<span class="badge text-bg-info fs-6 align-middle ms-1">表單</span></h1>
     <form action="./doUpdateL.php" method="post" enctype="multipart/form-data">

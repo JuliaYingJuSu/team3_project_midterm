@@ -3,10 +3,11 @@
 <?php
 require_once("./connect.php");
 
-// if(!isset($_POST["msgID"])){
-//     echo "走開";
-//     exit;
-// }
+if(!isset($_GET["id"])){
+    echo "走開";
+    exit;
+}
+
 
 if(!isset($_GET["id"])){
   exit;
@@ -14,8 +15,9 @@ if(!isset($_GET["id"])){
      $id= $_GET["id"];
  }
 
-$sql="";
+// $showed_1st = $_POST["showed_1st"];
 
+$sql="";
 $timestamp = time();
 $fileCount = count($_FILES["myFile"]["name"]);
 for($i=0;$i<$fileCount;$i++){
@@ -29,19 +31,23 @@ if($_FILES["myFile"]["error"][$i] == 0){
     }
 }   
 }
+// $sql2="UPDATE `product_img` SET `showed_1st` = $showed_1st WHERE `product_img`.`product_img_id` = $id;";
+// var_dump($sql);
+// exit;
 
 try{
     $conn->multi_query($sql);
-    echo "資料表 msgs 修改完成";
+    // $conn->multi_query($sql2);
+
   }catch(mysqli_sql_exception $exc){
-    echo "修改資料表失敗" .$exc->getmessage();
+    echo "圖片新增失敗" .$exc->getmessage();
   }
   $conn->close();
 
   
 echo "<script>
-alert (\"資料$msg 新增成功\");
-window.location.href = \"./list.php\"
+alert (\"圖片新增成功\");
+window.location.href = \"./updateOO.php?id=$id\"
 </script>";
 
 

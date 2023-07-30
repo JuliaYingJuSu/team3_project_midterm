@@ -81,20 +81,45 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>分類清單</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+      .category{
+        display: flex;
+        justify-content: space-between;
+      }
+      .sn{
+
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      .name{
+
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      .ctrl{
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+    </style>
+    
   </head>
   <body>
-    <!-- <?php require("../utilities/nav1.php"); ?> -->
-    <div class="container my-3">
+
+    <div class="container my-3 ">
 
 <!-- 分類 -->
       <div class="d-flex mb-2">
-        <span class="badge text-bg-secondary fs-6 align-middle ms-1">分類清單</span>
-        <a class="btn btn-info btn-sm ms-auto" href="./add.php">增加分類</a>
+        <h1 class=" align-middle ms-1">分類清單</h1>
+      </div>
+      <div class=" d-flex justify-content-end ">
+        <a class="btn btn-info btn-sm my-1" href="./add.php">增加分類</a>
+
       </div>
       <?php if($error !== ""): ?>
         <div class="text-danger fw-bold fs-3">發生錯誤，請洽管理人員</div>
       <?php else:?>
-        <div class="category data head bg-primary p-1 text-white">
+        <div class="category data head bg-secondary p-1 text-white rounded p-2 mb-2">
           <div class="sn">編號</div>
           <div class="name">分類名稱</div>
           <!-- <div class="cTime">建立時間</div> -->
@@ -102,13 +127,13 @@ try {
         </div>
 
           <?php foreach($rows as $index => $row): ?>
-          <div class="category data">
-            <div class="sn"><?=($perPage*($page-1))+$index+1?></div>
+          <div class="category data py-2">
+            <div class="sn "><?=($perPage*($page-1))+$index+1?></div>
             <div class="name"><?=$row["product_type_name"]?></div>
             <!-- <div class="cTime"><?=$row["createTime"]?></div> -->
             <div class="ctrl text-center">
-              <div href="#" class="btn btn-danger btn-sm btn-del" idn="<?=$row["product_type_id"]?>">刪除</div>
               <a href="./update.php?id=<?=$row["product_type_id"]?>" class="btn btn-primary btn-sm">管理</a>
+              <div href="#" class="btn btn-danger btn-sm btn-del" idn="<?=$row["product_type_id"]?>">刪除</div>
             </div>
           </div>
           <?php endforeach; ?>
@@ -125,13 +150,17 @@ try {
 
 <!-- 次分類 -->
           <div class="d-flex mb-2">
-        <span class="badge text-bg-secondary fs-6 align-middle ms-1">次分類清單</span>
-        <a class="btn btn-info btn-sm ms-auto" href="./addL.php">增加分類</a>
-      </div>
+            <h1 class=" align-middle ms-1">次分類清單</h1>
+           </div>
+          <div class=" d-flex justify-content-end ">
+            <a class="btn btn-info btn-sm my-1" href="./addL.php">增加分類</a>
+          </div>
+
+     
       <?php if($error !== ""): ?>
         <div class="text-danger fw-bold fs-3">發生錯誤，請洽管理人員</div>
       <?php else:?>
-        <div class="category data head bg-primary p-1 text-white">
+        <div class="category data head bg-secondary p-1 text-white rounded p-2 mb-2">
           <div class="sn">編號</div>
           <div class="name">次分類名稱</div>
           <div class="cTime">所屬分類</div>
@@ -139,13 +168,13 @@ try {
         </div>
 
           <?php foreach($rowsL as $index => $rowL): ?>
-          <div class="category data">
+          <div class="category data py-2">
             <div class="sn"><?=($perPageL*($pageL-1))+$index+1?></div>
             <div class="name"><?=$rowL["product_type_list_name"]?></div>
             <div class="cTime"><?=$rowL["product_type_name"]?></div>
             <div class="ctrl text-center">
-              <div href="#" class="btn btn-danger btn-sm btn-delL" idnL="<?=$rowL["product_type_list_id"]?>">刪除</div>
               <a href="./updateL.php?id=<?=$rowL["product_type_list_id"]?>" class="btn btn-primary btn-sm">管理</a>
+              <div href="#" class="btn btn-danger btn-sm btn-delL" idnL="<?=$rowL["product_type_list_id"]?>">刪除</div>
             </div>
           </div>
           <?php endforeach; ?>

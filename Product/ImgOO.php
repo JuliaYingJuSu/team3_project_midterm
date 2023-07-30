@@ -77,7 +77,7 @@ $conn->close();
                 <div class="btn btn-danger btn-del-file">-</div>
             </div>
         </template>
-            <div class="d-flex">
+        <div class="d-flex">
             <?php foreach($row2s as $row2): ?>
                 <div>
                     <img src="./img/<?=$row2["product_img"]?>" alt=""      
@@ -86,11 +86,8 @@ $conn->close();
             <?php endforeach; ?>
         </div>
     </div>
-    <!-- </div>
 
-    
-</div>  -->
-
+    <!-- 照片按鈕 -->
     <script>
         const btnAddFile = document.querySelector(".btn-add-file");
         const myFiles = document.querySelector(".myFiles");
@@ -133,8 +130,7 @@ $conn->close();
             if(confirm("確定要刪除圖片？")){
             window.location.href = `./doDelImg.php?id=${id}&img=${pid}`;
             }
-
-        });
+            });
         }
         )
     </script>

@@ -112,7 +112,7 @@ $conn->close();
         </template>
         
        
-        <div class="d-flex">
+        <div class="d-flex flex-wrap">
             <?php foreach($row2s as $row2): ?>
                 <div>
                     <img src="./img/<?=$row2["product_img"]?>" alt=""      

@@ -28,7 +28,7 @@ try {
 } catch (mysqli_sql_exception $exception) {
   $row = "ERROR";
 }
-echo $file;
+// echo $file;
 if($file!=""){
   try {
     deleteFile($file);
@@ -37,7 +37,7 @@ if($file!=""){
     $msg = $e->getMessage();
   }
 }
-$url = "./Img.php?id=$id";
+$url = "./updateOO.php?id=$id";
 alertAndBackToPage($msg, $url);
 
 function deleteFile($file) {

@@ -11,7 +11,7 @@ $sql3rd="SELECT * FROM `discount_rate`";
 // ON product_type_list.product_type_id = product_type.product_type_id
 // WHERE product_type_list.product_type_id = 1;
 // ";
-000
+
 try{
     $result = $conn->query($sql);
     $result2nd = $conn->query($sql2nd);
