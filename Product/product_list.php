@@ -11,8 +11,27 @@ require_once("./product_connect.php");
 //     $where1="where `product_id` =$id";
 // }
 
-//V
+$dir="";
+if(isset($_GET["dir"])){
+    $dir= $_GET["dir"];
+}
 
+
+// $sort="id";
+// if(isset($_GET["sort"])){
+//     $sort= $_GET["sort"];
+// }
+// usort($rows, function($a, $b){
+//   global $sort;
+//   if($GLOBALS["dir"] == "DESC"){
+//       return $b[$sort] <=> $a[$sort];
+//   }else{
+//       return $a[$sort] <=> $b[$sort];
+//   }
+// });
+
+
+//V
 $tid=(isset($_GET["tid"]))?intval($_GET["tid"]):0;
 if($tid == 0){
   $typeSQL = "";
@@ -43,7 +62,7 @@ $pageStart = ($page - 1) * $perPage;
 
 
 $sql = "SELECT * FROM `product` JOIN `product_type_list` ON product.product_type_list_id = product_type_list.product_type_list_id JOIN product_type
-ON product_type.product_type_id = product_type_list.product_type_id JOIN discount_rate ON discount_rate.discount_rate_id = product.discount_rate_id WHERE $typeSQL $searchSQL product.isValid = 1 LIMIT $pageStart, $perPage; ";
+ON product_type.product_type_id = product_type_list.product_type_id JOIN discount_rate ON discount_rate.discount_rate_id = product.discount_rate_id WHERE $typeSQL $searchSQL product.isValid = 1 LIMIT $pageStart, $perPage ; ";
 // limit0,5五個一頁  
 $sqlAll = "SELECT * FROM `product` WHERE $typeSQL $searchSQL product.isValid = 1";
 $sqlType="SELECT * FROM `product_type` WHERE isValid = 1";
@@ -140,7 +159,10 @@ $conn->close();
 
   <?php if($msgNum>0): ?>
     <div class=" d-flex">
-        <div class="my-2 me-auto "> 目前共<span class="badge text-bg-secondary"><?=$totalAll?></span>項商品</div>
+        <div class="my-2 me-auto "> 
+          目前共<span class="badge text-bg-secondary"><?=$totalAll?></span>項商品
+        <!-- <a href="./product_list.php?dir=<?=($dir=="DESC")?"ASC":"DESC"?>">123</a> 排序????-->
+        </div>
 
         <div class="me-1">
           <div class="input-group input-group-sm">
@@ -165,7 +187,9 @@ $conn->close();
     </div>
 
     <div class="nav nav-tabs">
-        <a class="nav-link <?=($tid==0)?"active":""?>" href="./product_list.php">全部</a>
+        <a class="nav-link <?=($tid==0)?"active":""?>" href="./product_list.php?>">全部</a>
+
+
         
         <!-- 逐筆將大分類ID放進tabs，點擊時將其設至網址變數，網址變數和tabs所屬ID一致時active -->
         <?php foreach($rowsType as $row): ?>
