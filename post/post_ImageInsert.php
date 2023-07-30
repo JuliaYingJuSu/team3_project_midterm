@@ -1,6 +1,6 @@
 <?php
 // 用來上傳多張圖片用
-require_once("./connect.php");
+require_once("../connect.php");
 
 if(!isset($_GET["id"])){
     echo "請由正常管道進入";

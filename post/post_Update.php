@@ -1,5 +1,5 @@
 <?php
-require_once("./connect.php");
+require_once("../connect.php");
 
 if(!isset($_POST["id"])){
     echo "請由正常管道進入";

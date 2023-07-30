@@ -1,5 +1,5 @@
 <?php
-require_once("./connect.php");
+require_once("../connect.php");
 $sql = "SELECT * FROM `post` join updating_restaurant on post.updating_restaurant_ID = updating_restaurant.updating_restaurant_ID;";
 $sql2 ="SELECT * FROM `updating_restaurant` ;";
 

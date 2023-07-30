@@ -1,5 +1,5 @@
 <?php
-require_once("./connect.php");
+require_once("../connect.php");
 
 
 $search =(isset($_GET["search"]))?$_GET["search"]:"";
