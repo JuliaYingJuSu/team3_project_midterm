@@ -163,7 +163,7 @@ $conn->close();
             btnDel.addEventListener("click",function(){
                 let id= parseInt(this.getAttribute("idn"));
                 if(window.confirm("真的要刪除嗎??")=== true){
-                window.location.href=`./doDelete.php?id=${id}`;    
+                window.location.href=`../User/doDelete.php?id=${id}`;    
                 }
             })
         });
