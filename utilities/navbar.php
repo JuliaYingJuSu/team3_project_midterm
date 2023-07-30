@@ -98,7 +98,7 @@ if(isset($_GET["webpage"])){
                     <?= ($webpage == "product_list.php") ? "active" : "" ?> id="menu5" href="?webpage=product_list.php" >
                         <i class="fa-solid fa-cash-register fa-sm me-2" style="color: #ffffff;"></i>團購管理</a>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu5">
-                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
+                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i></a>
                 </div>
                 <div class="d-grid gap-2 p-3">
                     <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu6" data-bs-toggle="collapse">
@@ -119,7 +119,8 @@ if(isset($_GET["webpage"])){
             <?php if($webpage == "post_ArticleList.php"){require("../post/post_ArticleList.php");}?>
             <?php if($webpage == "product_list.php"){require("../product/product_list.php");}?>
             <?php if($webpage == "cartPage.php"){require("../Cart/cart/cartPage.php");}?>
-            <?php if($webpage == "pageBooksList3.php"){require("../book/pageBooksList3.php");}?>          
+            <?php if($webpage == "pageBooksList3.php"){require("../book/pageBooksList3.php");}?>
+                      
         </main>
     </div>
     <script src="../js/bootstrap.bundle.min.js"></script>
