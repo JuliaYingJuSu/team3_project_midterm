@@ -132,7 +132,7 @@ $conn->close();
         line-height: 1.8rem;
         }
     </style>
-    <title>訂位總表</title>
+    <title>訂位列表</title>
 </head>
 <body>
     <div class="container">
