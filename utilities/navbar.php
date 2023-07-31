@@ -119,10 +119,16 @@ if (isset($_GET["webpage"])) {
             <?php if ($webpage == "user_update.php") {
                 require("../User/user_update.php");
             } ?>
+            
             <?php if ($webpage == "post_ArticleList.php") {
                 require("../post/post_ArticleList.php");
             } ?>
-
+            <?php if ($webpage == "post_NewArticle.php") {
+                require("../post/post_NewArticle.php");
+            } ?>
+            <?php if ($webpage == "post_ModifyArticle.php") {
+                require("../post/post_ModifyArticle.php");
+            } ?>
 
             <?php if ($webpage == "product_list.php") {
                 require("../Product/product_list.php");
@@ -193,9 +199,7 @@ if (isset($_GET["webpage"])) {
             <?php if ($webpage == "pageBooksList3.php") {
                 require("../book/pageBooksList3.php");
             } ?>
-            <?php if ($webpage == "post_NewArticle.php") {
-                require("../post/post_NewArticle.php");
-            } ?>
+            
 
 
             <?php if($webpage == "book_list.php"){require("../book/book_list.php");}?>

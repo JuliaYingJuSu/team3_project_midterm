@@ -132,9 +132,11 @@ $conn->close();
                 <div class="name ms-3"><?=$row["nickname"]?></div>
                 <div class="content ms-5 text-center"><?=$row["user_email"]?></div>
                 <div class="time">
-                    <span class="btn btn-danger btn-sm btn-del" idn="<?=$row["user_id"]?>">刪除</span>
-                    <a href="?webpage=user_update.php&id=<?=$row["user_id"]?>" class="btn btn-info btn-sm ms-1
-                    <?= ($webpage == "user_update.php") ? "active" : "" ?>">修改</a>
+                    <span class="btn btn-sm btn-del" idn="<?=$row["user_id"]?>">
+                    <i class="fa-regular fa-trash-can fa-2xl" style="color: #e60000;"></i></span>
+                    <a href="?webpage=user_update.php&id=<?=$row["user_id"]?>" class="btn btn-sm ms-1
+                    <?= ($webpage == "user_update.php") ? "active" : "" ?>">
+                    <i class="fa-regular fa-pen-to-square fa-2xl" style="color: #005eff;"></i></a>
                 </div>
             </div>
             <?php endforeach;?>
