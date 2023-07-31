@@ -20,6 +20,12 @@ if($search==""){
     $searchSQL = "`$searchType` LIKE '%$search%' AND";
 }
 
+if($cid==0){
+    $catSQL="";
+}else{
+    $catSQL="`nikename` = $cid AND";
+}
+
 
 //每頁抓取10筆資料
 if(!isset($_GET["page"])){
@@ -30,7 +36,7 @@ if(!isset($_GET["page"])){
 $perPage = 10;
 $pageStart = ($page - 1) * $perPage;
 $sql = "SELECT * FROM `user` WHERE `isValid` = 1 LIMIT $pageStart, $perPage";
-$sqlAll = "SELECT * FROM `user` WHERE `isValid` = 1";
+$sqlAll = "SELECT * FROM `user` WHERE $catSQL $searchSQL `isValid` = 1";
 
   try {
     $result=$conn->query($sql);
@@ -98,7 +104,7 @@ $conn->close();
                         <div class="input-group-text bg-white">
                             <input name="searchType" id="searchType1" type="radio" class="form-check-input" value="name" checked>
                             <label for="searchType1" class="me-2">名字</label>
-                            <input name="searchType" id="searchType2" type="radio" class="form-check-input" value="content">
+                            <input name="searchType" id="searchType2" type="radio" class="form-check-input" value="nikename">
                             <label for="searchType2">暱稱</label>
                         </div>
                         <input name="search" type="text" class="form-control form-control-sm" placeholder="搜尋">
@@ -114,7 +120,7 @@ $conn->close();
                 <div class="msg bg-primary text-light ps-1 fw-bold rounded">
                     <div class="id">ID</div>
                     <div class="name">Name</div>
-                    <div class="name ms-3">暱稱</div>
+                    <div class="nikename ms-3 text-nowrap">暱稱</div>
                     <div class="content ms-5 text-center">E-mail</div>
                     <div class="time">控制</div>
                 </div>
@@ -171,7 +177,7 @@ $conn->close();
         btnSearch.addEventListener("click",function(){
             let query=document.querySelector("input[name=search]").value;
             let querytype=document.querySelector("input[name=searchType]:checked").value;
-            window.location.href=`./user_list.php?search=${query}&qtype=${querytype}`
+            window.location.href=`../utilities/navbar.php?webpage=user_list.php&search=${query}&qtype=${querytype}`
         }
         );
         

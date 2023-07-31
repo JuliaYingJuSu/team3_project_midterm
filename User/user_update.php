@@ -66,7 +66,6 @@ $conn->close();
                     <span class="fs-4 fw-bold ms-5">目前的大頭照:</span>
                 </div>
                 <div class="col-auto ms-5">
-                    <!-- <img src="<?= "../User/uimg/$row[user_img]" ?>" class="d-inline-block align-text-bottom rounded-circle img-fluid"> -->
                     <?php if (isset($row["user_img"]) && !empty($row["user_img"])) : ?>
                         <img src="<?= "../User/uimg/$row[user_img]" ?>" width="100" height="100" class="d-inline-block align-text-bottom rounded-circle img-fluid">
                     <?php else : ?>
