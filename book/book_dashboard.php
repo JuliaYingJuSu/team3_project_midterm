@@ -13,11 +13,17 @@
 </head>
 <body>
     <br><br>
-    <img src="../book/bimg/userCount.png" alt="會員總訂位次數"><br><br><br>
-    <img src="../book/bimg/restaurantCount.png" alt="餐廳總訂位次數"><br><br><br>
-    <img src="../book/bimg/userCountAug.png" alt="8月份會員總訂位次數"><br><br><br>
-    <img src="../book/bimg/restaurantCountAug.png" alt="8月份餐廳總訂位次數">
+    <div class="container d-flex">
+    <div>
+        <img src="../book/bimg/userCount.png" alt="會員總訂位次數"><br><br><br>
+        <img src="../book/bimg/userCountAug.png" alt="8月份會員總訂位次數">
+    </div>
 
+    <div>
+        <img src="../book/bimg/restaurantCount.png" alt="餐廳總訂位次數"><br><br><br>
+        <img src="../book/bimg/restaurantCountAug.png" alt="8月份餐廳總訂位次數">
+    </div>
+    </div>
 <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
