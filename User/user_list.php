@@ -92,12 +92,12 @@ $conn->close();
 </head>
 
 <body>
-    <div class="container mt-5 w-100">
+    <div class="container mt-3 w-100">
         <h1 class="fw-bold">使用者列表</h1>
         <?php if($msgnub>0):?>
             <div class="d-flex">
                 <div class="my-2 me-auto">
-                    目前共<?=$totalAll?> 個使用者
+                    目前共 <?=$totalAll?> 個使用者
                 </div>
                 <div class="me-1">
                     <div class="input-group input-group-sm">
@@ -108,16 +108,16 @@ $conn->close();
                             <label for="searchType2">暱稱</label>
                         </div>
                         <input name="search" type="text" class="form-control form-control-sm" placeholder="搜尋">
-                        <div class="btn bg2 btn-sm btn-search">送出搜尋</div>
+                        <div class="btn bg2 btn-sm btn-search text-light fw-bold">送出搜尋</div>
                     </div>
                 </div>
                 <div>
-                    <a href="?webpage=user_add.php" class="btn bg2 btn-sm
+                    <a href="?webpage=user_add.php" class="btn bg2 btn-sm text-light fw-bold
                     <?= ($webpage == "user_add.php") ? "active" : "" ?>">新增資料</a>
                 </div>
             </div>
-        <div class="border p-3 mb-5 rounded bg1">
-                <div class="msg bg2 text-light ps-1 fw-bold rounded">
+        <div class="border p-3 mb-4 rounded bg1">
+                <div class="msg bg2 text-light ps-1 fw-bold rounded mb-2">
                     <div class="id">ID</div>
                     <div class="name">Name</div>
                     <div class="nikename ms-3 text-nowrap">暱稱</div>
@@ -126,7 +126,7 @@ $conn->close();
                 </div>
             
             <?php foreach($rows as $index => $row):?>
-            <div class="msg ps-1 my-1">
+            <div class="msg ps-1 my-2">
                 <div class="id"><?=$row["user_id"]?></div>
                 <div class="name"><?=$row["user_name"]?></div>
                 <div class="name ms-3"><?=$row["nickname"]?></div>
