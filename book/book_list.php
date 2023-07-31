@@ -3,6 +3,7 @@ require_once("../connect.php");
 
 $sql = "SELECT * FROM `book` WHERE `book_isValid` = 1 ORDER BY `book_create_time` DESC;";
 
+
 $search = isset($_GET["search"])?$_GET["search"]:"";
 $searchType = isset($_GET["qtype"])?$_GET["qtype"]:"";
 
@@ -224,7 +225,7 @@ $conn->close();
                     </div>
                     <div class="msg my-2">
                         <div class="name">維尼那隻熊</div>
-                        <div class="photo"><img src="./navbar.php?webpage=bimg/winnie.png" alt="小熊維尼"></div>
+                        <div class="photo"><img src="../book/bimg/winnie.png" alt="小熊維尼"></div>
                         <div class="restaurant">朵拉鬆餅坊</div>
                         <div class="note lh">
                             請幫我準備給小豬的生日蛋糕~~<br>
@@ -246,7 +247,7 @@ $conn->close();
                     </div>
                     <div class="msg my-2">
                         <div class="name">Alex Wu</div>
-                        <div class="photo"><img src="./bimg/alex.jpg" alt="大帥哥"></div>
+                        <div class="photo"><img src="../book/bimg/alex.jpg" alt="大帥哥"></div>
                         <div class="restaurant">陶板屋</div>
                         <div class="note lh">
                             這天下午預計改同學的作業<br>
