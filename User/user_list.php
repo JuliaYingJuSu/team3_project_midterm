@@ -10,7 +10,7 @@ if(isset($_GET["id"])){
     $where1="WHERE `user_id`=$id AND";
 }
 
-$cid=(isset($_GET["cid"]))?intval($_GET["cid"]):0;
+// $cid=(isset($_GET["cid"]))?intval($_GET["cid"]):0;
 
 $search=(isset($_GET["search"]))?($_GET["search"]):"";
 $searchType=(isset($_GET["qtype"]))?($_GET["qtype"]):"";
@@ -20,11 +20,11 @@ if($search==""){
     $searchSQL = "`$searchType` LIKE '%$search%' AND";
 }
 
-if($cid==0){
-    $catSQL="";
-}else{
-    $catSQL="`nikename` = $cid AND";
-}
+// if($cid==0){
+//     $catSQL="";
+// }else{
+//     $catSQL="`nikename` = $cid AND";
+// }
 
 
 //每頁抓取10筆資料
@@ -35,8 +35,8 @@ if(!isset($_GET["page"])){
 }
 $perPage = 10;
 $pageStart = ($page - 1) * $perPage;
-$sql = "SELECT * FROM `user` WHERE `isValid` = 1 LIMIT $pageStart, $perPage";
-$sqlAll = "SELECT * FROM `user` WHERE $catSQL $searchSQL `isValid` = 1";
+$sql = "SELECT * FROM `user` WHERE $searchSQL `isValid` = 1 LIMIT $pageStart, $perPage";
+$sqlAll = "SELECT * FROM `user` WHERE  $searchSQL `isValid` = 1";
 
   try {
     $result=$conn->query($sql);
@@ -102,9 +102,9 @@ $conn->close();
                 <div class="me-1">
                     <div class="input-group input-group-sm">
                         <div class="input-group-text bg1">
-                            <input name="searchType" id="searchType1" type="radio" class="form-check-input" value="name" checked>
+                            <input name="searchType" id="searchType1" type="radio" class="form-check-input" value="user_name" checked>
                             <label for="searchType1" class="me-2">名字</label>
-                            <input name="searchType" id="searchType2" type="radio" class="form-check-input" value="nikename">
+                            <input name="searchType" id="searchType2" type="radio" class="form-check-input" value="nickname">
                             <label for="searchType2">暱稱</label>
                         </div>
                         <input name="search" type="text" class="form-control form-control-sm" placeholder="搜尋">
@@ -153,10 +153,7 @@ $conn->close();
                         <a 
                         class="page-link
                          <?=($page==$n)?"active":""?>"
-                          href="./navbar.php?webpage=user_list.php&page=<?=$n?>
-                          <?=($cid>0)?"&cid=$cid":""?>
-                          <?=($search=="")?"":"&search=$search&qtype=$searchType"?>
-                          ">
+                          href="./navbar.php?webpage=user_list.php&page=<?=$n?>">
                           <?=$n?>
                         </a>
                     </li>
