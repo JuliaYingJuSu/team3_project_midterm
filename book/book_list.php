@@ -136,11 +136,11 @@ $conn->close();
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-2">訂位總表</h1>
+        <h1 class="fw-bold mt-2">訂位列表</h1>
         <?if($msgNum > 0):?>
             <div class="d-flex">
                 <div class="my-2 me-auto">
-                    目前共 <?=$totalAll?> 筆資料
+                    目前共 <?=$totalAll?> 筆訂位
                 </div>
                 <div class="me-1">
                     <div class="input-group input-group-sm">
@@ -188,7 +188,7 @@ $conn->close();
             </div>
 
             
-            <div class="msg ps-1 colbg">
+            <div class="msg ps-1 colbg mt-1 mb-2">
                 <div class="book_id">訂位編號</div>
                 <div class="user_id">會員編號</div>
                 <div class="restaurant_id">餐廳編號</div>
