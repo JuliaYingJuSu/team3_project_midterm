@@ -1,6 +1,15 @@
 <?php
-require_once("../product_connect.php");
-require_once("../utilities/alertFunc.php");
+require_once("../connect.php");
+
+// 通知的小視窗加上回列表
+function alertAndGoToList1($msg){
+  echo "<script>
+    alert(\"$msg\");
+    window.location.href = \"../utilities/navbar.php?webpage=style-product_list.php\";
+  </script>";
+}
+
+// require_once("../utilities/alertFunc.php");
 
 if (!isset($_GET["id"])) {
   echo "請由正式方法進入頁面";
@@ -16,7 +25,7 @@ try {
   $row = "ERROR";
 }
 if ($row == "ERROR" || $row == NULL) {
-  alertAndGoToList("讀取錯誤，請洽管理人員");
+  alertAndGoToList1("讀取錯誤，請洽管理人員");
   exit;
 }
 ?>
@@ -35,7 +44,7 @@ if ($row == "ERROR" || $row == NULL) {
 
   <div class="container my-3">
     <h1>管理分類<span class="badge text-bg-info fs-6 align-middle ms-1">表單</span></h1>
-    <form action="./product_doUpdateL.php" method="post" enctype="multipart/form-data">
+    <form action="../utilities/navbar.php?webpage=style-product_doUpdateL.php" method="post" enctype="multipart/form-data">
       <!-- 隱藏欄位 分類編號 -->
       <input type="hidden" name="id" value="<?= $row["product_type_list_id"] ?>">
       <div class="input-group mb-1">
@@ -44,7 +53,7 @@ if ($row == "ERROR" || $row == NULL) {
       </div>
       <div class="mt-1 text-end">
         <button type="submit" class="btn btn-primary btn-send">送出</button>
-        <a class="btn btn-info" href="./product_list.php">取消</a>
+        <a class="btn btn-info" href="../utilities/navbar.php?webpage=product_list.php">取消</a>
       </div>
     </form>
   </div>

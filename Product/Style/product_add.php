@@ -11,14 +11,14 @@
 
     <div class="container my-3">
       <h1>增加分類<span class="badge text-bg-info fs-6 align-middle ms-1">商品</span></h1>
-      <form action="./product_doAdd.php" method="post" enctype="multipart/form-data">
+      <form action="../utilities/navbar.php?webpage=style-product_doAdd.php" method="post" enctype="multipart/form-data">
         <div class="input-group mb-1">
           <span class="input-group-text">分類名稱</span>
           <input name="name" type="text" class="form-control" placeholder="輸入分類名稱">
         </div>
         <div class="mt-1 text-end">
           <button type="submit" class="btn btn-primary btn-send">送出</button>
-          <a class="btn btn-info" href="./product_list.php">取消</a>
+          <a class="btn btn-info" href="../utilities/navbar.php?webpage=style-product_list.php">取消</a>
         </div>
       </form>
     </div>

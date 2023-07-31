@@ -1,7 +1,7 @@
 <?php
-session_start();
-require_once("../product_connect.php"); // 引用連線
-require_once("../utilities/alertFunc.php"); // 引用常用函數
+// session_start();
+require_once("../connect.php"); // 引用連線
+// require_once("../utilities/alertFunc.php"); // 引用常用函數
 
 
 if(!isset($_POST["name"])){
@@ -45,3 +45,25 @@ try {
   alertAndGoToList("分類新增錯誤：" .$conn->error);
 }
 $conn->close();
+
+// 通知的小視窗加上回列表
+function alertAndGoToList($msg){
+  echo "<script>
+    alert(\"$msg\");
+    window.location.href = \"../utilities/navbar.php?webpage=style-product_list.php\";
+  </script>";
+}
+// 通知的小視窗加上回上一頁
+function alertAndGoBack($msg){
+  echo "<script>
+    alert(\"$msg\");
+    window.history.back();
+  </script>";
+}
+// 通知的小視窗加上回上一頁
+function alertAndBackToPage($msg, $page){
+  echo "<script>
+    alert(\"$msg\");
+    window.location.href = \"$page\";
+  </script>";
+}

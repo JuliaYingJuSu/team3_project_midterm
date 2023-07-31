@@ -2,7 +2,8 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "test";
+// $dbname = "test";
+$dbname = "team3project";
 $port = 3306;
 
 //PHP7

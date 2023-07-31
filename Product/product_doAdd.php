@@ -1,5 +1,5 @@
 <?php
-require_once("./product_connect.php");
+require_once("../connect.php");
 
 if(!isset($_POST["name"])){
     echo "走開";
@@ -132,6 +132,7 @@ try{
 
 
 
+// history.back紀錄之前打的表格內容 location導網址的話不會
 // echo '<script>
 //   setTimeout(function () {
 //       window.location.href = "./pageMsgsList02.php"
@@ -140,12 +141,12 @@ try{
   
 echo "<script>
 alert (\"資料 $msg 新增成功\");
-window.location.href = \"product_list.php\"
+window.location.href = \"../utilities/navbar.php?webpage=product_list.php\"
 </script>";
 
-function alertGoBack($msg2){
-    echo "<script>
-    alert (\"$msg2\");
-    window.history.back();
-    </script>";
-}// history.back紀錄之前打的表格內容 location導網址的話不會
+// function alertGoBack($msg2){
+//     echo "<script>
+//     alert (\"$msg2\");
+//     window.history.back();
+//     </script>";
+//   }

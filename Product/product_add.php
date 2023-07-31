@@ -1,6 +1,6 @@
 <!-- 可同時新增多筆資料更新資料庫 -->
 <?php
-require_once("./product_connect.php");
+require("../connect.php");
 
 $sql="SELECT * FROM `product_type`";
 $sql2nd="SELECT * FROM `product_type_list`";
@@ -41,8 +41,9 @@ try{
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     </head>
     <body>
+        
         <div class="container mt-3">
-            <form action="./product_doAdd.php" method="post" enctype="multipart/form-data">
+            <form action="../utilities/navbar.php?webpage=product_doAdd.php" method="post" enctype="multipart/form-data">
                 <div class="contentArea">
                     <div class="input-group mt-2">
                         <span class="input-group-text">商品名稱</span>

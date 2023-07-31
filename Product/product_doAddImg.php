@@ -1,7 +1,7 @@
 <!-- 上傳多張圖片用 -->
 
 <?php
-require_once("./product_connect.php");
+require_once("../connect.php");
 
 if(!isset($_GET["id"])){
     echo "走開";
@@ -24,7 +24,7 @@ for($i=0;$i<$fileCount;$i++){
 if($_FILES["myFile"]["error"][$i] == 0){
     $ext = pathinfo($_FILES["myFile"]["name"][$i],PATHINFO_EXTENSION);
     $file = ($timestamp + $i).".".$ext;
-    $result = move_uploaded_file($_FILES["myFile"]["tmp_name"][$i],"./product_img/".$file);
+    $result = move_uploaded_file($_FILES["myFile"]["tmp_name"][$i],"../Product/product_img/".$file);
     $pathFile = $file;
     if($result){
         $sql.="INSERT INTO `product_img` (`product_img_id`, `product_id`, `product_img`, `showed_1st`) VALUES (NULL, '$id', '$pathFile', '0');";

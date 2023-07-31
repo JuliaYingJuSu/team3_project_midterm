@@ -1,7 +1,7 @@
 
 
 <?php
-require_once("./product_connect.php");
+require_once("../connect.php");
 
 if(!isset($_GET["id"])){
     echo "走開";
@@ -30,6 +30,6 @@ try{
 
   echo "<script>
 alert (\"$msg\");
-window.location.href = \"./product_list.php\"
+window.location.href = \"../utilities/navbar.php?webpage=product_list.php\"
 </script>";
 

@@ -1,7 +1,7 @@
 <!-- 按修改完跳轉的修改留言頁 -->
 
 <?php
-require_once("./product_connect.php");
+require_once("../connect.php");
 
 if(!isset($_GET["id"])){
  exit;
@@ -69,7 +69,7 @@ try{
 <body>
     <div class="container mt-3">
 
-        <form action="./product_doUpdateOO.php" method="post" enctype="multipart/form-data">
+        <form action="../utilities/navbar.php?webpage=product_doUpdateOO.php" method="post" enctype="multipart/form-data">
             <!-- 讓doUpdate的$_POST["id"]抓得到東西 -->
             <input type="hidden" name="id" value="<?=$id?>"> 
 
@@ -130,7 +130,7 @@ try{
             </div>
             <div class="mt-1 text-end">
                 <button type="submit" class="btn btn-info">送出</button>
-                <a class="btn btn-info" href="./product_list.php">回上一頁</a>
+                <a class="btn btn-info" href="../utilities/navbar.php?webpage=product_list.php">回上一頁</a>
             </div>
         </form>
     </div>
@@ -138,7 +138,7 @@ try{
         <div class="d-flex">
             <?php foreach($row4s as $row4): ?>
                 <div class="border border-secondary rounded p-1 m-2">
-                    <img src="./product_img/<?=$row4["product_img"]?>" alt=""      
+                    <img src="../Product/product_img/<?=$row4["product_img"]?>" alt=""      
                     class="img delImg" pid="<?=$row4["product_img"]?>" idn="<?=$id?>">
                     <div class="input-group ">
                         <!-- <span class="input-group-text text-secondary">首圖顯示</span> -->
@@ -148,7 +148,7 @@ try{
             <?php endforeach; ?>
         </div>
         
-        <form id="form2" class="mt-2 mb-5 p-2 bg-primary-subtle" method="post" action="./product_doAddImg.php?id=<?=$id?>" enctype="multipart/form-data">
+        <form id="form2" class="mt-2 mb-5 p-2 bg-primary-subtle" method="post" action="../utilities/navbar.php?webpage=product_doAddImg.php&id=<?=$id?>" enctype="multipart/form-data">
             <div class="myFiles">
                 <div class="input-group mt-1">
                     <span class="input-group-text">產品圖</span>
@@ -168,7 +168,7 @@ try{
 
     <!-- 預覽圖片 -->
         <div>
-            <img id="preview_progressbarTW_img" src="img/default.jpg" class="border border-secondary rounded p-1 m-2" />
+            <img id="preview_progressbarTW_img" src="../Product/product_img/default.jpg" class="border border-secondary rounded p-1 m-2" />
         </div>
         <template id="myFile">
             <div class="input-group mt-1 pdUnit">
@@ -286,7 +286,7 @@ try{
             let id = this.getAttribute("idn");
             let pid = this.getAttribute("pid");    
             if(confirm("確定要刪除圖片？")){
-            window.location.href = `./product_doDelImg.php?id=${id}&img=${pid}`;
+            window.location.href = `../utilities/navbar.php?webpage=product_doDelImg.php&id=${id}&img=${pid}`;
             }
             });
         }

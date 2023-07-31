@@ -1,6 +1,27 @@
 <?php
-require_once("../product_connect.php");
-require_once("../utilities/alertFunc.php");
+require_once("../connect.php");
+// 通知的小視窗加上回列表
+function alertAndGoToList2($msg){
+  echo "<script>
+    alert(\"$msg\");
+    window.location.href = \"../utilities/navbar.php?webpage=style-product_list.php\";
+  </script>";
+}
+// 通知的小視窗加上回上一頁
+function alertAndGoBack2($msg){
+  echo "<script>
+    alert(\"$msg\");
+    window.history.back();
+  </script>";
+}
+// 通知的小視窗加上回上一頁
+function alertAndBackToPage($msg, $page){
+  echo "<script>
+    alert(\"$msg\");
+    window.location.href = \"$page\";
+  </script>";
+}
+
 
 if(!isset($_POST["id"])){
   echo "請由正式方法進入頁面";
@@ -17,10 +38,10 @@ try {
 }
 
 if($result == "error"){
-  alertAndGoBack("發生錯誤，請洽管理人員");
+  alertAndGoBack2("發生錯誤，請洽管理人員");
   exit;
 }else if($result->num_rows > 0){
-  alertAndGoBack("該分類名稱已經使用過");
+  alertAndGoBack2("該分類名稱已經使用過");
   exit;
 }
 
@@ -37,17 +58,15 @@ try {
 } catch (mysqli_sql_exception $exception) {
     $error = $exception->getMessage();
 }
-// var_dump($sql);
-// exit;
 
 $conn->close();
 
 // 由變數 error 來判斷要轉跳回列表，或失敗了回上一頁
 if($error === ""){
-  alertAndGoToList("資料修改成功");
+  alertAndGoToList2("資料修改成功");
   exit;
 }else{
-  alertAndGoBack("資料修改錯誤：" .$error);
+  alertAndGoBack2("資料修改錯誤：" .$error);
   exit;
 }
 
