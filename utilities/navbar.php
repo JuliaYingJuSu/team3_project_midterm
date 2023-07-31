@@ -75,7 +75,7 @@ if (isset($_GET["webpage"])) {
                 <div class="d-grid gap-2 p-3">
                     <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu3" data-bs-toggle="collapse">
                         <i class="fa-solid fa-bowl-rice fa-sm me-2" style="color: #ffffff;"></i>訂位</button>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu3" <?= ($webpage == "pageBooksList3.php") ? "active" : "" ?> id="menu6" href="?webpage=pageBooksList3.php">
+                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu3" <?= ($webpage == "book_list.php") ? "active" : "" ?> id="menu6" href="?webpage=book_list.php">
                         <i class="fa-solid fa-folder fa-sm me-2" style="color: #ffffff;"></i>訂位管理</a>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu3">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
@@ -196,6 +196,15 @@ if (isset($_GET["webpage"])) {
             <?php if ($webpage == "post_NewArticle.php") {
                 require("../post/post_NewArticle.php");
             } ?>
+
+
+            <?php if($webpage == "book_list.php"){require("../book/book_list.php");}?>
+            <?php if($webpage == "book_dashboard.php"){require("../book/book_dashboard.php");}?>
+            <?php if($webpage == "book_add.html"){require("../book/book_add.html");}?>              
+            <?php if($webpage == "book_delete.php"){require("../book/book_delete.php");}?>
+            <?php if($webpage == "book_insert.php"){require("../book/book_insert.php");}?>
+            <?php if($webpage == "book_pageBook.php"){require("../book/book_pageBook.php");}?>
+            <?php if($webpage == "book_update.php"){require("../book/book_update.php");}?>
 
         </main>
     </div>
