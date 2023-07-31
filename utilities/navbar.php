@@ -20,18 +20,29 @@ if (isset($_GET["webpage"])) {
     <title>選單</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+.bg1{
+    background-color:#f1ece2;
+}
+.bg2{
+    background-color:#777e5c;
+}
+.text1{
+    color:#777e5c;
+}
+</style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-primary">
+    <nav class="navbar navbar-expand-lg bg1">
         <div class="container-fluid">
-            <a class="navbar-brand ms-5 text-light fw-bold fs-3" href="#">
-                <img src="../img/logo.png" alt="Logo" width="110" height="80" class="d-inline-block">
+            <a class="navbar-brand ms-5 fw-bold fs-3" href="#">
+                <img src="../img/logo.png" alt="Logo" width="200" height="150" class="d-inline-block">
             </a>
             <div class="collapse navbar-collapse justify-content-end">
                 <ul class="navbar-nav fw-bold">
-                    <span class="text-light d-flex align-items-center fs-5">
-                        <i class="fa-solid fa-hands me-2" style="color: #ffffff;"></i>Hi~歡迎回來，
+                    <span class="text1 d-flex align-items-center fs-4">
+                        <i class="fa-solid fa-hands me-2" style="color: #777e5c;"></i>Hi~歡迎回來，
                         <?= $_SESSION["user"]["name"] ?>
                     </span>
                     <li class="nav-item dropdown pe-1">
@@ -39,7 +50,7 @@ if (isset($_GET["webpage"])) {
                             <?php if (isset($_SESSION["user"]["img"]) && !empty($_SESSION["user"]["img"])) : ?>
                                 <img src="../img/<?= $_SESSION["user"]["img"] ?>" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
                             <?php else : ?>
-                                <img src="../img/noimg.png" width="60" height="60" class="d-inline-block align-text-bottom rounded-circle img-fluid">
+                                <img src="../img/noimg.png" width="80" height="80" class="d-inline-block align-text-bottom rounded-circle img-fluid">
                             <?php endif; ?>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end bg-light">
@@ -53,19 +64,19 @@ if (isset($_GET["webpage"])) {
         </div>
     </nav>
     <div class="side-menu d-flex h-100">
-        <nav class="bg-primary position-relative pt-5" style="width: 15%">
+        <nav class="bg1 position-relative pt-5" style="width: 15%">
             <div>
                 <div class="d-grid gap-2 p-3">
-                    <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu1" data-bs-toggle="collapse">
-                        <i class="fa-solid fa-user fa-sm me-2" style="color: #ffffff;"></i>使用者</button>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold
+                    <button class="btn bg2 btn-sm fs-4 fw-bold text-white" type="button" data-bs-target="#menu1" data-bs-toggle="collapse">
+                        <i class="fa-solid fa-user fa-sm me-2" style="color: #ffffff"></i>使用者</button>
+                    <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1
                     <?= ($webpage == "user_list.php") ? "active" : "" ?>" id="menu1" href="?webpage=user_list.php">
-                        <i class="fa-solid fa-user-gear fa-sm me-2" style="color: #ffffff;"></i>使用者管理</a>
-                    <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu1">
-                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
+                        <i class="fa-solid fa-user-gear fa-sm me-2" style="color: #777e5c;"></i>使用者管理</a>
+                    <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu1">
+                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>統計</a>
                 </div>
                 <div class="d-grid gap-2 p-3">
-                    <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu2" data-bs-toggle="collapse">
+                    <button class="btn bg2 fs-4 fw-bold text-white" type="button" data-bs-target="#menu2" data-bs-toggle="collapse">
                         <i class="fa-solid fa-utensils fa-sm me-2" style="color: #ffffff;"></i>餐廳</button>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu2">
                         <i class="fa-solid fa-folder fa-sm me-2" style="color: #ffffff;"></i>餐廳管理</a>
@@ -73,7 +84,7 @@ if (isset($_GET["webpage"])) {
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
                 </div>
                 <div class="d-grid gap-2 p-3">
-                    <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu3" data-bs-toggle="collapse">
+                    <button class="btn btn-secondary fs-4 fw-bold" type="button" data-bs-target="#menu3" data-bs-toggle="collapse">
                         <i class="fa-solid fa-bowl-rice fa-sm me-2" style="color: #ffffff;"></i>訂位</button>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu3" <?= ($webpage == "book_list.php") ? "active" : "" ?> id="menu6" href="?webpage=book_list.php">
                         <i class="fa-solid fa-folder fa-sm me-2" style="color: #ffffff;"></i>訂位管理</a>
@@ -81,7 +92,7 @@ if (isset($_GET["webpage"])) {
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
                 </div>
                 <div class="d-grid gap-2 p-3">
-                    <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu4" data-bs-toggle="collapse">
+                    <button class="btn btn-secondary fs-4 fw-bold" type="button" data-bs-target="#menu4" data-bs-toggle="collapse">
                         <i class="fa-solid fa-cart-shopping fa-sm me-2" style="color: #ffffff;"></i>購物車</button>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu4" <?= ($webpage == "cartPage.php") ? "active" : "" ?> id="menu6" href="?webpage=cartPage.php">
                         <i class="fa-solid fa-folder fa-sm me-2" style="color: #ffffff;"></i>購物車管理</a>
@@ -89,7 +100,7 @@ if (isset($_GET["webpage"])) {
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>統計</a>
                 </div>
                 <div class="d-grid gap-2 p-3">
-                    <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu5" data-bs-toggle="collapse">
+                    <button class="btn btn-secondary fs-4 fw-bold" type="button" data-bs-target="#menu5" data-bs-toggle="collapse">
                         <i class="fa-solid fa-store fa-sm me-2" style="color: #ffffff;"></i>商城</button>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu5" <?= ($webpage == "product_list.php") ? "active" : "" ?> id="menu5" href="?webpage=product_list.php">
                         <i class="fa-solid fa-cash-register fa-sm me-2" style="color: #ffffff;"></i>商品管理</a>
@@ -97,7 +108,7 @@ if (isset($_GET["webpage"])) {
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #ffffff;"></i>分類管理</a>
                 </div>
                 <div class="d-grid gap-2 p-3">
-                    <button class="btn btn-primary fs-4 fw-bold" type="button" data-bs-target="#menu6" data-bs-toggle="collapse">
+                    <button class="btn btn-secondary fs-4 fw-bold" type="button" data-bs-target="#menu6" data-bs-toggle="collapse">
                         <i class="fa-solid fa-camera-retro fa-sm me-2" style="color: #ffffff;"></i>食記</button>
                     <a type="button" class="collapse text-light fs-5 text-decoration-none text-center fw-bold" id="menu6" <?= ($webpage == "post_ArticleList.php") ? "active" : "" ?> id="menu6" href="?webpage=post_ArticleList.php">
                         <i class="fa-solid fa-pen-to-square me-2" style="color: #ffffff;"></i>食記管理</a>
@@ -106,7 +117,7 @@ if (isset($_GET["webpage"])) {
                 </div>
             </div>
         </nav>
-        <main class="w-100 bg-body-tertiary">
+        <main class="w-100 bg1">
             <?php if ($webpage == "") {
                 require("../index.php");
             } ?>
