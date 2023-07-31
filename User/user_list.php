@@ -101,23 +101,23 @@ $conn->close();
                 </div>
                 <div class="me-1">
                     <div class="input-group input-group-sm">
-                        <div class="input-group-text bg-white">
+                        <div class="input-group-text bg1">
                             <input name="searchType" id="searchType1" type="radio" class="form-check-input" value="name" checked>
                             <label for="searchType1" class="me-2">名字</label>
                             <input name="searchType" id="searchType2" type="radio" class="form-check-input" value="nikename">
                             <label for="searchType2">暱稱</label>
                         </div>
                         <input name="search" type="text" class="form-control form-control-sm" placeholder="搜尋">
-                        <div class="btn btn-primary btn-sm btn-search">送出搜尋</div>
+                        <div class="btn bg2 btn-sm btn-search">送出搜尋</div>
                     </div>
                 </div>
                 <div>
-                    <a href="?webpage=user_add.php" class="btn btn-info btn-sm
+                    <a href="?webpage=user_add.php" class="btn bg2 btn-sm
                     <?= ($webpage == "user_add.php") ? "active" : "" ?>">新增資料</a>
                 </div>
             </div>
-        <div class="border p-3 mb-5 rounded bg-white">
-                <div class="msg bg-primary text-light ps-1 fw-bold rounded">
+        <div class="border p-3 mb-5 rounded bg1">
+                <div class="msg bg2 text-light ps-1 fw-bold rounded">
                     <div class="id">ID</div>
                     <div class="name">Name</div>
                     <div class="nikename ms-3 text-nowrap">暱稱</div>
@@ -133,10 +133,10 @@ $conn->close();
                 <div class="content ms-5 text-center"><?=$row["user_email"]?></div>
                 <div class="time">
                     <span class="btn btn-sm btn-del" idn="<?=$row["user_id"]?>">
-                    <i class="fa-regular fa-trash-can fa-2xl" style="color: #e60000;"></i></span>
+                    <i class="fa-regular fa-trash-can fa-lg" style="color: #777e5c;"></i></span>
                     <a href="?webpage=user_update.php&id=<?=$row["user_id"]?>" class="btn btn-sm ms-1
                     <?= ($webpage == "user_update.php") ? "active" : "" ?>">
-                    <i class="fa-regular fa-pen-to-square fa-2xl" style="color: #005eff;"></i></a>
+                    <i class="fa-regular fa-pen-to-square fa-lg" style="color: #777e5c;"></i></a>
                 </div>
             </div>
             <?php endforeach;?>

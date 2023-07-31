@@ -35,7 +35,7 @@ try{
                 "selfintr"=>$row["self_intr"],
                 "createdate"=>$row["create_date"],
                 "updatetime"=>$row["updatetime"],
-                "lastlogintime"=>$row["last_login_time"],
+                "lastlogintime"=>$row["last_login_time"],               
             ];
             //轉到這一頁
             header("location:../utilities/navbar.php");
