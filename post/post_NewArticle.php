@@ -1,13 +1,17 @@
 <?php
 require_once("../connect.php");
-$sql = "SELECT * FROM `post` join updating_restaurant on post.updating_restaurant_ID = updating_restaurant.updating_restaurant_ID;";
+$sql = "SELECT * FROM `post` join `user` on post.user_ID = user.user_id join updating_restaurant on post.updating_restaurant_ID = updating_restaurant.updating_restaurant_ID;";
 $sql2 ="SELECT * FROM `updating_restaurant` ;";
+$sql3 ="SELECT * FROM  `price_range`";
+
 
 try{
     $result = $conn->query($sql);
     $result2 = $conn->query($sql2);
+    $result3 = $conn ->query($sql3);
     $rows = $result->fetch_all(MYSQLI_ASSOC);
     $row2s = $result2->fetch_all(MYSQLI_ASSOC);
+    $row3s = $result3->fetch_all(MYSQLI_ASSOC);
     $count = count($rows);
 }catch(mysqli_sql_exception $exc){
     $count = -1;
@@ -33,7 +37,7 @@ $conn->close();
     </head>
     <body>
         <div class="container mt-3">
-            <form action="./post_NewArticleInsert.php" method="post" enctype="multipart/form-data">
+            <form action="../utilities/navbar.php?webpage=post_NewArticleInsert.php" method="post" enctype="multipart/form-data">
               <div class="input-group mt-2">
                 <span class="input-group-text">文章標題</span>
                 <input name="name" type="text" class="form-control" placeholder="文章標題">
@@ -55,6 +59,15 @@ $conn->close();
                 <span class="input-group-text">新增餐廳名稱</span>
                 <input name="restaurant_name" type="text" class="form-control" placeholder="請新增餐廳名稱">
               </div> -->
+              <div class="input-group mt-1">
+                <span class="input-group-text">平均消費</span>
+                <select name="price_range_ID" class="form-select">
+                        <option value selected disabled>請選擇</option>
+                        <?php foreach($row3s as $row3): ?>
+                            <option value="<?=$row3["price_range_ID"]?>"><?=$row3["price"]?></option>
+                        <?php endforeach; ?>
+                    </select>
+              </div>
               <div class="input-group mt-1">
                 <input class="form-control" type="file" name="myFile" accept=".png, .jpg, .jpeg">
               </div>

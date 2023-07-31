@@ -77,7 +77,7 @@ $conn->close();
 
 echo "<script>
 alert(\"$msg\");
-window.location.href = \"./post_ArticleList.php\";
+window.location.href = \"./navbar.php?webpage=post_ArticleList.php\";
 </script>";
 
 

@@ -42,7 +42,7 @@ $conn->close();
     </head>
     <body>
         <div class="container mt-3">        
-          <form action="./post_Update.php" method="post" enctype="multipart/form-data">
+          <form action="post_Update.php" method="post" enctype="multipart/form-data">
               <input name="id" type="hidden" value="<?=$id?>">
               <div class="input-group">
                 <span class="input-group-text">文章標題</span>
