@@ -188,7 +188,7 @@ if(isset($_SESSION["user_id"])){
 
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">Name:</span>
-                                            <input type="text" class="form-control" name="editName" id="editName" value="<?=$row['dishes_name']?>" required>
+                                            <input type="text" class="form-control" name="editName" id="editName" required>
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">Price:</span>
