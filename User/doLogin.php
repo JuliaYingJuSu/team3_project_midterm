@@ -26,6 +26,7 @@ try{
         if($password1=$row["user_password"]){//password_verify()<--解析加密密碼
             // $msg=true;
             $_SESSION["user"]=[
+                "id"=>$row["user_id"],
                 "email"=>$row["user_email"],
                 "name"=>$row["user_name"],
                 "img"=>$row["user_img"],
