@@ -33,11 +33,18 @@ $conn->close();
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <style>
-.img{
-width: 200px;
-height: 200px;
-object-fit: cover;
-}
+    .img{
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+    }
+    .bg1{
+        background-color: #f1ece2;
+    }
+    .bg2{
+        background-color:#777e5c;
+    }
+
 </style>
 <title>修改文章</title>
 </head>
@@ -69,26 +76,26 @@ object-fit: cover;
 <input class="form-control" type="file" name="myFile" accept=".png,.jpg,.jpeg">
 </div>
 <div class="mt-1 text-end">
-<button type="submit" class="btn btn-primary">送出</button>
+<button type="submit" class="btn bg2">送出</button>
 </div>
 </form>
 </div>
-<form id="form2" class="mt-5 p-2 bg-primary-subtle" method="post" action="../post/post_ImageInsert.php?id=<?=$id?>" enctype="multipart/form-data">
+<form id="form2" class="mt-5 p-2 " method="post" action="../post/post_ImageInsert.php?id=<?=$id?>" enctype="multipart/form-data">
 
 <div class="myFiles">
-<div class="input-group mt-1">
-<input class="form-control" type="file" name="imgFile" accept=".png,.jpg,.jpeg">
-<div class="btn btn-info btn-add-file">+</div>
+    <div class="input-group mt-1 bg1">
+        <input class="form-control" type="file" name="imgFile" accept=".png,.jpg,.jpeg">
+    <div class="btn bg2 btn-add-file">+</div>
+    </div>
 </div>
-</div>
-<div class="mt-1 text-end">
-<button type="submit" class="btn btn-primary btn-send">新增圖檔</button>
-</form>
-<div class="photo d-flex">
-<img src="../post/<?=$row["img"]?>" alt="" class="img">
-<?php foreach($row2s as $index => $row2): ?>
-<img src="../post/<?=$row2["postimage_name"]?>" alt="" class="img">
-<?php endforeach; ?>
+<div class="mt-1 text-end bg1">
+    <button type="submit" class="btn bg2 btn-send">新增圖檔</button>
+    </form>
+    <div class="photo d-flex">
+    <img src="../post/<?=$row["img"]?>" alt="" class="img">
+    <?php foreach($row2s as $index => $row2): ?>
+    <img src="../post/<?=$row2["postimage_name"]?>" alt="" class="img">
+    <?php endforeach; ?>
 </div>
 
 </div>
@@ -96,7 +103,7 @@ object-fit: cover;
 <template id="myFile">
 <div class="input-group mt-1 pdUnit">
 <input class="form-control" type="file" name="imgFile[]" accept=".png,.jpg,.jpeg">
-<div class="btn btn-danger btn-del-file">-</div>
+<div class="btn bg2 btn-del-file">-</div>
 </div>
 </div>
 </div>
