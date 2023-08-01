@@ -17,7 +17,7 @@ try{
   $result = $conn -> query($sql);
   $row = $result -> fetch_assoc();
 }catch(mysqli_sql_exception $exc){
-  die("讀取失敗:" .$exc->getMessage());
+//   die("讀取失敗:" .$exc->getMessage());
 }
 $conn->close();
 
@@ -38,7 +38,7 @@ $conn->close();
 
 <body>
     <div class="container mt-3">
-        <form action="./cartUpdate01.php" method="post">
+        <form action="../utilities/navbar.php?webpage=cartUpdate01.php" method="post">
             <!-- 讓網址列有?id -->
             <input name="cart_id" type="hidden" value="<?=$cart_id?>">
             

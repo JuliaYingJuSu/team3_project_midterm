@@ -25,7 +25,7 @@ if($search == ""){
     $searchSQL = "";
 }else{
     //搜索匡有東西，才用WHERE ～～
-    $searchSQL = "WHERE `$searchType` LIKE '%$search%'";
+    $searchSQL = "`$searchType` LIKE '%$search%' AND";
 }
 
 
@@ -36,7 +36,7 @@ if(!isset($_GET["page"])){
 }
 
 
-$perPage = 10;
+$perPage = 5;
 // $page = 1;
 //需註解$page = 1, 不然if...else邏輯會被覆蓋
 //該頁面應從第幾筆資料開始顯示
@@ -56,7 +56,10 @@ $totalPages = ceil($totalRows / $perPage);
 
 // $sql = "SELECT * FROM `CartProduct_detail` $where ORDER BY `quantity` ASC LIMIT $pageStart, $perPage;";
 
-$sql = "SELECT * FROM `CartProduct_detail` $searchSQL ORDER BY `quantity` ASC LIMIT $pageStart, $perPage;";
+$sql = "SELECT * FROM `CartProduct_detail`  
+JOIN product ON product.product_id=cartproduct_detail.product_id
+WHERE $searchSQL  product.isValid = 1
+ORDER BY `quantity` ASC LIMIT $pageStart, $perPage;";
 // var_dump($sql );
 // exit;
 // $sql = "SELECT * FROM `CartProduct_detail`WHERE $searchSQL ORDER BY `quantity` ASC LIMIT $pageStart, $perPage;";
@@ -87,7 +90,8 @@ try{
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../../css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>留言列表</title>
     <style>
     .msg{
@@ -97,20 +101,50 @@ try{
         width: 180px;
     }
     .name{
-        width: 160px;
+        width: 450px;
     }
+    .productnum{
+        width: 180px;
+    }
+    
     .content{
-        width: calc(100% - 180px - 160px - 100px)
+        width: calc(100% - 180px - 450px - 100px - 180px - 200px)
+    }
+    .productpri{
+        width: 200px;
     }
     .time{
         width: 100px;
     }
+  
+    .bgcwhite{
+    background-color: #F1Ece2;
+   }
+   .titlecgr{
+    background-color: #777e5c;
+    color: white;
+   }
+   .pagination{
+        --bs-pagination-color: #777e5c;
+        --bs-pagination-hover-color: #777e5c;
+        --bs-pagination-focus-color: #777e5c;
+        }
+
+        .active>.page-link, .page-link.active {
+        background-color: #777e5c;
+        border-color: #777e5c;
+        }
+
+        .form-check-input:checked {
+        background-color: #777e5c;
+        border-color: #777e5c;
+        }
     </style>
 </head>
 
 <body> 
-<div class="container">
-  <h1 class="pt-4">購物車detail</h1>
+<div class="container bgcwhite">
+  <h1 class="pt-4 fw-bold">購物車清單</h1>
         <?php if($msgNum > 0): ?>
             <div class="d-flex">
                 <div class="my-2 me-auto">
@@ -123,23 +157,26 @@ try{
                         <div class="input-group-text">
                             <input name="searchType" id="searchType1" type="radio" class="form-check-input" value="cart_id" checked>
                             <label for="searchType1" class="me-2">購物車編號</label>
-                            <input name="searchType" id="searchType2" type="radio" class="form-check-input" value="product_id">
+                            <input name="searchType2" id="searchType2" type="radio" class="form-check-input" value="product_id">
                             <label for="searchType2">產品編號</label>
                         </div>
                         <input name="search" type="text" class="form-control form-control-sm" placeholder="搜尋">
-                        <div class="btn btn-secondary btn-sm btn-search">送出搜尋</div>
+                        <div class="btn titlecgr btn-sm btn-search">送出搜尋</div>
                     </div>
                 </div>
                 <!-- 增加的部份 end -->
 
                 <div>
-                <a href="./cartForm04.html" class="btn btn-secondary btn-sm">增加資料</a>
+                <a href="../utilities/navbar.php?webpage=cartForm.html" class="btn titlecgr btn-sm">增加資料</a>
                 </div>
             </div>
-            <div class="msg text-bg-dark ps-1">
+            <div class="msg titlecgr ps-1">
+            <!-- <div class="id">會員編號</div> -->
                 <div class="id">購物車編號</div>
-                <div class="name">商品編號</div>
+                <div class="productnum">商品編號</div>
+                <div class="name">商品名稱</div>
                 <div class="content">數量</div>
+                <div class="productpri">單價</div>
                 <div class="time">編輯</div>
                 
             </div>
@@ -148,12 +185,14 @@ try{
         <?php foreach($rows as $row):?>
             <div class="msg my-1">
                 <div class="id"><?=$row["cart_id"]?></div>
-                <div class="name"><?=$row["product_id"]?></div>
+                <div class="productnum"><?=$row["product_id"]?></div>
+                <div class="name"><?=$row["product_name"]?></div>
                 <div class="content"><?=$row["quantity"]?></div>
+                <div class="productpri"><?=$row["price"]?></div>
                 <div class="time">
                 <!-- <a href="./doDelete01.php?cart_id=" class="btn btn-info btn-sm">刪除</a> -->
-                <span class="btn btn-info btn-sm btn-del" idn="<?=$row["cart_id"]?>" >刪除</span>
-                <a href="./cartpage01.php?cart_id=<?=$row["cart_id"]?>" class="btn btn-info btn-sm">修改</a>
+                <span class="btn btn-sm btn-del" idn="<?=$row["cart_id"]?>" ><i class="fa-regular fa-trash-can"></i></span>
+                <a href="./navbar.php?webpage=cartpage01.php&cart_id=<?=$row["cart_id"]?>" class="btn btn-sm"><i class="fa-regular fa-pen-to-square"></i></a>
                 </div>
             </div>
         <?php endforeach; ?>
@@ -163,29 +202,20 @@ try{
                 發生錯誤：<?= $errorMsg ?>
         <?php endif; ?>
 
+        <div class="d-flex justify-content-center mt-4">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                   
+                    <?php for ($i=1;$i<=$totalPages; $i++): ?>
+                        <li class="page-item">
+                            <a class="page-link <?= ($page==$i)?"active":""?>" href="./navbar.php?webpage=cartPage02.php&page=<?=$i?>"><?=$i?></a>
+                        </li>
+                    <?php endfor; ?>
 
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link" href="?page=<?= $page - 1?>" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <?php for ($i=1;$i<=$totalPages; $i++): ?>
-                    <li class="page-item">
-                        <a class="page-link <?= ($page==$i)?"active":""?>" href="./cartPage.php?page=<?=$i?>"><?=$i?></a>
-                    </li>
-                <?php endfor; ?>
-
-                    <!-- 下一頁 -->
-                    <li class="page-item">
-                        <a class="page-link" href="?page=<?= $page + 1 ?>" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-            </ul>
-        </nav>
-
+                       
+                </ul>
+            </nav>
+        </div>
 </div>
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script>
@@ -201,7 +231,7 @@ try{
                 let cart_id = parseInt(this.getAttribute("idn"));
                     //window.confirm, 是JavaScript內建的函數, 可顯示確定, 取消的對話筐
                 if(window.confirm("是否確認刪除？") === true){
-                    window.location.href = `./cartDelete.php?cart_id=${cart_id}`;
+                    window.location.href = `./navbar.php?webpage=cartDelete2.php&cart_id=${cart_id}`;
                 }
                 
             });
@@ -210,9 +240,11 @@ try{
         const btnSearch = document.querySelector(".btn-search");
         btnSearch.addEventListener("click", function(){
             let query = document.querySelector("input[name=search]").value;
+            
             let queryType = document.querySelector("input[name=searchType]:checked").value;
-           window.location.href = `./cartPage.php?search=${query}&type=${queryType}`;
-
+           window.location.href = `../utilities/navbar.php?webpage=cartPage02.php&search=${query}&type=${queryType}`;
+        // alert(window.location.href);
+            
         });
 
 

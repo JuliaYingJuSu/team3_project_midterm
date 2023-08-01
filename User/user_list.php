@@ -87,6 +87,21 @@ $conn->close();
         .time {
             width: 180px;
         }
+        .pagination{
+        --bs-pagination-color: #777e5c;
+        --bs-pagination-hover-color: #777e5c;
+        --bs-pagination-focus-color: #777e5c;
+        }
+
+        .active>.page-link, .page-link.active {
+        background-color: #777e5c;
+        border-color: #777e5c;
+        }
+
+        .form-check-input:checked {
+            background-color: #777e5c;
+            border-color: #777e5c;
+        }
     </style>
     <title>使用者列表</title>
 </head>

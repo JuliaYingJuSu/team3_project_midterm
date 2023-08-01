@@ -10,13 +10,17 @@ if(!isset($_GET["order_id"])){
     exit;
 }
 
+
 $order_id = $_GET["order_id"];
+$product_id = 3;
+// var_dump($product_id);
+// exit;
 // $orderproduct_id = $_GET["orderproduct_id"];
 
 // $sql = "DELETE FROM CartProduct_detail 
 // WHERE `cart_id` = $cart_id;";
 
-$sql = "DELETE FROM Oder_detail WHERE `order_id` = $order_id;";
+$sql = "DELETE FROM Oder_detail WHERE `order_id` = $order_id AND `product_id` = $product_id ;";
 
 
 try{
@@ -33,13 +37,13 @@ try{
     //法二
     // die("刪除資料錯誤" .$exc->getMessage());
     }
-    
+
     $conn->close();
 //跳轉至列表頁
 // header("location: ./pageMsgsList2.php");
 //使用script的方法, 跳轉至列表頁
     echo  "<script>
         alert(`$msg`);
-        window.location.href = \"./orderPage.php\";
+        window.location.href = \"../utilities/navbar.php?webpage=orderPage.php\";
    </script>";
     ?>

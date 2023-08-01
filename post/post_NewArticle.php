@@ -37,7 +37,7 @@ $conn->close();
             background-color:#777e5c;
         }
 
-        .btn {
+        /* .btn {
             --bs-btn-color: #fff;
             --bs-btn-bg: #777e5c;
             --bs-btn-border-color: #777e5c;
@@ -48,26 +48,25 @@ $conn->close();
             --bs-btn-active-color: #fff;
             --bs-btn-active-bg: #777e5c;
             --bs-btn-active-border-color: #777e5c;
-            --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-           
-}
+            --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);          
+} */
     </style>
     <title>新增文章</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../css/bootstrap.min.css"> -->
     </head>
     <body>
         <div class="container mt-3">
         <form action="../post/post_NewArticleInsert.php" method="post" enctype="multipart/form-data">
         <div class="input-group mt-2">
-        <span class="input-group-text">文章標題</span>
+        <span class="input-group-text bg2 text-white">文章標題</span>
         <input name="name" type="text" class="form-control" placeholder="文章標題">
         </div>
         <div class="input-group mt-1">
-        <span class="input-group-text">文章內容</span>
+        <span class="input-group-text bg2 text-white">文章內容</span>
         <textarea name="content" class="form-control"></textarea>
         </div>
         <div class="input-group mt-1">
-        <span class="input-group-text">餐廳名稱</span>
+        <span class="input-group-text bg2 text-white">餐廳名稱</span>
         <select name="updating_restaurant_ID" class="form-select">
         <option value selected disabled>請選擇</option>
         <?php foreach($row2s as $row2): ?>
@@ -80,7 +79,7 @@ $conn->close();
         <input name="restaurant_name" type="text" class="form-control" placeholder="請新增餐廳名稱">
         </div> -->
         <div class="input-group mt-1">
-        <span class="input-group-text">平均消費</span>
+        <span class="input-group-text bg2 text-white">平均消費</span>
         <select name="price_range_ID" class="form-select">
         <option value selected disabled>請選擇</option>
         <?php foreach($row3s as $row3): ?>
@@ -92,7 +91,7 @@ $conn->close();
         <input class="form-control" type="file" name="myFile" accept=".png, .jpg, .jpeg">
         </div>
         <div class="mt-1 text-end">
-        <button type="submit" class="btn btn-sm bg2 btn-send">送出</button>
+        <button type="submit" class="btn btn-sm btn-send bg2 text-white">送出</button>
         </div>
             </form>
         </div>

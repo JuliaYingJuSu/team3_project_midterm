@@ -77,6 +77,6 @@ try{
 //使用script的方法, 跳轉至列表頁
     echo  "<script>
         alert(`$msg`);
-        window.location.href = \"./orderPage.php\";
+        window.location.href = \"../utilities/navbar.php?webpage=orderPage.php\";
    </script>";
     ?>

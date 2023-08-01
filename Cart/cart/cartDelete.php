@@ -20,7 +20,8 @@ $cart_id = $_GET["cart_id"];
 $sql = "DELETE FROM cart
 WHERE `cart_id` = $cart_id;";
 
-
+// var_dump($sql);
+// exit;
 try{
     $conn->query($sql);
     // echo "資料刪除成功";
@@ -42,6 +43,6 @@ try{
 //使用script的方法, 跳轉至列表頁
     echo  "<script>
         alert(`$msg`);
-        window.location.href = \"./cartPage.php\";
+        window.location.href = \"../utilities/navbar.php?webpage=cartPage.php\";
    </script>";
     ?>

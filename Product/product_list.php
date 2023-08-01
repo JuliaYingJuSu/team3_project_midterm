@@ -196,7 +196,7 @@ $conn->close();
 
 
   <div class="wt container border-0">
-  <h1>商品列表</h1>
+  <h1 class="fw-bold">商品列表</h1>
 
   <?php if($msgNum>0): ?>
     <div class=" d-flex">

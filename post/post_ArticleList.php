@@ -107,7 +107,7 @@ $conn->close();
     </head>
     <body>
         <div class="container bg1">
-            <h1>文章列表</h1>
+            <h1 class="fw-bold">文章列表</h1>
             <?php if($msgNum > 0):?>
             <div class="d-flex">
                 <div class="my-2 me-auto">
@@ -197,7 +197,7 @@ $conn->close();
         btnSearch.addEventListener("click",function(){
         let query = document.querySelector("input[name=search]").value;
         let queryType = document.querySelector("input[name=searchType]:checked").value;
-        window.location.href = `./navbar.php?webpage=post_Articlelist.php&search=${query}&qtype=${queryType}`;
+        window.location.href = `./navbar.php?webpage=post_ArticleList.php&search=${query}&qtype=${queryType}`;
         })
         </script>
     </body>

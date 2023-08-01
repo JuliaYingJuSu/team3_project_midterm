@@ -42,7 +42,7 @@ $conn->close();
 
 <body>
     <div class="container mt-3">
-        <form action="./orderUpdate.php" method="post">
+        <form action="../utilities/navbar.php?webpage=orderUpdate2.php" method="post">
             <!-- 讓網址列有?id -->
             <input name="order_id" type="hidden" value="<?=$order_id?>">
             

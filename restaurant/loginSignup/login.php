@@ -44,9 +44,14 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BS530 Template</title>
+    <title>餐廳登入系統</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/signup.css">
+    <style>
+        .bgg{
+            background-color: #777e5c;
+        }
+    </style>
 </head>
 
 <body>
@@ -67,7 +72,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                 <label for="password">Password:</label>
                 <input class="my-3 rounded" type="password" id="password" name="password">
             </div>
-            <button type="submit" class="btn btn-info my-3">Log in</button>
+            <button type="submit" class="btn bgg my-3">Log in</button>
         </form>
     </div>
     

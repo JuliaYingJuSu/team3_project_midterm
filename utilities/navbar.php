@@ -36,7 +36,7 @@ if (isset($_GET["webpage"])) {
 <body>
     <nav class="navbar navbar-expand-lg bg1">
         <div class="container-fluid">
-            <a class="navbar-brand ms-3 fw-bold fs-3" href="#">
+            <a class="navbar-brand ms-3 fw-bold fs-3" href="./navbar.php">
                 <img src="../img/logo.png" alt="Logo" width="200" height="150" class="d-inline-block">
             </a>
             <div class="collapse navbar-collapse justify-content-end">
@@ -73,7 +73,7 @@ if (isset($_GET["webpage"])) {
                     <?= ($webpage == "user_list.php") ? "active" : "" ?>" id="menu1" href="?webpage=user_list.php">
                         <i class="fa-solid fa-user-gear fa-sm me-2" style="color: #777e5c;"></i>使用者管理</a>
                     <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu1">
-                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>統計</a>
+                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>數據統計</a>
                 </div>
                 <div class="d-grid gap-2 p-3">
                     <button class="btn bg2 fs-4 fw-bold text-white" type="button" data-bs-target="#menu2" data-bs-toggle="collapse">
@@ -82,7 +82,7 @@ if (isset($_GET["webpage"])) {
                     href="../restaurant/index.php">
                         <i class="fa-solid fa-folder fa-sm me-2" style="color: #777e5c;"></i>餐廳管理</a>
                     <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu2">
-                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>統計</a>
+                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>數據統計</a>
                 </div>
                 <div class="d-grid gap-2 p-3">
                     <button class="btn bg2 fs-4 fw-bold text-white" type="button" data-bs-target="#menu3" data-bs-toggle="collapse">
@@ -90,15 +90,7 @@ if (isset($_GET["webpage"])) {
                     <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu3" <?= ($webpage == "book_list.php") ? "active" : "" ?> id="menu6" href="?webpage=book_list.php">
                         <i class="fa-solid fa-folder fa-sm me-2" style="color: #777e5c;"></i>訂位管理</a>
                     <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu3">
-                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>統計</a>
-                </div>
-                <div class="d-grid gap-2 p-3">
-                    <button class="btn bg2 fs-4 fw-bold text-white" type="button" data-bs-target="#menu4" data-bs-toggle="collapse">
-                        <i class="fa-solid fa-cart-shopping fa-sm me-2" style="color: #ffffff;"></i>購物車</button>
-                    <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu4" <?= ($webpage == "cartPage.php") ? "active" : "" ?> id="menu6" href="?webpage=cartPage.php">
-                        <i class="fa-solid fa-folder fa-sm me-2" style="color: #777e5c;"></i>購物車管理</a>
-                    <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu4">
-                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>統計</a>
+                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>數據統計</a>
                 </div>
                 <div class="d-grid gap-2 p-3">
                     <button class="btn bg2 fs-4 fw-bold text-white" type="button" data-bs-target="#menu5" data-bs-toggle="collapse">
@@ -107,6 +99,18 @@ if (isset($_GET["webpage"])) {
                         <i class="fa-solid fa-cash-register fa-sm me-2" style="color: #777e5c;"></i>商品管理</a>
                     <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu5" <?=($webpage == "style-product_list.php") ? "active" : "" ?> id="menu5"  href="?webpage=style-product_list.php">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>分類管理</a>
+                    <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu5" <?=($webpage == "style-product_list.php") ? "active" : "" ?> id="menu5"  href="?webpage=style-product_list.php">
+                    <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>標籤管理</a>
+                </div>
+                <div class="d-grid gap-2 p-3">
+                    <button class="btn bg2 fs-4 fw-bold text-white" type="button" data-bs-target="#menu4" data-bs-toggle="collapse">
+                        <i class="fa-solid fa-cart-shopping fa-sm me-2" style="color: #ffffff;"></i>購物車</button>
+                    <a type="button" class="collapse text1 fs-5 text-decoration-none text-center fw-bold" id="menu4" <?= ($webpage == "cartPage02.php") ? "active" : "" ?> id="menu6" href="?webpage=cartPage02.php">
+                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>購物車清單</a>
+                    <a type="button" class="collapse text1 fs-5 text-decoration-none text-center fw-bold" id="menu4" <?= ($webpage == "orderPagee.php") ? "active" : "" ?> id="menu6" href="?webpage=orderPagee.php">
+                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>訂單管理</a>
+                    <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu4" <?= ($webpage == "orderPage.php") ? "active" : "" ?> id="menu6" href="?webpage=orderPage.php">
+                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>訂單明細</a>
                 </div>
                 <div class="d-grid gap-2 p-3">
                     <button class="btn bg2 fs-4 fw-bold text-white" type="button" data-bs-target="#menu6" data-bs-toggle="collapse">
@@ -114,8 +118,12 @@ if (isset($_GET["webpage"])) {
                     <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu6" <?= ($webpage == "post_ArticleList.php") ? "active" : "" ?> id="menu6" href="?webpage=post_ArticleList.php">
                         <i class="fa-solid fa-pen-to-square me-2" style="color: #777e5c;"></i>食記管理</a>
                     <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu6">
-                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>統計</a>
-                </div>
+                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>統計數據</a>
+                    <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu6">
+                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>標籤管理</a>
+                    <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu6">
+                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>地區管理</a>
+                    </div>
             </div>
         </nav>
         <main class="w-100 bg1">
@@ -211,6 +219,102 @@ if (isset($_GET["webpage"])) {
             <?php if ($webpage == "cartPage.php") {
                 require("../Cart/cart/cartPage.php");
             } ?>
+             <?php if ($webpage == "cartForm04.html") {
+                require("../Cart/cart/cartForm04.html");
+            } ?>
+
+            <?php if ($webpage == "cartPage1.php") {
+                require("../Cart/cart/cartPage1.php");
+            } ?>
+
+             <?php if ($webpage == "cartUpdate01.php") {
+                require("../Cart/cart/cartUpdate01.php");
+            } ?>
+             <?php if ($webpage == "cartPage1.php") {
+                require("../Cart/cart/cartPage1.php");
+            } ?>
+             <?php if ($webpage == "cartInsert.php") {
+                require("../Cart/cart/cartInsert.php");
+            } ?>
+
+            <?php if ($webpage == "cartDelete.php") {
+                require("../Cart/cart/cartDelete.php");
+            } ?>
+
+            <?php if ($webpage == "orderForm04.html") {
+                require("../Cart/orderdetail/orderForm04.html");
+            } ?>
+
+            <?php if ($webpage == "orderDelete.php") {
+                require("../Cart/orderdetail/orderDelete.php");
+            } ?>
+
+            <?php if ($webpage == "orderInsert.php") {
+                require("../Cart/orderdetail/orderInsert.php");
+            } ?>
+
+            <?php if ($webpage == "orderUpdate.php") {
+                require("../Cart/orderdetail/orderUpdate.php");
+            } ?>
+
+            <?php if ($webpage == "orderPage.php") {
+                require("../Cart/orderdetail/orderPage.php");
+            } ?>
+
+            <?php if ($webpage == "orderPage01.php") {
+                require("../Cart/orderdetail/orderPage01.php");
+            } ?>
+
+            <?php if ($webpage == "orderPagee.php") {
+                require("../Cart/ordergeneral/orderPagee.php");
+            } ?>
+
+            <?php if ($webpage == "orderDelete2.php") {
+                require("../Cart/ordergeneral/orderDelete2.php");
+            } ?>
+
+            <?php if ($webpage == "orderForm.html") {
+                require("../Cart/ordergeneral/orderForm.html");
+            } ?>
+
+            <?php if ($webpage == "orderInsert2.php") {
+                require("../Cart/ordergeneral/orderInsert2.php");
+            } ?>
+
+            <?php if ($webpage == "orderPage2.php") {
+                require("../Cart/ordergeneral/orderPage2.php");
+            } ?>
+
+            <?php if ($webpage == "orderUpdate2.php") {
+                require("../Cart/ordergeneral/orderUpdate2.php");
+            } ?>
+
+            <?php if ($webpage == "cartPage02.php") {
+                require("../Cart/cartdetail/cartPage02.php");
+            } ?>
+             <?php if ($webpage == "cartpage01.php") {
+                require("../Cart/cartdetail/cartpage01.php");
+            } ?>
+            <?php if ($webpage == "cartForm.html") {
+                require("../Cart/cartdetail/cartForm.html");
+            } ?>
+            <?php if ($webpage == "cartInsert02.php") {
+                require("../Cart/cartdetail/cartInsert02.php");
+            } ?>
+            <?php if ($webpage == "cartDelete2.php") {
+                require("../Cart/cartdetail/cartDelete2.php");
+            } ?>
+            <?php if ($webpage == "cartUpdate.php") {
+                require("../Cart/cartdetail/cartUpdate.php");
+            } ?>
+
+
+
+
+
+
+
+
             <?php if ($webpage == "pageBooksList3.php") {
                 require("../book/pageBooksList3.php");
             } ?>

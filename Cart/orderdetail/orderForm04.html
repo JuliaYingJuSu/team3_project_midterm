@@ -11,26 +11,26 @@
 
 <body>
     <div class="container mt-3">
-        <form action="./orderInsert.php" method="post">
+        <form action="../utilities/navbar.php?webpage=orderInsert.php" method="post">
             <div class="contentArea">
                 <div class="input-group mt-2">
-                    <span class="input-group-text">訂單編號</span>
+                    <span class="input-group-text text-white bg2">訂單編號</span>
                     <input name="order_id[]" type="text" class="form-control">
                 </div>
                 <div class="input-group mt-2">
-                    <span class="input-group-text">產品編號</span>
+                    <span class="input-group-text text-white bg2">產品編號</span>
                     <input name="product_id[]" type="text" class="form-control">
                 </div>
                 <div class="input-group mt-1">
-                    <span class="input-group-text">數量</span>
+                    <span class="input-group-text text-white bg2">數量</span>
                     <input name="num[]" type="text" class="form-control">
                 </div>
             </div>
 
 
             <div class="mt-1 text-end">
-                <button type="submit" class="btn btn-info btn-sm">送出</button>
-                <button class="btn btn-info btn-sm btn-add">增加一組</button>
+                <button type="submit" class="btn btn-sm text-white bg2">送出</button>
+                <button class="btn btn-sm btn-add text-white bg2 ">增加一組</button>
             </div>
         </form>
     </div>
@@ -43,15 +43,15 @@
             e.preventDefault();
             let dom = document.createElement("div");
             let template = `      <div class="input-group mt-2">
-                    <span class="input-group-text">訂單編號</span>
+                    <span class="input-group-text text-white bg2">訂單編號</span>
                     <input name="order_id[]" type="text" class="form-control">
                 </div>
                 <div class="input-group mt-2">
-                    <span class="input-group-text">產品編號</span>
+                    <span class="input-group-text text-white bg2">產品編號</span>
                     <input name="product_id[]" type="text" class="form-control">
                 </div>
                 <div class="input-group mt-1">
-                    <span class="input-group-text">數量</span>
+                    <span class="input-group-text text-white bg2">數量</span>
                     <input name="num[]" type="text" class="form-control">
                 </div>`;
             dom.innerHTML = template;

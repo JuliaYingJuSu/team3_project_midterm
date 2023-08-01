@@ -170,15 +170,7 @@ $conn->close();
                 </div>
             </div>
 
-            <div class="d-flex justify-content-between">
-
-                <div aria-label="Page navigation example me-auto">
-                    <ul class="pagination">
-                        <?php for($i=1;$i<=$totalPage;$i++):?>
-                        <li class="page-item"><a class="page-link <?=($page == $i)?"active":""?>" href="./navbar.php?webpage=book_list.php&page=<?=$i?>"><?=$i?></a></li>
-                        <?php endfor;?>
-                    </ul>
-                </div>
+            <div class="d-flex justify-content-end mb-2">
                 
                 <div>
                     <a href="./navbar.php?webpage=book_list.php" class="btn btn-light btn-sm mt-2 me-1"><i class="fa-solid fa-rotate-right" style="color: white;"></i></i></a>
@@ -224,6 +216,18 @@ $conn->close();
         <?else:?>
             發生錯誤: <?=$errorMsg?>
         <?endif;?>
+
+        <div class = "d-flex justify-content-center mt-3">
+            <div aria-label="Page navigation example me-auto">
+                        <ul class="pagination">
+                            <?php for($i=1;$i<=$totalPage;$i++):?>
+                            <li class="page-item"><a class="page-link <?=($page == $i)?"active":""?>" href="./navbar.php?webpage=book_list.php&page=<?=$i?>"><?=$i?></a></li>
+                            <?php endfor;?>
+                        </ul>
+            </div>
+        </div>
+        
+
     </div>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script>

@@ -53,19 +53,19 @@ $conn->close();
 <form action="../post/post_Update.php" method="post" enctype="multipart/form-data">
 <input name="id" type="hidden" value="<?=$id?>">
 <div class="input-group">
-<span class="input-group-text">文章標題</span>
+<span class="input-group-text bg2 text-white">文章標題</span>
 <?php foreach($rows as $row): ?>
 <input name="name" type="text" class="form-control" placeholder="請重新輸入文章標題" value="<?=$row["post_title"]?>">
 <?php endforeach; ?>
 </div>
 <div class="input-group mt-1">
-<span class="input-group-text">文章內容</span>
+<span class="input-group-text bg2 text-white">文章內容</span>
 <?php foreach($rows as $row): ?>
 <textarea name="content" class="form-control"><?=$row["post_content"]?></textarea>
 <?php endforeach; ?>
 </div>
 <div class="input-group mt-1">
-<span class="input-group-text">餐廳名稱</span>
+<span class="input-group-text bg2 text-white">餐廳名稱</span>
 <select name="updating_restaurant_name" class="form-select">
 <?php foreach($rows as $row): ?>
 <option selected value="<?=$row["updating_restaurant_ID"]?>"><?=$row["updating_restaurant_name"]?></option>
@@ -76,7 +76,7 @@ $conn->close();
 <input class="form-control" type="file" name="myFile" accept=".png,.jpg,.jpeg">
 </div>
 <div class="mt-1 text-end">
-<button type="submit" class="btn bg2">送出</button>
+<button type="submit" class="btn bg2 text-white">送出</button>
 </div>
 </form>
 </div>
@@ -89,7 +89,7 @@ $conn->close();
     </div>
 </div>
 <div class="mt-1 text-end bg1">
-    <button type="submit" class="btn bg2 btn-send">新增圖檔</button>
+    <button type="submit" class="btn bg2 btn-send text-white">新增圖檔</button>
     </form>
     <div class="photo d-flex">
     <img src="../post/<?=$row["img"]?>" alt="" class="img">

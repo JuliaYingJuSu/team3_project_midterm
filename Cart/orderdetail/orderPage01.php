@@ -33,26 +33,26 @@ $conn->close();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../../css/bootstrap.min.css"> -->
     <title>修改留言</title>
 </head>
 
 <body>
     <div class="container mt-3">
-        <form action="./orderUpdate.php" method="post">
+        <form action="../utilities/navbar.php?webpage=orderUpdate.php" method="post">
             <!-- 讓網址列有?id -->
             <input name="order_id" type="hidden" value="<?=$order_id?>">
             
             <div class="input-group">
-                <span class="input-group-text">產品編號</span>
+                <span class="input-group-text text-white bg2">產品編號</span>
                 <input name="product_id" type="text" class="form-control" value="<?=$row["product_id"]?>">
             </div>
             <div class="input-group mt-1">
-                <span class="input-group-text">數量</span>
+                <span class="input-group-text text-white bg2">數量</span>
                 <input name="num" type="text" class="form-control" value="<?=$row["num"]?>">
             </div>
             <div class="mt-1 text-end">
-                <button type="submit" class="btn btn-info">送出</button>
+                <button type="submit" class="btn text-white bg2">送出</button>
             </div>
         </form>
     </div>

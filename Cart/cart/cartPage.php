@@ -58,7 +58,8 @@ try{
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../../css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>留言列表</title>
     <style>
     .msg{
@@ -68,27 +69,52 @@ try{
         width: 600px;
     }
     .name{
-        width: 580px;
+        width: 520px;
     }
     .edit{
-        width: calc(100% - 600px - 580px);
+        width: calc(100% - 600px - 520px);
     }
+    h1, .totalinfo {
+        color: #777e5c;
+    }
+   .bgcwhite{
+    background-color: #F1Ece2;
+   }
+   .titlecgr{
+    background-color: #777e5c;
+    color: white;
+   }
+   .pagination{
+        --bs-pagination-color: #777e5c;
+        --bs-pagination-hover-color: #777e5c;
+        --bs-pagination-focus-color: #777e5c;
+        }
+
+        .active>.page-link, .page-link.active {
+        background-color: #777e5c;
+        border-color: #777e5c;
+        }
+
+        .form-check-input:checked {
+        background-color: #777e5c;
+        border-color: #777e5c;
+        }
     </style>
 </head>
 
 <body> 
-<div class="container">
+<div class="container p-4 bgcwhite">
   <h1 class="pt-4">購物車系統</h1>
         <?php if($msgNum > 0): ?>
             <div class="d-flex">
-                <div class="my-2 me-auto">
+                <div class="my-2 me-auto totalinfo">
                     目前共 <?=$msgNum?> 筆資料
                 </div>
                 <div>
-                <a href="./cartForm04.html" class="btn btn-info btn-sm">增加資料</a>
+                <a href="navbar.php?webpage=cartForm04.html" class="btn titlecgr btn-sm">增加資料</a>
                 </div>
             </div>
-            <div class="msg text-bg-dark ps-1">
+            <div class="msg titlecgr ps-1">
                 <div class="id">購物車編號</div>
                 <div class="name">會員編號</div>
                 <div class="edit">編輯</div>
@@ -101,8 +127,8 @@ try{
                 <div class="id"><?=$row["cart_id"]?></div>
                 <div class="name"><?=$row["user_id"]?></div>
                 <div class="edit">
-                    <span class="btn btn-info btn-sm btn-del" idn="<?=$row["cart_id"]?>">刪除</span>
-                    <a href="./cartPage1.php?cart_id=<?=$row["cart_id"]?>" class="btn btn-info btn-sm">修改</a>
+                    <span class="btn btn-sm btn-del" idn="<?=$row["cart_id"]?>"><i class="fa-regular fa-trash-can"></i></span>
+                    <a href="./navbar.php?webpage=cartPage1.php&cart_id=<?=$row["cart_id"]?>" class="btn btn-sm"><i class="fa-regular fa-pen-to-square"></i></a>
                 </div>
             </div>
         <?php endforeach; ?>
@@ -112,29 +138,29 @@ try{
                 發生錯誤：<?php $errorMsg ?>
         <?php endif;  ?>
 
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link" href="?page=<?= $page - 1?>" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <?php for ($i=1;$i<=$totalPages; $i++): ?>
+        <div class="d-flex justify-content-center mt-3">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
                     <li class="page-item">
-                        <a class="page-link <?= ($page==$i)?"active":""?>" href="./cartPage.php?page=<?=$i?>"><?=$i?></a>
-                    </li>
-                <?php endfor; ?>
-
-                    <!-- 下一頁 -->
-                    <li class="page-item">
-                        <a class="page-link" href="?page=<?= $page + 1 ?>" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
+                        <a class="page-link" href="?page=<?= $page - 1?>" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-            </ul>
-        </nav>
+                    <?php for ($i=1;$i<=$totalPages; $i++): ?>
+                        <li class="page-item">
+                            <a class="page-link <?= ($page==$i)?"active":""?>" href="./navbar.php?webpage=cartPage.php?page=<?=$i?>"><?=$i?></a>
+                        </li>
+                    <?php endfor; ?>
 
-
+                        <!-- 下一頁 -->
+                        <li class="page-item">
+                            <a class="page-link" href="?page=<?= $page + 1 ?>" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                </ul>
+            </nav>
+        </div>
 
 
 </div>
@@ -146,7 +172,7 @@ try{
             btnDel.addEventListener("click", function(){
                 let cart_id = parseInt(this.getAttribute("idn"));
                 if(window.confirm("是否確認刪除？") === true ){
-                    window.location.href =`./cartDelete.php?cart_id=${cart_id}`;
+                    window.location.href =`../utilities/navbar.php?webpage=cartDelete.php&cart_id=${cart_id}`;
                 }
             });
         });

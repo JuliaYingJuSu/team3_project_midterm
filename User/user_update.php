@@ -51,14 +51,14 @@ $conn->close();
     <div class="border container mt-4 rounded bg-white">
         <div class="d-flex my-2">
             <h2 class="fw-bold">修改會員資料</h2>
-            <span class="btn btn-warning btn-sm fw-bold ms-2 mt-1 mb-3">會員</span>
-            <span class="fs-5 ms-auto fw-bold border rounded-4 p-2 bg-primary mb-1 text-light">
+            
+            <span class="fs-5 ms-auto fw-bold border rounded-4 p-2 bg2 mb-1 text-light">
                 最後修改時間:<?= $row["updatetime"]; ?></span>
         </div>
         <form action="../User/doUpdate.php" method="post" enctype="multipart/form-data">
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?= $id ?>">
-                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4" type="button">更改大頭照</span>
+                <span class="input-group-text text-light bg2 fw-bold rounded-start-4" type="button">更改大頭照</span>
                 <div class="col-auto ps-5 pt-5 ">
                     <input class="form-control" type="file" name="myfile" accept=".png,.jpg,.jpeg">
                 </div>
@@ -75,38 +75,38 @@ $conn->close();
             </div>
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?= $id ?>">
-                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4">email</span>
+                <span class="input-group-text text-light bg2 fw-bold rounded-start-4">email</span>
                 <input name="email" type="text" class="form-control" value="<?= $row["user_email"]; ?>" disabled readonly>
             </div>
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?= $id ?>">
-                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4">姓名</span>
+                <span class="input-group-text text-light bg2 fw-bold rounded-start-4">姓名</span>
                 <input name="name" type="text" class="form-control" value="<?= $row["user_name"]; ?>">
             </div>
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?= $id ?>">
-                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4">暱稱</span>
+                <span class="input-group-text text-light bg2 fw-bold rounded-start-4">暱稱</span>
                 <input name="nickname" type="text" class="form-control" value="<?= $row["nickname"]; ?>">
             </div>
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?= $id ?>">
-                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4">手機</span>
+                <span class="input-group-text text-light bg2 fw-bold rounded-start-4">手機</span>
                 <input name="phone" type="text" class="form-control" value="<?= $row["user_phone"]; ?>">
             </div>
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?= $id ?>">
-                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4">密碼</span>
+                <span class="input-group-text text-light bg2 fw-bold rounded-start-4">密碼</span>
                 <input name="password" type="password" class="form-control" placeholder="請輸入">
             </div>
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?= $id ?>">
-                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4">再輸入一次密碼</span>
+                <span class="input-group-text text-light bg2 fw-bold rounded-start-4">再輸入一次密碼</span>
                 <input name="password2" type="password" class="form-control" placeholder="請輸入">
             </div>
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?= $id ?>">
                 <div class="d-flex">
-                    <span class="input-group-text text-light bg-primary fw-bold rounded-start-4">喜愛的食物種類</span>
+                    <span class="input-group-text text-light bg2 fw-bold rounded-start-4">喜愛的食物種類</span>
                     <input type="checkbox" class="btn-check" id="btn-check-1" name="likefoodtag[]" value="1" <?= in_array(1, array_column($usertags, 'food_tag_id')) ? 'checked' : ''; ?>>
                     <label class="btn btn-outline-warning ms-2 rounded rounded-4 fw-bold" for="btn-check-1">
                         台式</label><br>
@@ -174,21 +174,21 @@ $conn->close();
             </div>
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?= $id ?>">
-                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4">自我簡介</span>
+                <span class="input-group-text text-light bg2 fw-bold rounded-start-4">自我簡介</span>
                 <textarea class="form-control" rows="3" name="selfintr"><?= $row["self_intr"]; ?></textarea>
             </div>
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?= $id ?>">
-                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4">創建帳號時間</span>
+                <span class="input-group-text text-light bg2 fw-bold rounded-start-4">創建帳號時間</span>
                 <input name="phone" type="text" class="form-control" value="<?= $row["create_date"]; ?>" disabled readonly>
             </div>
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?= $id ?>">
-                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4" disabled readonly>最後上線時間</span>
+                <span class="input-group-text text-light bg2 fw-bold rounded-start-4" disabled readonly>最後上線時間</span>
                 <input name="phone" type="text" class="form-control" value="<?= $row["last_login_time"]; ?>" disabled readonly>
             </div>
             <div class="mt-3 text-end">
-                <button type="submit" class="btn btn-lg btn-primary btn-send fw-bold">送出</button>
+                <button type="submit" class="btn btn-lg bg2 btn-send fw-bold text-white">送出</button>
             </div>
         </form>
 

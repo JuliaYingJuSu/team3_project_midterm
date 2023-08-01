@@ -6,52 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <title>新增表單</title>
+    <style>
+        .bgwhite{
+            background-color: #f1ece2;
+        }
+        .bggreen{
+            background-color:#777e5c;
+        }
+    </style>
 </head>
 <body>
-    <div class="border container mt-5 rounded bg-white">
+    <div class="border container mt-5 rounded bgwhite">
         <form action="../User/doadd.php" method="post" enctype="multipart/form-data">
         <!-- 沒有設定 enctype 這個屬性只能上傳文字內容，要加 enctype 的設定才會加上處理檔案 -->
             <h2 class="fw-bold my-3">新增使用者</h2>
             <div class="input-group input-group-lg">
                 <input name="id" type="hidden" value="<?=$id?>">
-                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4">email</span>
+                <span class="input-group-text text-light bggreen fw-bold rounded-start-4">email</span>
                 <input name="email" type="text" class="form-control" placeholder="請輸入" autocomplete="off">
             </div>
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?=$id?>">
-                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4">姓名</span>
+                <span class="input-group-text text-light bggreen fw-bold rounded-start-4">姓名</span>
                 <input name="name" type="text" class="form-control" placeholder="請輸入">
             </div>
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?=$id?>">
-                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4">暱稱</span>
+                <span class="input-group-text text-light bggreen fw-bold rounded-start-4">暱稱</span>
                 <input name="nickname" type="text" class="form-control" placeholder="請輸入">
             </div>
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?=$id?>">
-                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4">手機</span>
+                <span class="input-group-text text-light bggreen fw-bold rounded-start-4">手機</span>
                 <input name="phone" type="text" class="form-control" placeholder="請輸入">
             </div>
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?=$id?>">
-                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4">密碼</span>
+                <span class="input-group-text text-light bggreen fw-bold rounded-start-4">密碼</span>
                 <input name="password" type="password" class="form-control" placeholder="請輸入">
             </div>
             <div class="input-group mt-2 input-group-lg">
                 <input name="id" type="hidden" value="<?=$id?>">
-                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4">再輸入一次密碼</span>
+                <span class="input-group-text text-light bggreen fw-bold rounded-start-4">再輸入一次密碼</span>
                 <input name="password2" type="password" class="form-control" placeholder="請輸入">
             </div>
             <div class="input-group mt-2 input-group-lg">
-                <span class="input-group-text text-light bg-primary fw-bold rounded-start-4" type="button">上傳照片</span>
+                <span class="input-group-text text-light bggreen fw-bold rounded-start-4" type="button">上傳照片</span>
                 <input class="form-control" type="file" name="myfile" accept=".png,.jpg,.jpeg">
             </div>
             <div class="mt-3 text-end">
                 <!-- <button class="btn btn-primary me-auto">
                     <a href="./navbar.php?webpage=list.php" class="fw-bold text-light text-decoration-none"><-回上一頁</a>
                 </button> -->
-                <button type="reset" class="btn btn-danger btn-lg fw-bold me-2">清除</button>
-                <button type="submit" class="btn btn-lg btn-primary btn-send fw-bold">送出</button>
+                <button type="reset" class="btn  btn-lg fw-bold me-2 bggreen text-light">清除</button>
+                <button type="submit" class="btn btn-lg  btn-send fw-bold bggreen text-light">送出</button>
             </div>
         </form>
     </div>

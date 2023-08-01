@@ -79,6 +79,6 @@ try{
 //使用script的方法, 跳轉至列表頁
     echo  "<script>
         alert(`$msg`);
-        window.location.href = \"./cartPage.php\";
+        window.location.href = \"./navbar.php?webpage=cartPage02.php\";
    </script>";
     ?>

@@ -13,6 +13,8 @@ if(!isset($_GET["cart_id"])){
 //針對某個東西做修改
 $sql = "SELECT * FROM `CartProduct_detail` WHERE cart_id = $cart_id ORDER BY `quantity` ASC;";
 
+// var_dump($sql);
+// exit;
 try{
   $result = $conn -> query($sql);
   $row = $result -> fetch_assoc();
@@ -36,20 +38,20 @@ $conn->close();
 
 <body>
     <div class="container mt-3">
-        <form action="./cartUpdate.php" method="post">
+        <form action="../utilities/navbar.php?webpage=cartUpdate.php" method="post">
             <!-- 讓網址列有?id -->
             <input name="cart_id" type="hidden" value="<?=$cart_id?>">
             
             <div class="input-group">
-                <span class="input-group-text">產品編號</span>
+                <span class="input-group-text bg2 text-white">產品編號</span>
                 <input name="product_id" type="text" class="form-control" value="<?=$row["product_id"]?>">
             </div>
             <div class="input-group mt-1">
-                <span class="input-group-text">數量</span>
-                <textarea name="quantity" class="form-control"><?=$row["quantity"]?></textarea>
+                <span class="input-group-text bg2 text-white">數量</span>
+                <input name="quantity" class="form-control" value="<?=$row["quantity"]?>"></input>
             </div>
             <div class="mt-1 text-end">
-                <button type="submit" class="btn btn-info">送出</button>
+                <button type="submit" class="btn bg2 text-white">送出</button>
             </div>
         </form>
     </div>

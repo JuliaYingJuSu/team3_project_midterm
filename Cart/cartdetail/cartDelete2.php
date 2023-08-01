@@ -22,7 +22,8 @@ $cart_id = $_GET["cart_id"];
 
 $sql = "DELETE FROM `CartProduct_detail` 
 WHERE `cart_id` = $cart_id;";
-var_dump($sql);
+// var_dump($sql);
+// exit;
 
 
 try{
@@ -46,6 +47,6 @@ try{
 //使用script的方法, 跳轉至列表頁
     echo  "<script>
         alert(`$msg`);
-        window.location.href = \"./cartPage.php\";
+        window.location.href = \"./navbar.php?webpage=cartPage02.php\";
    </script>";
     ?>

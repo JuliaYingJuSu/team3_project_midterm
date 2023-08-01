@@ -41,10 +41,7 @@ for($i=0; $i<$count; $i++){
     $sql .="INSERT INTO `Order_general` (`order_id`, `payment_status`, `user_id`, `payment_method`, `delivery_method`, `delivery_address`, `delivery_status`, `order_date`) 
     VALUES 
     ($order_id, '$payment_status', '$user_id', '$payment_method', '$delivery_method', '$delivery_address', '$delivery_status', CURRENT_TIMESTAMP())";
-
-    // $sql .= "INSERT INTO `Order_general` (`order_id`, `payment_status`, `user_id`, `payment_method`, `delivery_method`, `delivery_address`, `delivery_status`, `order_date`) 
-    // VALUES 
-    // ($order_id, '$payment_status', $user_id, '$payment_method', '$delivery_method', '$delivery_address', '$delivery_status', CURRENT_TIMESTAMP())";
+    
 }
 
 
@@ -63,6 +60,6 @@ try{
 //使用script的方法, 跳轉至列表頁
     echo  "<script>
         alert(`$msg`);
-        window.location.href = \"./orderPage.php\";
+        window.location.href = \"../utilities/navbar.php?webpage=orderPagee.php\";
    </script>";
     ?>

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="position-absolute top-25 start-25 fs-1 bold mt-5 pt-5"><--請從左側選取相關功能</div>
+    <div class="position-absolute top-50 start-50 fs-1 bold mt-5 pt-5 " style= "color:#777e5c">歡迎登入食食嗑嗑後台管理系統</div>
     <script src="./js/bootstrap.bundle.min.js"></script>
 </body>
 

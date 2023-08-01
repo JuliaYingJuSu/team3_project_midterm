@@ -28,6 +28,10 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="../css/bootstrap.min.css"> -->
     <style>
+        .pcolor{
+        background-color: #777e5c;
+        color: white;
+        }
         .btn-light{
         --bs-btn-color: azure;
         --bs-btn-bg: #777e5c;
@@ -44,28 +48,28 @@ $conn->close();
         <form action="./navbar.php?webpage=book_update.php" method="post">
             <input name="book_id" type="hidden" value="<?=$book_id?>">
             <div class="input-group">
-                <span class="input-group-text">會員編號</span>
+                <span class="pcolor input-group-text">會員編號</span>
                 <input name="user_id" type="text" class="form-control" placeholder="訂位人"
                 value="<?=$row["user_id"]?>">
             </div>
 
             <div class="input-group mt-2">
-                <span class="input-group-text">餐廳編號</span>
+                <span class="pcolor input-group-text">餐廳編號</span>
                 <input name="restaurant_id" type="text" class="form-control" placeholder="預定餐廳" value="<?=$row["restaurant_id"]?>">
             </div>
 
             <div class="input-group mt-2">
-                <span class="input-group-text">日期</span>
+                <span class="pcolor input-group-text">日期</span>
                 <input name="available_date" type="date" class="form-control" value="<?=$row["available_date"]?>">
             </div>
 
             <div class="input-group mt-2">
-                <span class="input-group-text">時間</span>
+                <span class="pcolor input-group-text">時間</span>
                 <input name="available_time" type="time" class="form-control" value="<?=$row["available_time"]?>">
             </div>
 
             <div class="input-group mt-2">
-                    <span class="input-group-text">人數</span>
+                    <span class="pcolor input-group-text">人數</span>
                     <select name="customer_nums" class="form-control">
                         <option class="text-secondary"><?=$row["customer_nums"]?></option>
                         <script>
