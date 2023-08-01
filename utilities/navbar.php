@@ -20,17 +20,19 @@ if (isset($_GET["webpage"])) {
     <title>選單</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-.bg1{
-    background-color:#f1ece2;
-}
-.bg2{
-    background-color:#777e5c;
-}
-.text1{
-    color:#777e5c;
-}
-</style>
+    <style>
+        .bg1 {
+            background-color: #f1ece2;
+        }
+
+        .bg2 {
+            background-color: #777e5c;
+        }
+
+        .text1 {
+            color: #777e5c;
+        }
+    </style>
 </head>
 
 <body>
@@ -54,7 +56,6 @@ if (isset($_GET["webpage"])) {
                             <?php endif; ?>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end bg-light">
-                            <li><a class="dropdown-item fw-bold" href="#">更換大頭照</a></li>
                             <li><a class="dropdown-item fw-bold" href="../User/logout.php">登出</a></li>
                         </ul>
                     </li>
@@ -78,8 +79,7 @@ if (isset($_GET["webpage"])) {
                 <div class="d-grid gap-2 p-3">
                     <button class="btn bg2 fs-4 fw-bold text-white" type="button" data-bs-target="#menu2" data-bs-toggle="collapse">
                         <i class="fa-solid fa-utensils fa-sm me-2" style="color: #ffffff;"></i>餐廳</button>
-                    <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu2"
-                    href="../restaurant/index.php">
+                    <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu2" href="../restaurant/index.php">
                         <i class="fa-solid fa-folder fa-sm me-2" style="color: #777e5c;"></i>餐廳管理</a>
                     <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu2">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>數據統計</a>
@@ -97,10 +97,10 @@ if (isset($_GET["webpage"])) {
                         <i class="fa-solid fa-store fa-sm me-2" style="color: #ffffff;"></i>商城</button>
                     <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu5" <?= ($webpage == "product_list.php") ? "active" : "" ?> id="menu5" href="?webpage=product_list.php">
                         <i class="fa-solid fa-cash-register fa-sm me-2" style="color: #777e5c;"></i>商品管理</a>
-                    <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu5" <?=($webpage == "style-product_list.php") ? "active" : "" ?> id="menu5"  href="?webpage=style-product_list.php">
+                    <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu5" <?= ($webpage == "style-product_list.php") ? "active" : "" ?> id="menu5" href="?webpage=style-product_list.php">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>分類管理</a>
-                    <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu5" <?=($webpage == "style-product_list.php") ? "active" : "" ?> id="menu5"  href="?webpage=style-product_list.php">
-                    <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>標籤管理</a>
+                    <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu5" <?= ($webpage == "style-product_list.php") ? "active" : "" ?> id="menu5" href="?webpage=style-product_list.php">
+                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>標籤管理</a>
                 </div>
                 <div class="d-grid gap-2 p-3">
                     <button class="btn bg2 fs-4 fw-bold text-white" type="button" data-bs-target="#menu4" data-bs-toggle="collapse">
@@ -123,7 +123,7 @@ if (isset($_GET["webpage"])) {
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>標籤管理</a>
                     <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu6">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>地區管理</a>
-                    </div>
+                </div>
             </div>
         </nav>
         <main class="w-100 bg1">
@@ -139,7 +139,7 @@ if (isset($_GET["webpage"])) {
             <?php if ($webpage == "user_update.php") {
                 require("../User/user_update.php");
             } ?>
-            
+
             <?php if ($webpage == "post_ArticleList.php") {
                 require("../post/post_ArticleList.php");
             } ?>
@@ -150,7 +150,7 @@ if (isset($_GET["webpage"])) {
                 require("../post/post_ModifyArticle.php");
             } ?>
 
-<?php if ($webpage == "product_list.php") {
+            <?php if ($webpage == "product_list.php") {
                 require("../Product/product_list.php");
             } ?>
             <?php if ($webpage == "product_add.php") {
@@ -214,12 +214,12 @@ if (isset($_GET["webpage"])) {
             <?php if ($webpage == "style-product_updateL.php") {
                 require("../Product/utilities/alertFunc.php");
             } ?>
-            
+
 
             <?php if ($webpage == "cartPage.php") {
                 require("../Cart/cart/cartPage.php");
             } ?>
-             <?php if ($webpage == "cartForm04.html") {
+            <?php if ($webpage == "cartForm04.html") {
                 require("../Cart/cart/cartForm04.html");
             } ?>
 
@@ -227,13 +227,13 @@ if (isset($_GET["webpage"])) {
                 require("../Cart/cart/cartPage1.php");
             } ?>
 
-             <?php if ($webpage == "cartUpdate01.php") {
+            <?php if ($webpage == "cartUpdate01.php") {
                 require("../Cart/cart/cartUpdate01.php");
             } ?>
-             <?php if ($webpage == "cartPage1.php") {
+            <?php if ($webpage == "cartPage1.php") {
                 require("../Cart/cart/cartPage1.php");
             } ?>
-             <?php if ($webpage == "cartInsert.php") {
+            <?php if ($webpage == "cartInsert.php") {
                 require("../Cart/cart/cartInsert.php");
             } ?>
 
@@ -292,7 +292,7 @@ if (isset($_GET["webpage"])) {
             <?php if ($webpage == "cartPage02.php") {
                 require("../Cart/cartdetail/cartPage02.php");
             } ?>
-             <?php if ($webpage == "cartpage01.php") {
+            <?php if ($webpage == "cartpage01.php") {
                 require("../Cart/cartdetail/cartpage01.php");
             } ?>
             <?php if ($webpage == "cartForm.html") {
@@ -318,16 +318,30 @@ if (isset($_GET["webpage"])) {
             <?php if ($webpage == "pageBooksList3.php") {
                 require("../book/pageBooksList3.php");
             } ?>
-            
 
 
-            <?php if($webpage == "book_list.php"){require("../book/book_list.php");}?>
-            <?php if($webpage == "book_dashboard.php"){require("../book/book_dashboard.php");}?>
-            <?php if($webpage == "book_add.html"){require("../book/book_add.html");}?>              
-            <?php if($webpage == "book_delete.php"){require("../book/book_delete.php");}?>
-            <?php if($webpage == "book_insert.php"){require("../book/book_insert.php");}?>
-            <?php if($webpage == "book_pageBook.php"){require("../book/book_pageBook.php");}?>
-            <?php if($webpage == "book_update.php"){require("../book/book_update.php");}?>
+
+            <?php if ($webpage == "book_list.php") {
+                require("../book/book_list.php");
+            } ?>
+            <?php if ($webpage == "book_dashboard.php") {
+                require("../book/book_dashboard.php");
+            } ?>
+            <?php if ($webpage == "book_add.html") {
+                require("../book/book_add.html");
+            } ?>
+            <?php if ($webpage == "book_delete.php") {
+                require("../book/book_delete.php");
+            } ?>
+            <?php if ($webpage == "book_insert.php") {
+                require("../book/book_insert.php");
+            } ?>
+            <?php if ($webpage == "book_pageBook.php") {
+                require("../book/book_pageBook.php");
+            } ?>
+            <?php if ($webpage == "book_update.php") {
+                require("../book/book_update.php");
+            } ?>
 
         </main>
     </div>
