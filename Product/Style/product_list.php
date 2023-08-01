@@ -167,7 +167,7 @@ try {
             
             <div class="ctrl text-center">
               <a href="../utilities/navbar.php?webpage=style-product_update.php&id=<?=$row["product_type_id"]?>" class="btn  btn-sm"><i class="grF fa-regular fa-pen-to-square grF"></i></a>
-              <div href="#" class="btn btn-sm btn-del" idn="<?=$row["product_type_id"]?>"><i class="fa-regular fa-trash-can btn-del grF"></i></div>
+              <div href="#" class="btn btn-sm btn-del" idn="<?=$row["product_type_id"]?>"><i class="fa-regular fa-trash-can grF"></i></div>
             </div>
           </div>
           <?php endforeach; ?>

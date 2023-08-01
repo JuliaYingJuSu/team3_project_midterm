@@ -22,17 +22,21 @@ $isValid = $_POST["isValid"];
 
 // X
 if(empty($name)){
-    echo "寫名字!";
-    // window物件的history物件的back()方法
-    echo "<button onclick='goback()'>回上一頁</button>";
     echo "<script>
-    function goback(){
-        window.history.back();
-    }
+    alert(\"請輸入商品名稱\");
+    window.history.back();
     </script>";
     exit;
 }
 // V
+if($price ===""){
+
+    echo "<script>
+    alert(\"請輸入價格\");
+    window.history.back();
+    </script>";
+    exit;
+}
 if($desc ===""){
 
     echo "<script>
@@ -44,7 +48,7 @@ if($desc ===""){
 if($spec ===""){
 
  echo "<script>
- alert(\"請輸入規格\");
+ alert(\"請輸入商品規格\");
  window.history.back();
  </script>";
  exit;
@@ -52,7 +56,7 @@ if($spec ===""){
 if($type ===""){
 
  echo "<script>
- alert(\"請輸入規格\");
+ alert(\"請點選分類\");
  window.history.back();
  </script>";
  exit;
@@ -60,7 +64,7 @@ if($type ===""){
 if($typeList ===""){
 
  echo "<script>
- alert(\"請輸入規格\");
+ alert(\"請點選次分類\");
  window.history.back();
  </script>";
  exit;

@@ -82,7 +82,7 @@ try{
 <body>
     <div class="container mt-3">
 
-        <form action="../utilities/navbar.php?webpage=product_doUpdateOO.php" method="post" enctype="multipart/form-data">
+        <form action="../utilities/navbar.php?webpage=product_doUpdateOO.php" method="post" enctype="multipart/form-data" class="px-2">
             <!-- 讓doUpdate的$_POST["id"]抓得到東西 -->
             <input type="hidden" name="id" value="<?=$id?>"> 
 
@@ -170,7 +170,7 @@ try{
                     <div class="btn gr wtF btn-add-file">+</div>
                 </div>
             </div>
-            <div class="mt-1 text-start">
+            <div class="mt-1 text-end">
                 <button type="submit" class="btn gr wtF btn-send">新增圖片</button>
                 <!-- <a class="btn btn-info" href="./product_doUpdateImg.php?id=<?=$id?>">修改</a> -->
                 <a class="btn gr wtF" href="">取消</a>

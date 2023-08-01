@@ -59,7 +59,7 @@ $pageStart = ($page - 1) * $perPage;
 
 
 $sql = "SELECT * FROM `product` JOIN `product_type_list` ON product.product_type_list_id = product_type_list.product_type_list_id JOIN product_type
-ON product_type.product_type_id = product_type_list.product_type_id JOIN discount_rate ON discount_rate.discount_rate_id = product.discount_rate_id WHERE $typeSQL $searchSQL product.isValid = 1 ORDER BY product_id ASC LIMIT $pageStart, $perPage ; ";
+ON product_type.product_type_id = product_type_list.product_type_id JOIN discount_rate ON discount_rate.discount_rate_id = product.discount_rate_id WHERE $typeSQL $searchSQL product.isValid = 1 ORDER BY product_id DESC LIMIT $pageStart, $perPage ; ";
 // limit0,5五個一頁  
 $sqlAll = "SELECT * FROM `product` WHERE $typeSQL $searchSQL product.isValid = 1";
 $sqlType="SELECT * FROM `product_type` WHERE isValid = 1";
@@ -253,7 +253,7 @@ $conn->close();
         <div class="control ps-2 ">
           <a href="../utilities/navbar.php?webpage=product_updateOO.php&id=<?=$row["product_id"]?>" <?= ($webpage == "product_updeatOO.php") ? "active" : "" ?> class="btn  btn-sm" ><i class="fa-regular fa-pen-to-square grF"></i></a>
           
-          <span class="btn btn-sm btn-del " idn="<?=$row["product_id"]?>"><i class="fa-regular fa-trash-can btn-del grF" idn="<?=$row["product_id"]?>"></i></span>
+          <span class="btn btn-sm btn-del " idn="<?=$row["product_id"]?>"><i class="fa-regular fa-trash-can grF" idn="<?=$row["product_id"]?>"></i></span>
           
       </div>
       
