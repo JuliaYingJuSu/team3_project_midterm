@@ -1,29 +1,7 @@
 <?php
 // session_start();
-require_once("../../connect.php"); // 引用連線
+require_once("../connect.php"); // 引用連線
 
-// 通知的小視窗加上回列表
-function alertAndGoToList($msg){
-  echo "<script>
-    alert(\"$msg\");
-    window.location.href = \"./product_list.php\";
-  </script>";
-}
-// 通知的小視窗加上回上一頁
-function alertAndGoBack($msg){
-  echo "<script>
-    alert(\"$msg\");
-    window.history.back();
-  </script>";
-}
-// 通知的小視窗加上回上一頁
-function alertAndBackToPage($msg, $page){
-  echo "<script>
-    alert(\"$msg\");
-    window.location.href = \"$page\";
-  </script>";
-}
-// require_once("../utilities/alertFunc.php"); // 引用常用函數
 
 
 
@@ -75,12 +53,12 @@ try {
 } catch (mysqli_sql_exception $exception) {
   $error = "資料讀取錯誤：" . $conn->error;
 }
+// echo($sql);
+// exit;
 //次分類變數
 // $sqlL = "SELECT * FROM product_type_list WHERE `isValid` = 1 LIMIT $pageStartL, $perPageL";
 $sqlL = "SELECT * FROM product_type_list JOIN product_type ON product_type_list.product_type_id = product_type.product_type_id WHERE product_type_list.isValid = 1 AND product_type.isValid = 1 LIMIT $pageStartL, $perPageL";
 
-// echo($sqlL);
-// exit;
 //數筆數用
 $sqlAllL = "SELECT * FROM product_type_list WHERE `isValid` = 1";
 // $sql = "SELECT * FROM product_type WHERE $uSQL isValid = 1 LIMIT $pageStart, $perPage";
@@ -97,6 +75,7 @@ try {
 }
 
 
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -104,46 +83,79 @@ try {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>分類列表</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
     <style>
       .category{
         display: flex;
         justify-content: space-between;
       }
       .sn{
-
-        padding-left: 10px;
-        padding-right: 10px;
+        
+        padding-left: .625rem;
+        padding-right: .625rem;
       }
       .name{
-
-        padding-left: 10px;
-        padding-right: 10px;
+        
+        padding-left: .625rem;
+        padding-right: .625rem;
       }
       .ctrl{
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: .625rem;
+        padding-right: .625rem;
       }
+      .gr{
+          background-color: #777e5c;
+        }
+        .grF{
+          color: #777e5c;
+        }
+        .wt{
+          background-color: #f1ece2; 
+        }
+        .wtF{
+          color: #f1ece2;
+        }
 
-    </style>
+        .pagination{
+        --bs-pagination-color: #777e5c;
+        --bs-pagination-hover-color: #777e5c;
+        --bs-pagination-focus-color: #777e5c;
+        }
+
+        .active>.page-link, .page-link.active {
+        background-color: #777e5c;
+        border-color: #777e5c;
+        }
+
+        .But:hover,.nav-tabs .nav-link.active{
+          background-color: #777e5c;
+        }
+        .nav-tabs .nav-link.active{
+          border:none;
+        }
+        .nav-tabs{
+          border-color: #777e5c ;
+        }
+      </style>
     
   </head>
   <body>
-
     <div class="container my-3 ">
-
-<!-- 分類 -->
+      
+      <!-- 分類 -->
       <div class="d-flex mb-2 justify-content-between">
         <h3 class=" align-middle ms-1">分類列表</h3>
-         <a class="btn btn-info btn-sm my-1" href="../utilities/navbar.php?webpage=style-product_add.php">增加分類</a>       
-
+        <a class="btn gr wtF btn-sm my-1" href="../utilities/navbar.php?webpage=style-product_add.php">增加分類</a>       
+        
       </div>
       <?php if($error !== ""): ?>
         <div class="text-danger fw-bold fs-3">發生錯誤，請洽管理人員</div>
-      <?php else:?>
-        <div class="category data head bg-secondary p-1 text-white rounded p-2 mb-2">
-          <div class="sn">編號</div>
-          <div class="name">分類名稱</div>
+        <?echo($error);?>
+        <?exit;?>
+        <?php else:?>
+          <div class="category data head gr p-1 text-white rounded p-2 mb-2">
+            <div class="sn">編號</div>
+            <div class="name">分類名稱</div>
           <!-- <div class="cTime">建立時間</div> -->
           <div class="ctrl text-center">操作管理</div>
         </div>
@@ -152,10 +164,10 @@ try {
           <div class="category data py-1">
             <div class="sn "><?=($perPage*($page-1))+$index+1?></div>
             <div class="name"><?=$row["product_type_name"]?></div>
-            <!-- <div class="cTime"><?=$row["createTime"]?></div> -->
+            
             <div class="ctrl text-center">
-              <a href="../utilities/navbar.php?webpage=style-product_update.php&id=<?=$row["product_type_id"]?>" class="btn btn-primary btn-sm">管理</a>
-              <div href="#" class="btn btn-danger btn-sm btn-del" idn="<?=$row["product_type_id"]?>">刪除</div>
+              <a href="../utilities/navbar.php?webpage=style-product_update.php&id=<?=$row["product_type_id"]?>" class="btn  btn-sm"><i class="grF fa-regular fa-pen-to-square grF"></i></a>
+              <div href="#" class="btn btn-sm btn-del" idn="<?=$row["product_type_id"]?>"><i class="fa-regular fa-trash-can btn-del grF"></i></div>
             </div>
           </div>
           <?php endforeach; ?>
@@ -164,7 +176,7 @@ try {
           <div class="pagination pagination-sm justify-content-center my-2">
             <?php for($i=1;$i<=$totalPage;$i++): ?>
               <div class="page-item">
-                <a href="?page=<?=$i?>" class="page-link <?=($page==$i)?"active":""?>"><?=$i?></a>
+                <a href="../utilities/navbar.php?webpage=style-product_list.php&page=<?=$i?>" class="page-link <?=($page==$i)?"active":""?>"><?=$i?></a>
               </div>
             <?php endfor; ?>
           </div>
@@ -173,13 +185,13 @@ try {
 <!-- 次分類 -->
           <div class="d-flex mb-2 justify-content-between">
             <h3 class=" align-middle ms-1">次分類列表</h3>
-            <a class="btn btn-info btn-sm my-1"   href="../utilities/navbar.php?webpage=style-product_addL.php">增加次分類</a>
+            <a class="btn gr wtF btn-sm my-1"   href="../utilities/navbar.php?webpage=style-product_addL.php">增加次分類</a>
            </div>
      
       <?php if($error !== ""): ?>
         <div class="text-danger fw-bold fs-3">發生錯誤，請洽管理人員</div>
       <?php else:?>
-        <div class="category data head bg-secondary p-1 text-white rounded p-2 mb-2">
+        <div class="category data head gr p-1 text-white rounded p-2 mb-2">
           <div class="sn">編號</div>
           <div class="name">次分類名稱</div>
           <div class="cTime">所屬分類</div>
@@ -192,8 +204,8 @@ try {
             <div class="name"><?=$rowL["product_type_list_name"]?></div>
             <div class="cTime"><?=$rowL["product_type_name"]?></div>
             <div class="ctrl text-center">
-              <a href="../utilities/navbar.php?webpage=style-product_updateL.php&id=<?=$rowL["product_type_list_id"]?>" class="btn btn-primary btn-sm">管理</a>
-              <div href="#" class="btn btn-danger btn-sm btn-delL" idnL="<?=$rowL["product_type_list_id"]?>">刪除</div>
+              <a href="../utilities/navbar.php?webpage=style-product_updateL.php&id=<?=$rowL["product_type_list_id"]?>" class="btn btn-sm"><i class="fa-regular fa-pen-to-square grF"></i></a>
+              <div href="#" class="btn btn-sm btn-delL" idnL="<?=$rowL["product_type_list_id"]?>"><i class="fa-regular fa-trash-can grF"></i></div>
             </div>
           </div>
           <?php endforeach; ?>
@@ -207,6 +219,7 @@ try {
             <?php endfor; ?>
           </div>
           <?php endif; ?>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <!-- 分類 -->
@@ -216,7 +229,7 @@ try {
         btnDel.addEventListener("click", function(){
           let id = this.getAttribute("idn");
           if(confirm("確定要刪除嗎？")){
-            window.location.href = `../utilities/navbar.php?webpage=product_doDelete.php&id=${id}`;
+            window.location.href = `../utilities/navbar.php?webpage=style-product_doDelete.php&id=${id}`;
           }
         })
       });
@@ -228,10 +241,11 @@ try {
         btnDelL.addEventListener("click", function(){
           let idL = this.getAttribute("idnL");
           if(confirm("確定要刪除嗎？")){
-            window.location.href = `../utilities/navbar.php?webpage=product_doDeleteL.php&idL=${idL}`;
+            window.location.href = `../utilities/navbar.php?webpage=style-product_doDeleteL.php&idL=${idL}`;
           }
         })
       });
+      
     </script>
   </body>
 </html>

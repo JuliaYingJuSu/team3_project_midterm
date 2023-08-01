@@ -76,9 +76,10 @@ if (isset($_GET["webpage"])) {
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>統計</a>
                 </div>
                 <div class="d-grid gap-2 p-3">
-                    <button href="../restaurant/index.php" class="btn bg2 fs-4 fw-bold text-white" type="button" data-bs-target="#menu2" data-bs-toggle="collapse">
+                    <button class="btn bg2 fs-4 fw-bold text-white" type="button" data-bs-target="#menu2" data-bs-toggle="collapse">
                         <i class="fa-solid fa-utensils fa-sm me-2" style="color: #ffffff;"></i>餐廳</button>
-                    <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu2">
+                    <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu2"
+                    href="../restaurant/index.php">
                         <i class="fa-solid fa-folder fa-sm me-2" style="color: #777e5c;"></i>餐廳管理</a>
                     <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu2">
                         <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>統計</a>
@@ -141,7 +142,7 @@ if (isset($_GET["webpage"])) {
                 require("../post/post_ModifyArticle.php");
             } ?>
 
-            <?php if ($webpage == "product_list.php") {
+<?php if ($webpage == "product_list.php") {
                 require("../Product/product_list.php");
             } ?>
             <?php if ($webpage == "product_add.php") {
@@ -201,6 +202,9 @@ if (isset($_GET["webpage"])) {
             } ?>
             <?php if ($webpage == "style-product_updateL.php") {
                 require("../Product/Style/product_updateL.php");
+            } ?>
+            <?php if ($webpage == "style-product_updateL.php") {
+                require("../Product/utilities/alertFunc.php");
             } ?>
             
 

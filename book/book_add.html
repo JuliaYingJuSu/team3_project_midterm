@@ -4,16 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../css/bootstrap.min.css"> -->
     <style>
-        .text-end .btn-light{
-        --bs-btn-color: azure;
-        --bs-btn-bg: #777e5c;
+        .text-end .btn-light {
+            --bs-btn-color: azure;
+            --bs-btn-bg: #777e5c;
         }
-        .container{
+
+        .container {
             background-color: #F1Ece2;
         }
-        .btn-auto{
+
+        .btn-auto {
             position: fixed;
             bottom: 5px;
             left: 5px;
@@ -47,7 +49,7 @@
                     <select name="customer_nums[]" class="form-control">
                         <option value="">--請選擇用餐人數--</option>
                         <script>
-                            for(i=1;i<11;i++){
+                            for (i = 1; i < 11; i++) {
                                 document.write(`<option value="${i}">${i}</option>`);
                             }
                         </script>
@@ -156,7 +158,7 @@
                 </div>
                 <div class="input-group mt-5">
                     <span class="input-group-text">會員編號</span>
-                    <input name="user_id[]" type="text" class="form-control" value="61">
+                    <input name="user_id[]" type="text" class="form-control" value="1">
                 </div>
                 <div class="input-group mt-2">
                     <span class="input-group-text">餐廳編號</span>

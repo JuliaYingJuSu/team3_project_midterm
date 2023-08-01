@@ -119,5 +119,5 @@ try{
 
 echo "<script>
 alert(\"$msg\");
-window.location.href = \"./product_list.php\"
+window.location.href = \"../utilities/navbar.php?webpage=product_list.php\"
 </script>";

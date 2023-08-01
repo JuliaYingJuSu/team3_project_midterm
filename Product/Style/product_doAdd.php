@@ -1,13 +1,13 @@
 <?php
 // session_start();
-require_once("../../connect.php"); // 引用連線
+require_once("../connect.php"); // 引用連線
 
 
 // 通知的小視窗加上回列表
 function alertAndGoToList($msg){
   echo "<script>
     alert(\"$msg\");
-    window.location.href = \"./product_list.php\";
+    window.location.href = \"../utilities/navbar.php?webpage=style-product_list.php\";
   </script>";
 }
 // 通知的小視窗加上回上一頁

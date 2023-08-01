@@ -1,6 +1,6 @@
 <?php
 require_once("../connect.php");
-require_once("./utilities/alertFunc.php");
+// require_once("./utilities/alertFunc.php");
 
 if (!isset($_GET["id"])) {
   echo "請由正式方法進入頁面";
@@ -23,12 +23,14 @@ try {
   $row = $result->fetch_assoc();
   $conn->query($sqlDel);
   
-  $file = "./product_img/".$row["product_img"];
+  $file = "../Product/product_img/".$row["product_img"];
   $result = $conn->query($sql);
 } catch (mysqli_sql_exception $exception) {
   $row = "ERROR";
 }
 // echo $file;
+
+
 if($file!=""){
   try {
     deleteFile($file);
@@ -37,8 +39,9 @@ if($file!=""){
     $msg = $e->getMessage();
   }
 }
-$url = "./product_updateOO.php?id=$id";
-alertAndBackToPage($msg, $url);
+// $url = "../utilities/navbar.php?webpage=product_updateOO.php&id=$id";
+// alertAndBackToPage($msg, $url);
+
 
 function deleteFile($file) {
   if(file_exists($file)) {
@@ -49,3 +52,8 @@ function deleteFile($file) {
     throw new Exception("檔案不存在");
   }
 }
+echo "<script>
+alert(\"$msg\");
+window.location.href = \"../utilities/navbar.php?webpage=product_updateOO.php&id=$id\"
+</script>";
+?>

@@ -45,8 +45,8 @@ try{
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>修改商品</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"> -->
     <style>
         .img{
             width:200px;
@@ -63,6 +63,19 @@ try{
             width: 200px;
             object-fit:cover;
         }
+        .gr{
+          background-color: #777e5c;
+        }
+        .grF{
+          color: #777e5c;
+        }
+        .wt{
+          background-color: #f1ece2; 
+        }
+        .wtF{
+          color: #f1ece2;
+        }
+
     </style>
 </head>
 
@@ -129,16 +142,16 @@ try{
                     <p class="text-secondary text-end">"欲下架商品請填0"</p>
             </div>
             <div class="mt-1 text-end">
-                <button type="submit" class="btn btn-info">送出</button>
-                <a class="btn btn-info" href="../utilities/navbar.php?webpage=product_list.php">回上一頁</a>
+                <button type="submit" class="btn wtF gr">送出</button>
+                <a class="btn gr wtF" href="../utilities/navbar.php?webpage=product_list.php">回上一頁</a>
             </div>
         </form>
     </div>
-    <div class="container bg-body-secondary rounded my-2">
-        <div class="d-flex">
+    <div class="container wt rounded my-2">
+        <div class="d-flex flex-wrap">
             <?php foreach($row4s as $row4): ?>
                 <div class="border border-secondary rounded p-1 m-2">
-                    <img src="../utilities/navbar.php?webpage=product_img/<?=$row4["product_img"]?>" alt=""      
+                    <img src="../Product/product_img/<?=$row4["product_img"]?>" alt=""      
                     class="img delImg" pid="<?=$row4["product_img"]?>" idn="<?=$id?>">
                     <div class="input-group ">
                         <!-- <span class="input-group-text text-secondary">首圖顯示</span> -->
@@ -148,19 +161,19 @@ try{
             <?php endforeach; ?>
         </div>
         
-        <form id="form2" class="mt-2 mb-5 p-2 bg-primary-subtle" method="post" action="../utilities/navbar.php?webpage=product_doAddImg.php&id=<?=$id?>" enctype="multipart/form-data">
+        <form id="form2" class="mt-2 mb-5 p-2 " method="post" action="../utilities/navbar.php?webpage=product_doAddImg.php&id=<?=$id?>" enctype="multipart/form-data">
             <div class="myFiles">
                 <div class="input-group mt-1">
                     <span class="input-group-text">產品圖</span>
                     <input class="form-control" id="imgInp" type="file" name="myFile[]" accept=".png,.jpg,.jpeg" data-target="preview_progressbarTW_img">
 
-                    <div class="btn btn-info btn-add-file">+</div>
+                    <div class="btn gr wtF btn-add-file">+</div>
                 </div>
             </div>
             <div class="mt-1 text-start">
-                <button type="submit" class="btn btn-primary btn-send">新增圖片</button>
+                <button type="submit" class="btn gr wtF btn-send">新增圖片</button>
                 <!-- <a class="btn btn-info" href="./product_doUpdateImg.php?id=<?=$id?>">修改</a> -->
-                <a class="btn btn-info" href="">取消</a>
+                <a class="btn gr wtF" href="">取消</a>
                 <!-- ./product_list.php -->
             </div>
         </form>
@@ -168,7 +181,7 @@ try{
 
     <!-- 預覽圖片 -->
         <div>
-            <img id="preview_progressbarTW_img" src="img/default.jpg" class="border border-secondary rounded p-1 m-2" />
+            <img id="preview_progressbarTW_img" src="../Product/product_img/default.jpg" class="border border-secondary rounded p-1 m-2" />
         </div>
         <template id="myFile">
             <div class="input-group mt-1 pdUnit">

@@ -59,7 +59,7 @@ $pageStart = ($page - 1) * $perPage;
 
 
 $sql = "SELECT * FROM `product` JOIN `product_type_list` ON product.product_type_list_id = product_type_list.product_type_list_id JOIN product_type
-ON product_type.product_type_id = product_type_list.product_type_id JOIN discount_rate ON discount_rate.discount_rate_id = product.discount_rate_id WHERE $typeSQL $searchSQL product.isValid = 1 LIMIT $pageStart, $perPage ; ";
+ON product_type.product_type_id = product_type_list.product_type_id JOIN discount_rate ON discount_rate.discount_rate_id = product.discount_rate_id WHERE $typeSQL $searchSQL product.isValid = 1 ORDER BY product_id ASC LIMIT $pageStart, $perPage ; ";
 // limit0,5五個一頁  
 $sqlAll = "SELECT * FROM `product` WHERE $typeSQL $searchSQL product.isValid = 1";
 $sqlType="SELECT * FROM `product_type` WHERE isValid = 1";
@@ -101,8 +101,9 @@ $conn->close();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>商品列表</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/list.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         .df{
           display: flex;
@@ -146,19 +147,62 @@ $conn->close();
           /* height: 80px; */
           /* overflow:auto; */
         }
+
+        .gr{
+          background-color: #777e5c;
+        }
+        .grF{
+          color: #777e5c;
+        }
+        .wt{
+          background-color: #f1ece2; 
+        }
+        .wtF{
+          color: #f1ece2;
+        }
+
+        .pagination{
+        --bs-pagination-color: #777e5c;
+        --bs-pagination-hover-color: #777e5c;
+        --bs-pagination-focus-color: #777e5c;
+        }
+
+        .active>.page-link, .page-link.active {
+        background-color: #777e5c;
+        border-color: #777e5c;
+        }
+
+        .form-check-input:checked {
+        background-color: #777e5c;
+        border-color: #777e5c;
+        }
+        .But:hover,.nav-tabs .nav-link.active{
+          background-color: #777e5c;
+          color:#f1ece2;
+          
+        }
+        
+        .nav-tabs .nav-link:hover{
+          background-color: #777e5c;
+          color:#f1ece2;
+        }
+     
+        .nav-tabs{
+          border-color: #777e5c ;
+        }
     </style>
   </head>
   <body>
 
 
-  <div class="container">
+  <div class="wt container border-0">
   <h1>商品列表</h1>
 
   <?php if($msgNum>0): ?>
     <div class=" d-flex">
         <div class="my-2 me-auto "> 
-          目前共<span class="badge text-bg-secondary"><?=$totalAll?></span>項商品
-        <!-- <a href="./product_list.php?dir=<?=($dir=="DESC")?"ASC":"DESC"?>">123</a> 排序????-->
+          目前共<?=$totalAll?>項商品
+
         </div>
 
         <div class="me-1">
@@ -173,56 +217,58 @@ $conn->close();
 
             </div>
               <input name="search" type="text" class="form-control form-control-sm" placeholder="搜尋">
-              <div class="btn btn-primary btn-sm btn-search">送出搜尋</div>
+              <div class="btn gr btn-sm btn-search wtF">送出搜尋</div>
           </div>
         </div>
 
 
         <div>
-          <a href="../utilities/navbar.php?webpage=product_add.php" <?= ($webpage == "product_add.php") ? "active" : "" ?> class="btn btn-warning btn-sm">新增商品</a>
+          <a href="../utilities/navbar.php?webpage=product_add.php" <?= ($webpage == "product_add.php") ? "active" : "" ?> class="btn btn-sm gr wtF">新增商品</a>
         </div>
     </div>
 
     <div class="nav nav-tabs">
-        <a class="nav-link <?=($tid==0)?"active":""?>" href="../utilities/navbar.php?webpage=product_list.php">全部</a>
+        <a class="nav-link <?=($tid==0)?"active":""?> grF" href="../utilities/navbar.php?webpage=product_list.php">全部</a>
 
 
         
         <!-- 逐筆將大分類ID放進tabs，點擊時將其設至網址變數，網址變數和tabs所屬ID一致時active -->
         <?php foreach($rowsType as $row): ?>
-        <a class="nav-link <?=($tid==$row["product_type_id"])?"active":""?>" href="../utilities/navbar.php?webpage=product_list.php&tid=<?=$row["product_type_id"]?>"><?=$row["product_type_name"]?></a>
+        <a class="nav-link <?=($tid==$row["product_type_id"])?"active":""?> grF" href="../utilities/navbar.php?webpage=product_list.php&tid=<?=$row["product_type_id"]?>"><?=$row["product_type_name"]?></a>
         <?php endforeach; ?>
     </div>
 
 
 
 <!-- 重複一輪從這 -->
-  <div class="border border-top-0 p-3 rounded rounded-top-0">
+
+  <div class="border-0 p-3">
     
     <?php foreach($rows as $index => $row): ?>
       <div class="df justify-content-between">
-        <button class="btn btn-primary m-2 setID" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample<?=$row["product_id"]?>" aria-expanded="false" aria-controls="collapseExample" idn="<?=$row["product_id"]?>">
+        <button class="btn wh m-2 setID But" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample<?=$row["product_id"]?>" aria-expanded="false" aria-controls="collapseExample" idn="<?=$row["product_id"]?>">
           <?=$row["product_name"]?>
         </button>
 
         <div class="control ps-2 ">
-          <a href="../utilities/navbar.php?webpage=product_updateOO.php&id=<?=$row["product_id"]?>" <?= ($webpage == "product_updeatOO.php") ? "active" : "" ?> class="btn btn-warning btn-sm" >修改</a>
-          <span class="btn btn-danger btn-sm btn-del" idn="<?=$row["product_id"]?>">刪除</span>
-            <!-- <a href="./Img.php?id=<?=$row["product_id"]?>" class="btn btn-warning btn-sm" >圖片管理</a> -->
+          <a href="../utilities/navbar.php?webpage=product_updateOO.php&id=<?=$row["product_id"]?>" <?= ($webpage == "product_updeatOO.php") ? "active" : "" ?> class="btn  btn-sm" ><i class="fa-regular fa-pen-to-square grF"></i></a>
+          
+          <span class="btn btn-sm btn-del " idn="<?=$row["product_id"]?>"><i class="fa-regular fa-trash-can btn-del grF" idn="<?=$row["product_id"]?>"></i></span>
+          
       </div>
       
         </div>
         <div class="collapse" id="collapseExample<?=$row["product_id"]?>">
           <div class=" my-3 card card-body d-flex">
             <div class="df text-bg-secondary rounded">
-                <div class="id px-2 ">商品編號</div>
-                <div class="name px-2 ">品名</div>
-                <div class="price px-2">價錢</div>
-                <div class="description px-2">介紹</div>
+                <div class="id px-2 gr">商品編號</div>
+                <div class="name px-2 gr">品名</div>
+                <div class="price px-2 gr">價錢</div>
+                <div class="description px-2 gr">介紹</div>
                 <!-- <div class="specification">規格</div> -->
-                <div class="product_type_id px-2">分類</div>
-                <div class="product_type_list_id px-2">次分類</div>
-                <div class="discount_rate_id px-2">折扣</div>
+                <div class="product_type_id px-2 gr">分類</div>
+                <div class="product_type_list_id px-2 gr">次分類</div>
+                <div class="discount_rate_id px-2 gr">折扣</div>
                 <!-- <div class="control ps-2">控制</div> -->
             </div>
             <div class="df">
@@ -248,20 +294,6 @@ $conn->close();
         </div>
 
 
-        <!-- <div class="msg my-3 ">
-            <div class="id px-2"><?=$row["product_id"]?></div>
-            <div class="name px-2"><?=$row["product_name"]?></div>
-            <div class="price px-2"><?=$row["price"]?></div>
-            <div class="description px-2"><?=$row["product_description"]?></div>
-            <div class="product_type_id px-2"><?=$row["product_type_id"].$row["product_type_name"]?></div>
-            <div class="product_type_list_id px-2"><?=$row["product_type_list_id"].$row["product_type_list_name"]?></div>
-            <div class="discount_rate_id px-2"><?=$row["discount_rate_id"]?></div>
-            <div class="control ps-2">
-                <span class="btn btn-danger btn-sm btn-del" idn="<?=$row["product_id"]?>">刪除</span>
-                <a href="./updateOO.php?id=<?=$row["product_id"]?>" class="btn btn-warning btn-sm" >修改</a>
-                <a href="./Img.php?id=<?=$row["product_id"]?>" class="btn btn-warning btn-sm" >圖片管理</a>
-            </div>
-        </div> -->
     <?php endforeach; ?>
 
     <div aria-label="Page navigation example" class=" mt-5 d-flex justify-content-center">
@@ -288,7 +320,7 @@ $conn->close();
 </div>  
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Z5a0jRDgcWshsMIf2x5JgbR/Jm1fIHlLO1kymLdQkI7IPDh2voqo8QsfvAJSjma" crossorigin="anonymous"></script>
 
     <script>
         const btnDels= document.querySelectorAll(".btn-del");

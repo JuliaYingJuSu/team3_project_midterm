@@ -4,21 +4,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>增加分類</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"> -->
+        <style>
+            .gr{
+          background-color: #777e5c;
+        }
+        .grF{
+          color: #777e5c;
+        }
+        .wt{
+          background-color: #f1ece2; 
+        }
+        .wtF{
+          color: #f1ece2;
+        }
+
+        </style>
   </head>
   <body>
 
     <div class="container my-3">
-      <h1>增加分類<span class="badge text-bg-info fs-6 align-middle ms-1">商品</span></h1>
+      <h1>增加分類</h1>
       <form action="../utilities/navbar.php?webpage=style-product_doAdd.php" method="post" enctype="multipart/form-data">
         <div class="input-group mb-1">
           <span class="input-group-text">分類名稱</span>
           <input name="name" type="text" class="form-control" placeholder="輸入分類名稱">
         </div>
         <div class="mt-1 text-end">
-          <button type="submit" class="btn btn-primary btn-send">送出</button>
-          <a class="btn btn-info" href="../utilities/navbar.php?webpage=style-product_list.php">取消</a>
+          <button type="submit" class="btn gr wtF btn-send">送出</button>
+          <a class="btn gr wtF" href="../utilities/navbar.php?webpage=style-product_list.php">取消</a>
         </div>
       </form>
     </div>
