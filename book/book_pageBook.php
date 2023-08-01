@@ -27,6 +27,15 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+        .btn-light{
+        --bs-btn-color: azure;
+        --bs-btn-bg: #777e5c;
+        }
+        .container{
+            background-color: #F1Ece2;
+        }
+    </style>
     <title>修改內容</title>
 </head>
 
@@ -68,7 +77,7 @@ $conn->close();
             </div>
 
             <div class="mt-3 text-end">
-                <button type="submit" class="btn btn-info">送出</button>
+                <button type="submit" class="btn btn-light">送出</button>
             </div>
         </form>
     </div>

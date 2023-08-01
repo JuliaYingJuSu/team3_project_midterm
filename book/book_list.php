@@ -3,7 +3,6 @@ require_once("../connect.php");
 
 $sql = "SELECT * FROM `book` WHERE `book_isValid` = 1 ORDER BY `book_create_time` DESC;";
 
-
 $search = isset($_GET["search"])?$_GET["search"]:"";
 $searchType = isset($_GET["qtype"])?$_GET["qtype"]:"";
 
@@ -19,7 +18,7 @@ if(!isset($_GET["page"])){
     $page = $_GET["page"];
 }
 
-$perPage = 10;
+$perPage = 15;
 $pageStart = ($page - 1) * $perPage;
 
 
@@ -49,7 +48,36 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        .colbg2{
+        color: white;
+        background-color: gray;
+        }
+        .colbg{
+        color: white;
+        background-color: #777e5c;
+        }
+        .pagination{
+        --bs-pagination-color: #777e5c;
+        --bs-pagination-hover-color: #777e5c;
+        --bs-pagination-focus-color: #777e5c;
+        }
+        .active>.page-link, .page-link.active {
+        background-color: #777e5c;
+        border-color: #777e5c;
+        }
+        .form-check-input:checked {
+        background-color: #777e5c;
+        border-color: #777e5c;
+        }
+        .btn-light{
+        --bs-btn-color: azure;
+        --bs-btn-bg: #777e5c;
+        }
+        .container{
+        background-color: #F1Ece2;
+        }
         body{
         font-size: 14px;
         }
@@ -104,15 +132,15 @@ $conn->close();
         line-height: 1.8rem;
         }
     </style>
-    <title>訂位總表</title>
+    <title>訂位列表</title>
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-2">訂位總表</h1>
+        <h1 class="fw-bold mt-2">訂位列表</h1>
         <?if($msgNum > 0):?>
             <div class="d-flex">
                 <div class="my-2 me-auto">
-                    目前共 <?=$totalAll?> 筆資料
+                    目前共 <?=$totalAll?> 筆訂位
                 </div>
                 <div class="me-1">
                     <div class="input-group input-group-sm">
@@ -134,11 +162,11 @@ $conn->close();
 
                         </div>
                             <input name="search" type="text" class="form-control form-control-sm me-2" placeholder="搜尋">
-                            <div class="btn btn-primary btn-sm btn-search">送出搜尋</div>
+                            <div class="btn btn-light btn-sm btn-search">送出搜尋</div>
                         </div>
                     </div>
                 <div>
-                    <a href="./navbar.php?webpage=book_add.html" class="btn btn-info btn-sm">增加資料</a>
+                    <a href="./navbar.php?webpage=book_add.html" class="btn btn-light btn-sm">增加資料</a>
                 </div>
             </div>
 
@@ -153,14 +181,14 @@ $conn->close();
                 </div>
                 
                 <div>
-                    <a href="./navbar.php?webpage=book_list.php" class="btn btn-light btn-sm mt-2">重置</a>
+                    <a href="./navbar.php?webpage=book_list.php" class="btn btn-light btn-sm mt-2 me-1"><i class="fa-solid fa-rotate-right" style="color: white;"></i></i></a>
                     <a href="./navbar.php?webpage=book_dashboard.php" class="btn btn-light btn-sm mt-2">圖表</a>
                 </div>
             
             </div>
 
             
-            <div class="msg text-bg-dark ps-1">
+            <div class="msg ps-1 colbg mt-1 mb-2">
                 <div class="book_id">訂位編號</div>
                 <div class="user_id">會員編號</div>
                 <div class="restaurant_id">餐廳編號</div>
@@ -181,9 +209,9 @@ $conn->close();
                         <div class="customer_nums"><?=$row["customer_nums"]?></div>
                         <div class="book_create_time"><?=$row["book_create_time"]?></div>
                         <div class="time">
-                            <span class="btn btn-danger btn-sm btn-del" idn="<?=$row["book_id"]?>">刪除</span>
-                            <a href="./navbar.php?webpage=book_pageBook.php&book_id=<?=$row["book_id"]?>" class="btn btn-info btn-sm">修改</a>
-                            <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample<?=$row["book_id"]?>" aria-expanded="false" aria-controls="collapseExample">展開</button>
+                            <span class="btn btn-sm btn-del" idn="<?=$row["book_id"]?>"><i class="fa-regular fa-trash-can" style="color: #777e5c;"></i></span>
+                            <a href="./navbar.php?webpage=book_pageBook.php&book_id=<?=$row["book_id"]?>" class="btn btn-sm"><i class="fa-regular fa-pen-to-square" style="color: #777e5c;"></i></a>
+                            <button class="btn btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample<?=$row["book_id"]?>" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-angle-down" style="color: #777e5c;"></i></button>
                         </div>
                     </div>
                     <div class="collapse" id="collapseExample<?=$row["book_id"]?>">
@@ -217,7 +245,7 @@ $conn->close();
 
         const demo1 = document.getElementById("collapseExample48");
         demo1.innerHTML = `<div class="card card-body mb-3">
-                    <div class="msg text-bg-secondary ps-1">
+                    <div class="msg colbg2 ps-1">
                         <div class="name">會員姓名</div>
                         <div class="photo">會員頭像</div>
                         <div class="restaurant">餐廳名稱</div>
@@ -239,7 +267,7 @@ $conn->close();
 
         const demo2 = document.getElementById("collapseExample47");
         demo2.innerHTML = `<div class="card card-body mb-3">
-                    <div class="msg text-bg-secondary ps-1">
+                    <div class="msg colbg2 ps-1">
                         <div class="name">會員姓名</div>
                         <div class="photo">會員頭像</div>
                         <div class="restaurant">餐廳名稱</div>
