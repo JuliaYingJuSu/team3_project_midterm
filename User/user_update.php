@@ -51,7 +51,7 @@ $conn->close();
     <div class="border container mt-4 rounded bg-white">
         <div class="d-flex my-2">
             <h2 class="fw-bold">修改會員資料</h2>
-            
+
             <span class="fs-5 ms-auto fw-bold border rounded-4 p-2 bg2 mb-1 text-light">
                 最後修改時間:<?= $row["updatetime"]; ?></span>
         </div>
@@ -194,14 +194,31 @@ $conn->close();
 
         <script src="./js/bootstrap.bundle.min.js"></script>
         <script>
-            // const btn_add = document.querySelector(".btn-add");
-            // const contentArea = document.querySelector(".contentArea");
-            // const template = document.querySelector("#inputs");
-            //     btn_add.addEventListener("click", function(e) {
-            //         e.preventDefault();
-            //         const node = template.content.cloneNode(true);
-            //         contentArea.append(node);
-            // });
+            const form = document.querySelector("form");
+            const btnSend = document.querySelector(".btn-send");
+            btnSend.addEventListener("click", function(e) {
+                e.preventDefault();
+                let name = document.querySelector("input[name=name]").value;
+                let pwd1 = document.querySelector("input[name=password]").value;
+                let pwd2 = document.querySelector("input[name=password2]").value;
+                if (name == "") {
+                    document.querySelector("input[name=name]").classList.add('is-invalid');
+                    return false;
+                }
+                if (pwd1 == "") {
+                    document.querySelector("input[name=password]").classList.add('is-invalid');
+                    return false;
+                }
+                if (pwd2 == "") {
+                    document.querySelector("input[name=password2]").classList.add('is-invalid');
+                    return false;
+                }
+                if (pwd2 != pwd1) {
+                    document.querySelector("input[name=password]").classList.add('is-invalid');
+                    document.querySelector("input[name=password2]").classList.add('is-invalid');
+                    return false;
+                }
+            })
         </script>
 </body>
 
