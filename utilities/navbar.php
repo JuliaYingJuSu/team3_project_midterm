@@ -32,6 +32,9 @@ if (isset($_GET["webpage"])) {
         .text1 {
             color: #777e5c;
         }
+        a:hover{
+            opacity: 0.5;
+        }
     </style>
 </head>
 

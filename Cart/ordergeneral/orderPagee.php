@@ -69,13 +69,13 @@ try{
         width: 200px;
     }
     .name{
-        width: 250px;
+        width: 220px;
     }
     .edit{
-        width: 150px;
+        width: 130px;
     }
     .content{
-        width: calc(100% - 200px - 250px - 300px - 150px)
+        width: calc(100% - 200px - 220px - 300px - 130px)
     }
     .time{
         width: 300px;
