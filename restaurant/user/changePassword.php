@@ -7,6 +7,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/signup.css">
+    <style>
+        .bgg{
+            background-color: #777e5c;
+        }
+    </style>
 </head>
 
 <body>
@@ -24,7 +29,7 @@
                 <label for="password">Repeat New Password:</label>
                 <input class="my-3 rounded" type="password" id="password_confirmation" name="password_confirmation">
             </div>
-            <button type="submit" class="btn btn-info my-3">修改密码</button>
+            <button type="submit" class="btn bgg my-3">修改密码</button>
         </form>
     </div>
 

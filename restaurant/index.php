@@ -113,7 +113,7 @@ if(isset($_SESSION["user_id"])){
                 <?php else: ?>
 
                     <p><a href="./loginSignup/login.php">Log in</a> or <a href="./loginSignup/signUp.php"> Sign up</a></p>
-                    <a href="../utilities/navbar.php">回到管理頁面</a>
+                    <a href="../utilities/navbar.php?webpage=book_list.php">回到管理頁面</a>
 
                 <?php endif;?>
     </div>
