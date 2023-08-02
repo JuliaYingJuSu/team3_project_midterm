@@ -48,9 +48,22 @@ $totalRows = $totalRow['total'];
 //算出總頁數
 $totalPages = ceil($totalRows / $perPage);
 
-$sql = "SELECT * FROM `Oder_detail` JOIN product ON oder_detail.product_id = product.product_id
-JOIN order_general ON order_general.order_id = oder_detail.order_id 
-ORDER BY `Oder_detail`.`product_id` ASC" ;
+
+//新增開始
+$whereCondition = "$searchSQL order_general.order_id $where1";
+$orderBy = "ORDER BY oder_detail.product_id ASC";
+$limitClause = "LIMIT $pageStart, $perPage";
+
+
+$sql = "SELECT * FROM `Oder_detail`
+        JOIN product ON oder_detail.product_id = product.product_id
+        JOIN order_general ON order_general.order_id = oder_detail.order_id 
+        WHERE $whereCondition
+        $orderBy $limitClause";
+
+// $sql = "SELECT * FROM `Oder_detail` JOIN product ON oder_detail.product_id = product.product_id
+// JOIN order_general ON order_general.order_id = oder_detail.order_id 
+// ORDER BY `Oder_detail`.`product_id` ASC" ;
 
 // var_dump($sql);
 // exit;

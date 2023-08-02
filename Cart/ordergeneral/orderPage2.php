@@ -17,9 +17,9 @@ try{
   $result = $conn -> query($sql);
   $row = $result -> fetch_assoc();
 // Fetch city, district, and address data
-  $city = $row["city"];
-  $district = $row["district"];
-  $address = $row["delivery_address"];
+//   $city = $row["city"];
+//   $district = $row["district"];
+//   $address = $row["delivery_address"];
 
 
 }catch(mysqli_sql_exception $exc){
