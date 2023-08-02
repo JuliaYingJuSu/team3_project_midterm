@@ -53,7 +53,7 @@ if (isset($_GET["webpage"])) {
                     <li class="nav-item dropdown pe-1">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                             <?php if (isset($_SESSION["user"]["img"]) && !empty($_SESSION["user"]["img"])) : ?>
-                                <img src="../img/<?= $_SESSION["user"]["img"] ?>" width="80" height="80" class="d-inline-block align-text-bottom rounded-circle img-fluid">
+                                <img src="../User/uimg/<?= $_SESSION["user"]["img"] ?>" width="80" height="80" class="d-inline-block align-text-bottom rounded-circle img-fluid">
                             <?php else : ?>
                                 <img src="../img/noimg.png" width="80" height="80" class="d-inline-block align-text-bottom rounded-circle img-fluid">
                             <?php endif; ?>

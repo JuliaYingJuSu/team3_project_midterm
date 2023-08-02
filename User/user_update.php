@@ -48,7 +48,7 @@ $conn->close();
 </head>
 
 <body>
-    <div class="border container mt-4 rounded bg-white">
+    <div class="border container mt-4 rounded bg1">
         <div class="d-flex my-2">
             <h2 class="fw-bold">修改會員資料</h2>
 
