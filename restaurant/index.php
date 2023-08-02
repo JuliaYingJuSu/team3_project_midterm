@@ -25,6 +25,11 @@ if(isset($_SESSION["user_id"])){
     <title>Document</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/index.css">
+    <style>
+        .bgg{
+            background-color: #777e5c;
+        }
+    </style>
 </head>
 
 <body>
@@ -101,14 +106,14 @@ if(isset($_SESSION["user_id"])){
                 <?php endif;?>
                 <div class="row">
                     <div class="col-12 mt-4">
-                        <a class="btn btn-info btn-sm" href="./loginSignup/logout.php">Log out</a>
+                        <a class="btn bgg btn-sm" href="./loginSignup/logout.php">Log out</a>
                     </div>
                 </div>
                     
                 <?php else: ?>
 
                     <p><a href="./loginSignup/login.php">Log in</a> or <a href="./loginSignup/signUp.php"> Sign up</a></p>
-                    <a href="../utilities/navbar.php">回到管理頁面</a>
+                    <a href="../utilities/navbar.php?webpage=book_list.php">回到管理頁面</a>
 
                 <?php endif;?>
     </div>
