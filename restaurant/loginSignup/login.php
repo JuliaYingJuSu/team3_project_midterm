@@ -72,7 +72,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                 <label for="password">Password:</label>
                 <input class="my-3 rounded" type="password" id="password" name="password">
             </div>
-            <button type="submit" class="btn bgg my-3">Log in</button>
+            <button type="submit" class="btn text-white bgg my-3">Log in</button>
         </form>
     </div>
     

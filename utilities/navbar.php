@@ -93,7 +93,9 @@ if (isset($_GET["webpage"])) {
                     <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu3" <?= ($webpage == "book_list.php") ? "active" : "" ?> id="menu6" href="?webpage=book_list.php">
                         <i class="fa-solid fa-folder fa-sm me-2" style="color: #777e5c;"></i>訂位管理</a>
                     <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu3">
-                        <i class="fa-solid fa-chart-column fa-sm me-2" style="color: #777e5c;"></i>數據統計</a>
+                        <i class="fa-solid fa-folder fa-sm me-2" style="color: #777e5c;"></i>營業排程</a>
+                    <a type="button" class="collapse fs-5 text-decoration-none text-center fw-bold text1" id="menu3">
+                        <i class="fa-solid fa-folder fa-sm me-2" style="color: #777e5c;"></i>額滿時段</a>
                 </div>
                 <div class="d-grid gap-2 p-3">
                     <button class="btn bg2 fs-4 fw-bold text-white" type="button" data-bs-target="#menu5" data-bs-toggle="collapse">

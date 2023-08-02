@@ -35,7 +35,7 @@
                 <label for="password_confirmation">Repeat password:</label>
                 <input class="my-3 rounded" type="password" id="password_confirmation" name="password_confirmation">
             </div>
-            <button type="submit" class="btn bgg btn-sm">Sign Up</button>
+            <button type="submit" class="btn text-white bgg btn-sm">Sign Up</button>
         </form>
     </div>
     <script src="../js/bootstrap.bundle.min.js"></script>
