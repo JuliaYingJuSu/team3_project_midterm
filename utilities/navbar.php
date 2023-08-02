@@ -64,7 +64,7 @@ if (isset($_GET["webpage"])) {
             </div>
         </div>
     </nav>
-    <div class="side-menu d-flex h-200">
+    <div class="side-menu d-flex" style="height:130%">
         <nav class="bg1 position-relative pt-3 ps-2" style="width: 14%">
             <div>
                 <div class="d-grid gap-2 p-3">
