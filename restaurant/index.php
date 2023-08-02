@@ -25,6 +25,11 @@ if(isset($_SESSION["user_id"])){
     <title>Document</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/index.css">
+    <style>
+        .bgg{
+            background-color: #777e5c;
+        }
+    </style>
 </head>
 
 <body>
@@ -101,7 +106,7 @@ if(isset($_SESSION["user_id"])){
                 <?php endif;?>
                 <div class="row">
                     <div class="col-12 mt-4">
-                        <a class="btn btn-info btn-sm" href="./loginSignup/logout.php">Log out</a>
+                        <a class="btn bgg btn-sm" href="./loginSignup/logout.php">Log out</a>
                     </div>
                 </div>
                     
