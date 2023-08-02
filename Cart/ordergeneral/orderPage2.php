@@ -36,7 +36,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../../css/bootstrap.min.css"> -->
     <title>修改留言</title>
 </head>
 
@@ -61,6 +61,10 @@ $conn->close();
             <div class="input-group mt-1">
                 <span class="input-group-text">運送方式</span>
                 <input name="delivery_method" type="text" class="form-control" value="<?=$row["delivery_method"]?>">
+            </div>
+            <div class="input-group mt-1">
+                <span class="input-group-text">地址</span>
+                <input name="delivery_address" type="text" class="form-control" value="<?=$row["delivery_address"]?>">
             </div>
             <div class="input-group mt-1">
                 <span class="input-group-text">運送狀態</span>
@@ -101,14 +105,13 @@ $conn->close();
                         <option value="">請選擇區域</option>
                     </select>
 
-                    <label for="address">地址：</label>
-                    <input name="address[]" type="text" id="address" value="<?=$row["delivery_address"]?>">
+                  
 
                 </form> -->
 
             
             <div class="mt-1 text-end">
-                <button type="submit" class="btn btn-info">送出</button>
+                <button type="submit" class="btn bg2 text-white">送出</button>
             </div>
         </form>
     </div>

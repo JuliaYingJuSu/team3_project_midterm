@@ -194,31 +194,31 @@ $conn->close();
 
         <script src="./js/bootstrap.bundle.min.js"></script>
         <script>
-            const form = document.querySelector("form");
-            const btnSend = document.querySelector(".btn-send");
-            btnSend.addEventListener("click", function(e) {
-                e.preventDefault();
-                let name = document.querySelector("input[name=name]").value;
-                let pwd1 = document.querySelector("input[name=password]").value;
-                let pwd2 = document.querySelector("input[name=password2]").value;
-                if (name == "") {
-                    document.querySelector("input[name=name]").classList.add('is-invalid');
-                    return false;
-                }
-                if (pwd1 == "") {
-                    document.querySelector("input[name=password]").classList.add('is-invalid');
-                    return false;
-                }
-                if (pwd2 == "") {
-                    document.querySelector("input[name=password2]").classList.add('is-invalid');
-                    return false;
-                }
-                if (pwd2 != pwd1) {
-                    document.querySelector("input[name=password]").classList.add('is-invalid');
-                    document.querySelector("input[name=password2]").classList.add('is-invalid');
-                    return false;
-                }
-            })
+            // const form = document.querySelector("form");
+            // const btnSend = document.querySelector(".btn-send");
+            // btnSend.addEventListener("click", function(e) {
+            //     e.preventDefault();
+            //     let name = document.querySelector("input[name=name]").value;
+            //     let pwd1 = document.querySelector("input[name=password]").value;
+            //     let pwd2 = document.querySelector("input[name=password2]").value;
+            //     if (name == "") {
+            //         document.querySelector("input[name=name]").classList.add('is-invalid');
+            //         return false;
+            //     }
+            //     if (pwd1 == "") {
+            //         document.querySelector("input[name=password]").classList.add('is-invalid');
+            //         return false;
+            //     }
+            //     if (pwd2 == "") {
+            //         document.querySelector("input[name=password2]").classList.add('is-invalid');
+            //         return false;
+            //     }
+            //     if (pwd2 != pwd1) {
+            //         document.querySelector("input[name=password]").classList.add('is-invalid');
+            //         document.querySelector("input[name=password2]").classList.add('is-invalid');
+            //         return false;
+            //     }
+            // })
         </script>
 </body>
 
